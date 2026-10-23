@@ -1,5 +1,37 @@
-node_modules
-dist
-dist-ssr
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production build outputs
+dist/
+dist-ssr/
+
+# Environment variables & secrets (NEVER COMMIT TO GITHUB)
+.env
+.env.*
+!.env.example
+*.env
 *.local
+*.pem
+*.key
+credentials.json
+
+# Local working folders / raw uploads (cleaned assets reside in public/)
+Certificate/
+Resume/
+
+# OS and Editor metadata
 .DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
