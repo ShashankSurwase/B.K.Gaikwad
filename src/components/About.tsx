@@ -35,10 +35,10 @@ export const About: React.FC<AboutProps> = ({ onLearnApproach, onViewCertificate
                         <span>Bar Council Enrolment MAH/1647/1987</span>
                       </div>
                       <h4 className="font-serif text-base font-bold text-navy-800">
-                        Founded by Adv. Balu K. Gaikwad
+                        {firmConfig.chambersName}
                       </h4>
                       <p className="text-xs text-slate-muted">
-                        Chamber Practice • Subordinate Courts & Bombay High Court
+                        Near District Court, Rajgurunagar (Pune) • High Court & District Judiciary
                       </p>
                     </div>
                     <button

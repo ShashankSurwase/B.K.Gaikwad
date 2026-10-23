@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, FileCheck, Award } from 'lucide-react';
+import { Shield, FileCheck, Award, FileText, Download, GraduationCap, MapPin } from 'lucide-react';
 import { teamMembers } from '../data/firmData';
 import { TeamMember } from '../types';
 
@@ -25,7 +25,7 @@ export const Team: React.FC<TeamProps> = ({
             Dedicated Advocates with Verified Credentials
           </h2>
           <p className="text-base sm:text-lg text-slate-muted">
-            Representing clients with deep statutory knowledge, judicial experience, and strict adherence to Bar Council of India standards.
+            Representing clients across trial & appellate courts with verified Bar Council credentials, academic depth, and strict adherence to Bar Council of India standards.
           </p>
         </div>
 
@@ -47,7 +47,7 @@ export const Team: React.FC<TeamProps> = ({
                       loading="lazy"
                     />
                   ) : (
-                    // Senior Founder Dignified Presentation with Certificate Preview
+                    // Senior Founder Presentation
                     <div className="w-full h-full bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 flex flex-col items-center justify-center p-6 text-center text-white relative">
                       <div className="w-20 h-20 rounded-full bg-navy-700/80 border-2 border-gold-400/80 flex items-center justify-center mb-3 shadow-lg">
                         <Award className="w-10 h-10 text-gold-400" />
@@ -65,9 +65,9 @@ export const Team: React.FC<TeamProps> = ({
                   )}
 
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/75 via-transparent to-transparent" />
 
-                  {/* Top Bar Registration Tag */}
+                  {/* Top Bar Registration Badge */}
                   {member.barEnrolment && (
                     <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-md text-[11px] font-semibold text-navy-800 border border-slate-200 shadow-sm flex items-center gap-1">
                       <Shield className="w-3 h-3 text-teal-600" />
@@ -90,13 +90,31 @@ export const Team: React.FC<TeamProps> = ({
                 <div className="p-5 space-y-4">
                   {/* Qualifications & Designation */}
                   <div>
-                    <div className="text-xs font-semibold text-teal-700">
+                    <div className="text-xs font-bold text-teal-700">
                       {member.qualifications}
                     </div>
                     <div className="text-xs text-slate-muted leading-tight mt-0.5">
                       {member.designation}
                     </div>
+                    {member.copNumber && (
+                      <div className="text-[10px] text-navy-800 font-mono bg-slate-soft px-2 py-0.5 rounded mt-1.5 inline-block border border-slate-200">
+                        BCI CoP: {member.copNumber}
+                      </div>
+                    )}
                   </div>
+
+                  {/* Education snippet if available */}
+                  {member.education && member.education.length > 0 && (
+                    <div className="p-2.5 rounded-lg bg-teal-50/50 border border-teal-100 text-[11px] space-y-1">
+                      <div className="font-bold text-teal-800 flex items-center gap-1">
+                        <GraduationCap className="w-3.5 h-3.5" />
+                        <span>Academic Excellence</span>
+                      </div>
+                      <div className="text-slate-muted text-[10px] leading-tight">
+                        {member.education[0].degree} — {member.education[0].institution.split(',')[0]}
+                      </div>
+                    </div>
+                  )}
 
                   {/* Practice Specialties */}
                   <div className="space-y-1.5">
@@ -124,13 +142,27 @@ export const Team: React.FC<TeamProps> = ({
 
               {/* Card Footer Actions */}
               <div className="p-5 pt-0 space-y-2">
+                {/* Resume download / view button if available */}
+                {member.resumeUrl && (
+                  <a
+                    href={member.resumeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-2 px-3 rounded-lg bg-navy-50 hover:bg-navy-100/80 text-navy-900 text-xs font-semibold flex items-center justify-center gap-1.5 border border-navy-200 transition-colors"
+                  >
+                    <FileText className="w-3.5 h-3.5 text-navy-700" />
+                    <span>View Legal Resume (PDF)</span>
+                    <Download className="w-3 h-3 text-navy-500 ml-auto" />
+                  </a>
+                )}
+
                 {member.certificates.length > 0 && (
                   <button
                     onClick={() => onViewMemberCertificates(member)}
                     className="w-full py-2 px-3 rounded-lg bg-teal-50 hover:bg-teal-100/80 text-teal-800 text-xs font-semibold flex items-center justify-center gap-1.5 border border-teal-200/70 transition-colors"
                   >
                     <FileCheck className="w-3.5 h-3.5 text-teal-600" />
-                    <span>View Official Certificate ({member.certificates.length})</span>
+                    <span>View Bar Certificate ({member.certificates.length})</span>
                   </button>
                 )}
 
@@ -146,10 +178,22 @@ export const Team: React.FC<TeamProps> = ({
           ))}
         </div>
 
-        {/* Regulatory Transparency Box */}
-        <div className="mt-12 p-5 rounded-xl bg-slate-soft/70 border border-slate-200 text-center max-w-3xl mx-auto">
-          <p className="text-xs text-slate-muted leading-relaxed">
-            <strong className="text-navy-800">Bar Council of India Verification Notice:</strong> Enrolment records and certifications displayed above are verified against original records maintained with the Bar Council of Maharashtra & Goa under Section 17 of the Advocates Act, 1961.
+        {/* Regulatory Transparency Box with Courts */}
+        <div className="mt-12 p-5 rounded-xl bg-slate-soft/70 border border-slate-200 text-center max-w-4xl mx-auto space-y-2">
+          <div className="flex items-center justify-center gap-2 text-xs font-bold text-navy-800 uppercase tracking-wider">
+            <MapPin className="w-4 h-4 text-teal-600" />
+            <span>Active Trial & Appellate Jurisdictions</span>
+          </div>
+          <div className="flex flex-wrap justify-center gap-2 pt-1 text-xs">
+            <span className="px-2.5 py-1 bg-white rounded-md border border-slate-200 text-navy-800 font-medium">Rajgurunagar (Khed) Court</span>
+            <span className="px-2.5 py-1 bg-white rounded-md border border-slate-200 text-navy-800 font-medium">Pune District & Sessions Court</span>
+            <span className="px-2.5 py-1 bg-white rounded-md border border-slate-200 text-navy-800 font-medium">Bombay High Court (Mumbai)</span>
+            <span className="px-2.5 py-1 bg-white rounded-md border border-slate-200 text-navy-800 font-medium">Thane Judiciary</span>
+            <span className="px-2.5 py-1 bg-white rounded-md border border-slate-200 text-navy-800 font-medium">Junnar Court</span>
+            <span className="px-2.5 py-1 bg-white rounded-md border border-slate-200 text-navy-800 font-medium">Vadgaon Maval</span>
+          </div>
+          <p className="text-[11px] text-slate-muted pt-1">
+            Enrolment records and certifications displayed above are verified against original records maintained with the Bar Council of Maharashtra & Goa under Section 17 of the Advocates Act, 1961.
           </p>
         </div>
 

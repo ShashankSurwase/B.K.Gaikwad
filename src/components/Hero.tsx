@@ -132,7 +132,7 @@ export const Hero: React.FC<HeroProps> = ({
                         {firmConfig.name} • {firmConfig.altName}
                       </h4>
                       <p className="text-[12px] text-slate-muted">
-                        District & Sessions Court • High Court of Bombay
+                        Rajgurunagar & Pune Judiciary • High Court of Bombay
                       </p>
                     </div>
                     <button

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Phone, Mail, MapPin, Clock, Send, CheckCircle2, 
-  AlertCircle, ShieldAlert, Copy, Check 
+  AlertCircle, ShieldAlert, Copy, Check, ExternalLink, Navigation 
 } from 'lucide-react';
 import { firmConfig, practiceAreas } from '../data/firmData';
 
@@ -72,7 +72,6 @@ export const Contact: React.FC = () => {
 
     setIsSubmitting(true);
 
-    // Realistic client-side simulation (safe for BCI and static deployment)
     setTimeout(() => {
       setIsSubmitting(false);
       const generatedId = `BK-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
@@ -109,38 +108,53 @@ export const Contact: React.FC = () => {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-3 py-1 rounded-md border border-teal-200/60 inline-block">
-            Direct Chamber Communication
+            Direct Chamber Communication & Location
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-800">
             Schedule a Confidential Consultation
           </h2>
           <p className="text-base sm:text-lg text-slate-muted">
-            Connect with our advocates to discuss your situation, understand your legal options, and chart an effective strategy.
+            Visit our chambers in Rajgurunagar (Pune) or connect directly with our advocates to discuss your matter with complete privilege.
           </p>
         </div>
 
         {/* Two-Column Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Column 1: Contact Details & Chamber Hours */}
-          <div className="lg:col-span-5 space-y-8 text-left">
+          {/* Column 1: Contact Details & Office Location */}
+          <div className="lg:col-span-5 space-y-6 text-left">
             
             <div className="p-7 rounded-2xl bg-white border border-slate-200/90 shadow-card space-y-6">
-              <h3 className="font-serif text-2xl font-bold text-navy-800 pb-3 border-b border-slate-100">
-                Advocate Chambers
-              </h3>
+              <div>
+                <h3 className="font-serif text-2xl font-bold text-navy-800">
+                  Advocate Chambers
+                </h3>
+                <p className="text-xs text-teal-700 font-semibold mt-0.5">
+                  {firmConfig.chambersName}
+                </p>
+              </div>
 
-              <div className="space-y-5">
-                {/* Address */}
+              <div className="space-y-5 pt-2 border-t border-slate-100">
+                {/* Official Address */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center shrink-0 text-teal-700">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-wider text-slate-subtle">Chamber Location</h4>
-                    <p className="text-sm font-medium text-navy-800 leading-relaxed mt-0.5">
+                    <p className="text-sm font-semibold text-navy-800 leading-relaxed mt-0.5">
                       {firmConfig.address}
                     </p>
+                    <a
+                      href={firmConfig.googleMapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs text-teal-700 hover:text-teal-900 font-semibold mt-2 group"
+                    >
+                      <Navigation className="w-3.5 h-3.5 text-teal-600 group-hover:translate-x-0.5 transition-transform" />
+                      <span>Get Directions on Google Maps</span>
+                      <ExternalLink className="w-3 h-3 text-slate-400" />
+                    </a>
                   </div>
                 </div>
 
@@ -150,10 +164,13 @@ export const Contact: React.FC = () => {
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-subtle">Chamber Telephone</h4>
-                    <p className="text-sm font-medium text-navy-800 leading-relaxed mt-0.5">
-                      <a href={`tel:${firmConfig.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-teal-700 transition-colors">
-                        {firmConfig.displayPhone}
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-subtle">Chamber Telephones</h4>
+                    <p className="text-sm font-semibold text-navy-800 leading-relaxed mt-0.5">
+                      <a href={`tel:${firmConfig.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-teal-700 transition-colors block">
+                        Adv. Shreya: {firmConfig.phone}
+                      </a>
+                      <a href={`tel:${firmConfig.altPhone.replace(/[^0-9+]/g, '')}`} className="hover:text-teal-700 transition-colors block text-xs font-normal text-slate-muted mt-0.5">
+                        Chambers: {firmConfig.altPhone}
                       </a>
                     </p>
                   </div>
@@ -166,11 +183,11 @@ export const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-wider text-slate-subtle">Official Correspondence</h4>
-                    <p className="text-sm font-medium text-navy-800 leading-relaxed mt-0.5">
-                      <a href={`mailto:${firmConfig.email}`} className="hover:text-teal-700 transition-colors block">
+                    <p className="text-sm font-semibold text-navy-800 leading-relaxed mt-0.5">
+                      <a href={`mailto:${firmConfig.email}`} className="hover:text-teal-700 transition-colors block font-mono text-xs">
                         {firmConfig.email}
                       </a>
-                      <a href={`mailto:${firmConfig.altEmail}`} className="text-xs text-slate-muted hover:text-teal-700 transition-colors">
+                      <a href={`mailto:${firmConfig.altEmail}`} className="text-xs font-normal text-slate-muted hover:text-teal-700 transition-colors mt-0.5 block font-mono">
                         {firmConfig.altEmail}
                       </a>
                     </p>
@@ -191,21 +208,26 @@ export const Contact: React.FC = () => {
                 </div>
               </div>
 
-              {/* Map Preview Placeholder / Directions */}
+              {/* Court Practice Card */}
               <div className="pt-4 border-t border-slate-100">
-                <div className="rounded-xl overflow-hidden border border-slate-200 bg-slate-100 p-4 text-center space-y-2">
-                  <div className="flex items-center justify-center gap-1.5 text-xs font-semibold text-navy-800">
+                <div className="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 p-4 space-y-2">
+                  <div className="text-xs font-bold text-navy-800 uppercase tracking-wider flex items-center gap-1.5">
                     <MapPin className="w-4 h-4 text-teal-600" />
-                    <span>Jurisdiction: District Courts & Bombay High Court</span>
+                    <span>Practicing Courts in Maharashtra</span>
                   </div>
-                  <p className="text-[11px] text-slate-muted">
-                    Located centrally near judicial chambers for immediate filing and urgent court motion appearances.
-                  </p>
+                  <div className="grid grid-cols-2 gap-1.5 text-[11px] text-slate-dark pt-1">
+                    <div>• Rajgurunagar (Khed)</div>
+                    <div>• Pune District & Family</div>
+                    <div>• Bombay High Court</div>
+                    <div>• Thane District Court</div>
+                    <div>• Junnar Judicial Court</div>
+                    <div>• Vadgaon Maval Court</div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Confidentiality Notice */}
+            {/* Privilege Notice */}
             <div className="p-4 rounded-xl bg-gold-50/70 border border-gold-200 flex items-start gap-3">
               <ShieldAlert className="w-5 h-5 text-gold-600 shrink-0 mt-0.5" />
               <div className="text-xs text-slate-dark leading-relaxed">
@@ -220,7 +242,6 @@ export const Contact: React.FC = () => {
             <div className="p-7 sm:p-9 rounded-2xl bg-white border border-slate-200/90 shadow-card text-left">
               
               {submittedRefId ? (
-                // Success Confirmation State
                 <div className="py-8 space-y-6 text-center">
                   <div className="w-16 h-16 rounded-full bg-teal-50 text-teal-600 mx-auto flex items-center justify-center border border-teal-200">
                     <CheckCircle2 className="w-8 h-8" />
@@ -254,7 +275,7 @@ export const Contact: React.FC = () => {
                   </div>
 
                   <p className="text-xs text-slate-subtle max-w-md mx-auto">
-                    An advocate or chamber associate will review your query and contact you at <span className="font-medium text-navy-800">{formData.phone}</span> within 24 business hours to schedule the session.
+                    An advocate will review your query and contact you at <span className="font-medium text-navy-800">{formData.phone}</span> within 24 business hours to confirm your consultation schedule.
                   </p>
 
                   <div className="pt-4">
@@ -267,7 +288,6 @@ export const Contact: React.FC = () => {
                   </div>
                 </div>
               ) : (
-                // Active Form State
                 <form onSubmit={handleSubmit} className="space-y-5" noValidate>
                   
                   <div className="space-y-1">
@@ -301,7 +321,7 @@ export const Contact: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Email & Phone 2-Col */}
+                  {/* Email & Phone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold uppercase tracking-wider text-slate-dark mb-1.5">
@@ -376,7 +396,7 @@ export const Contact: React.FC = () => {
                         className="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-sm focus:ring-2 focus:ring-teal-500 focus:outline-none"
                       >
                         <option value="Phone Call">Phone Call</option>
-                        <option value="Chambers In-Person Meeting">In-Person Meeting (Chambers)</option>
+                        <option value="Chambers In-Person Meeting (Rajgurunagar)">Chambers Meeting (Rajgurunagar)</option>
                         <option value="Video Conference (Google Meet / Zoom)">Video Conference</option>
                         <option value="Email Communication">Email Communication</option>
                       </select>
