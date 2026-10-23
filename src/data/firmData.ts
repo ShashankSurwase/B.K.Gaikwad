@@ -1,4 +1,5 @@
 import { PracticeArea, TeamMember, FAQItem, ValueProp, ApproachStep } from '../types';
+import { getAssetUrl } from '../utils/assets';
 
 export const firmConfig = {
   name: "B.K. Associates",
@@ -313,13 +314,13 @@ export const teamMembers: TeamMember[] = [
     experienceYears: "35+ Years Senior Courtroom Practice",
     specialties: ["Civil Litigation", "Property Law & Land Revenue", "Criminal Trials", "Appellate Advocacy"],
     bio: "Enrolled with the Bar Council of Maharashtra in December 1987 under the Advocates Act, 1961, Shri Balu K. Gaikwad brings over three and a half decades of deep courtroom experience. Having represented clients across civil, land revenue, and criminal proceedings, his practice is rooted in meticulous legal drafting, unshakeable courtroom advocacy, and judicial integrity.",
-    photoUrl: "/images/certificate-bk.jpg",
+    photoUrl: getAssetUrl('images/certificate-bk.jpg'),
     hasCustomPhoto: false,
     certificates: [
       {
         title: "Bar Council of Maharashtra Enrolment Certificate",
         description: "Enrolment No. MAH/1647/1987 issued under Section 17 of the Advocates Act, 1961 on 22nd December 1987.",
-        imageUrl: "/images/certificate-bk.jpg",
+        imageUrl: getAssetUrl('images/certificate-bk.jpg'),
         enrolmentNo: "MAH/1647/1987"
       }
     ]
@@ -335,7 +336,7 @@ export const teamMembers: TeamMember[] = [
     barAssociation: "Rajgurunagar Bar Association (Active Member, 2021–Present)",
     barEnrolmentDate: "11th October 2021",
     experienceYears: "5+ Years Active Trial Practice",
-    resumeUrl: "/documents/Shreya_Gaikwad_Legal_Resume.pdf",
+    resumeUrl: getAssetUrl('documents/Shreya_Gaikwad_Legal_Resume.pdf'),
     specialties: [
       "Criminal & Sessions Trials",
       "Family Court & Matrimonial",
@@ -350,13 +351,13 @@ export const teamMembers: TeamMember[] = [
       { degree: "B.A.", institution: "Modern College of Arts, Science & Commerce, Ganeshkhind (SPPU)", year: "2013 – 2016" }
     ],
     bio: "Adv. Shreya Balasaheb Gaikwad is an accomplished litigator with 5 years of courtroom experience practicing before the District and Sessions Courts across Maharashtra. Holding an LL.M. in Business Law and enrolled with the Bar Council of Maharashtra & Goa (MAH/10606/2021, BCI COP/2023/1111388), she has independently managed over 50 contested matters across criminal defense, anticipatory bails, matrimonial disputes, MACP compensation claims, and commercial debt recovery under Sec. 138 NI Act.",
-    photoUrl: "/images/team-shreya.jpg",
+    photoUrl: getAssetUrl('images/team-shreya.jpg'),
     hasCustomPhoto: true,
     certificates: [
       {
         title: "Bar Council of Maharashtra & Goa Enrolment Certificate",
         description: "Enrolment No. MAH/10606/2021 (Sr. No. 204981) entered on 11th October 2021 in the Roll of Advocates.",
-        imageUrl: "/images/certificate-shreya.png",
+        imageUrl: getAssetUrl('images/certificate-shreya.png'),
         enrolmentNo: "MAH/10606/2021"
       }
     ]
@@ -372,19 +373,19 @@ export const teamMembers: TeamMember[] = [
     experienceYears: "Active Practice",
     specialties: ["Family & Matrimonial Law", "Civil Dispute Resolution", "Mediation & Conciliation", "Consumer Rights"],
     bio: "Adv. Shraddha B. Gaikwad holds a B.A., LL.B. and is enrolled with the Bar Council of Maharashtra & Goa (MAH/11145/2021). Distinctively combining legal expertise with a certified Diploma in Basic Counselling Skills (Brain Science, Mental Health & Psychology), she excels in resolving sensitive matrimonial disputes, family partitions, and mediation matters with exceptional clarity and empathy.",
-    photoUrl: "/images/team-shraddha.png",
+    photoUrl: getAssetUrl('images/team-shraddha.png'),
     hasCustomPhoto: true,
     certificates: [
       {
         title: "Bar Council of Maharashtra & Goa Enrolment Certificate",
         description: "Enrolment No. MAH/11145/2021 (Sr. No. 205520) entered on 11th October 2021 in the Roll of Advocates.",
-        imageUrl: "/images/certificate-shraddha.png",
+        imageUrl: getAssetUrl('images/certificate-shraddha.png'),
         enrolmentNo: "MAH/11145/2021"
       },
       {
         title: "Diploma of Basic Counselling Skills & Brain Science",
         description: "Certified field work in Mental Health Awareness, Brain Science, and Psychology from Brainway Research Foundation & Medhavi Skills University.",
-        imageUrl: "/images/certificate-shraddha-counsel.jpg"
+        imageUrl: getAssetUrl('images/certificate-shraddha-counsel.jpg')
       }
     ]
   },
@@ -396,13 +397,13 @@ export const teamMembers: TeamMember[] = [
     qualifications: "B.A., Dip. Basic Counselling Skills",
     specialties: ["Case Law Research", "Client Intake Analysis", "Documentation Audit", "Conciliation Coordination"],
     bio: "Shruti B. Gaikwad plays a pivotal role in the firm's pre-litigation case preparation and statutory research. Holding a Diploma in Basic Counselling Skills & Brain Science, she assists the counsel team in organizing evidence, drafting chronological briefs, and ensuring clients experience smooth, responsive communication.",
-    photoUrl: "/images/team-shruti.jpg",
+    photoUrl: getAssetUrl('images/team-shruti.jpg'),
     hasCustomPhoto: true,
     certificates: [
       {
         title: "Diploma in Basic Counselling Skill & Brain Science",
         description: "Certificate No. 1930/2026 issued by Brainway Research Foundation, Pune & Medhavi Skills University.",
-        imageUrl: "/images/certificate-shruti.jpg"
+        imageUrl: getAssetUrl('images/certificate-shruti.jpg')
       }
     ]
   }

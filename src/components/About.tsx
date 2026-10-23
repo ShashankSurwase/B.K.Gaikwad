@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, CheckCircle2, Shield, Scale } from 'lucide-react';
 import { firmConfig } from '../data/firmData';
+import { getAssetUrl } from '../utils/assets';
 
 interface AboutProps {
   onLearnApproach: () => void;
@@ -20,7 +21,7 @@ export const About: React.FC<AboutProps> = ({ onLearnApproach, onViewCertificate
               {/* Main Visual Frame */}
               <div className="relative rounded-2xl overflow-hidden shadow-card border border-slate-200 bg-white">
                 <img
-                  src="/images/about-office.jpg"
+                  src={getAssetUrl('images/about-office.jpg')}
                   alt="Law firm chambers and client conference facility"
                   className="w-full h-[440px] object-cover object-center filter saturate-[0.95]"
                   loading="lazy"

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Shield, ChevronRight, Award, FileCheck2, Scale } from 'lucide-react';
+import { ChevronRight, Award, FileCheck2, Scale, Shield } from 'lucide-react';
 import { firmConfig } from '../data/firmData';
+import { getAssetUrl } from '../utils/assets';
 
 interface HeroProps {
   onScheduleConsultation: () => void;
@@ -112,7 +113,7 @@ export const Hero: React.FC<HeroProps> = ({
               {/* Outer decorative card frame */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100">
                 <img
-                  src="/images/hero-legal.jpg"
+                  src={getAssetUrl('images/hero-legal.jpg')}
                   alt="Law library and court chambers"
                   className="w-full h-[430px] sm:h-[480px] object-cover object-center filter saturate-[0.95] contrast-[1.05]"
                   loading="eager"

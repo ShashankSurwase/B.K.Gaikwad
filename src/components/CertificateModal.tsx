@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Shield, ZoomIn, ZoomOut, ExternalLink } from 'lucide-react';
+import { getAssetUrl } from '../utils/assets';
 
 export interface CertificateItem {
   id: string;
@@ -21,7 +22,7 @@ const allCertificates: CertificateItem[] = [
     authority: 'Bar Council of Maharashtra (Section 17, Advocates Act 1961)',
     enrolmentNo: 'MAH / 1647 / 1987 (Sr. No. 30261)',
     date: '22nd December 1987',
-    imageUrl: '/images/certificate-bk.jpg',
+    imageUrl: getAssetUrl('images/certificate-bk.jpg'),
     description: 'Original Certificate of Enrolment under the seal of the Bar Council of Maharashtra at Bombay, admitting Shri Balu Kundalik Gaikwad (B.A., LL.B.) to the Roll of Advocates.',
     badge: 'Senior Enrolment (1987)'
   },
@@ -32,7 +33,7 @@ const allCertificates: CertificateItem[] = [
     authority: 'Bar Council of Maharashtra & Goa',
     enrolmentNo: 'En. No. MAH/11145/2021 (Sr. No. 205520)',
     date: '11th October 2021',
-    imageUrl: '/images/certificate-shraddha.png',
+    imageUrl: getAssetUrl('images/certificate-shraddha.png'),
     description: 'Official Certificate of Enrolment granted under Section 17 of the Advocates Act, 1961 at Bombay, certifying Gaikwad Shraddha Balasaheb (B.A. LL.B.) as an Advocate.',
     badge: 'Advocate on Roll (2021)'
   },
@@ -43,7 +44,7 @@ const allCertificates: CertificateItem[] = [
     authority: 'Bar Council of Maharashtra & Goa',
     enrolmentNo: 'En. No. MAH/10606/2021 (Sr. No. 204981)',
     date: '11th October 2021',
-    imageUrl: '/images/certificate-shreya.png',
+    imageUrl: getAssetUrl('images/certificate-shreya.png'),
     description: 'Official Certificate of Enrolment granted under Section 17 of the Advocates Act, 1961 at Bombay, certifying Gaikwad Shreya Balasaheb (B.A. LL.B.) as an Advocate.',
     badge: 'Advocate on Roll (2021)'
   },
@@ -54,7 +55,7 @@ const allCertificates: CertificateItem[] = [
     authority: 'Brainway Research Foundation & Medhavi Skills University (ISO 9001:2015)',
     enrolmentNo: 'Certificate No. 1973/2026 (Reg. N. Maha.1582/2022)',
     date: 'August 2026',
-    imageUrl: '/images/certificate-shraddha-counsel.jpg',
+    imageUrl: getAssetUrl('images/certificate-shraddha-counsel.jpg'),
     description: 'Certificate awarded for field work and project on Counselling and Brain Science activities in Mental Health Awareness, Brain Science, and Psychology.',
     badge: 'Certified Mediation & Counselling'
   },
@@ -65,7 +66,7 @@ const allCertificates: CertificateItem[] = [
     authority: 'Brainway Research Foundation & Medhavi Skills University (ISO 9001:2015)',
     enrolmentNo: 'Certificate No. 1930/2026 (Reg. N. Maha.1582/2022)',
     date: 'August 2026',
-    imageUrl: '/images/certificate-shruti.jpg',
+    imageUrl: getAssetUrl('images/certificate-shruti.jpg'),
     description: 'Certificate awarded for field work and project on Counselling and Brain Science activities in Mental Health Awareness, Brain Science, and Psychology.',
     badge: 'Legal Research & Intake'
   }
