@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, ShieldCheck, MessageSquareQuote, Compass } from 'lucide-react';
+import { Users, ShieldCheck, MessageSquareQuote, Compass, Lock } from 'lucide-react';
 import { valueProps } from '../data/firmData';
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -7,6 +7,7 @@ const iconMap: Record<string, React.ReactNode> = {
   ShieldCheck: <ShieldCheck className="w-6 h-6 text-navy-800" />,
   MessageSquareQuote: <MessageSquareQuote className="w-6 h-6 text-gold-600" />,
   Compass: <Compass className="w-6 h-6 text-teal-600" />,
+  Lock: <Lock className="w-6 h-6 text-teal-600" />,
 };
 
 export const TrustValues: React.FC = () => {

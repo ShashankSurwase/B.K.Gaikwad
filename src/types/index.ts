@@ -58,3 +58,16 @@ export interface ApproachStep {
   details: string;
   icon: string;
 }
+
+export interface InsightArticle {
+  id: string;
+  title: string;
+  category: 'Judicial Pronouncements' | 'Regulatory Updates' | 'Commercial Advisory' | 'Procedural Guides';
+  summary: string;
+  date: string;
+  readTime: string;
+  author: string;
+  tags: string[];
+  keyTakeaways: string[];
+  fullAnalysis: string[];
+}

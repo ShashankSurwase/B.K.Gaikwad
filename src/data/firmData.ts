@@ -1,9 +1,9 @@
-import { PracticeArea, TeamMember, FAQItem, ValueProp, ApproachStep } from '../types';
+import { PracticeArea, TeamMember, FAQItem, ValueProp, ApproachStep, InsightArticle } from '../types';
 import { getAssetUrl } from '../utils/assets';
 
 export const firmConfig = {
-  name: "B.K. Associates",
-  altName: "Lawyers’ Associates",
+  name: "Lawyers’ Associates",
+  altName: "B.K. Associates",
   chambersName: "Shivanushka Advocate Chambers & Chambers of Adv. B.K. Gaikwad",
   tagline: "Advocates & Legal Consultants",
   jurisdiction: "Bar Council of Maharashtra & Goa, India",
@@ -29,24 +29,24 @@ export const firmConfig = {
 
 export const valueProps: ValueProp[] = [
   {
-    title: "Client-Focused Guidance",
-    description: "Every legal matter is approached with dedicated personal attention, tailored strategy, and empathetic counsel.",
-    icon: "Users"
-  },
-  {
     title: "Professional Integrity",
-    description: "Strict adherence to the Advocates Act, 1961 and high ethical standards established across decades of courtroom practice.",
+    description: "Strict adherence to the Advocates Act, 1961 and uncompromising ethical standards established across 35+ years of courtroom heritage.",
     icon: "ShieldCheck"
   },
   {
-    title: "Transparent Communication",
-    description: "Honest appraisal of legal options, procedural timelines, and realistic dispute outcomes with zero hidden complexities.",
+    title: "Clear Communication",
+    description: "Honest appraisal of legal options, procedural timelines, and realistic dispute outcomes with transparent consultation and zero ambiguity.",
     icon: "MessageSquareQuote"
   },
   {
-    title: "Strategic Legal Solutions",
-    description: "Blending comprehensive statutory knowledge with pragmatic litigation experience and alternative dispute mediation.",
-    icon: "Compass"
+    title: "Confidentiality & Privilege",
+    description: "All client records, disclosures, and strategic briefs are protected under statutory advocate-client privilege under Section 126 of the Evidence Act.",
+    icon: "Lock"
+  },
+  {
+    title: "Client-Focused Guidance",
+    description: "Every legal matter is approached with dedicated personal attention, rigorous pre-trial research, and empathetic dispute mediation.",
+    icon: "Users"
   }
 ];
 
@@ -470,5 +470,118 @@ export const faqs: FAQItem[] = [
   {
     question: "How does the firm ensure client confidentiality?",
     answer: "Client confidentiality is an ethical cornerstone of our practice under Section 126 of the Indian Evidence Act. All communications, case materials, and personal disclosures shared with our advocates remain strictly privileged and protected against unauthorized disclosure."
+  }
+];
+
+export const insightArticles: InsightArticle[] = [
+  {
+    id: "sc-ni-act-guidelines",
+    title: "Supreme Court Directives on Cheque Dishonour Trials under Section 138 of the NI Act",
+    category: "Judicial Pronouncements",
+    date: "October 2026",
+    readTime: "5 min read",
+    author: "Adv. Shreya B. Gaikwad",
+    tags: ["NI Act", "Debt Recovery", "Criminal Defense", "JMFC"],
+    summary: "An analysis of landmark judicial pronouncements expediting cheque bounce proceedings, evidentiary rebuttals under Section 139, and electronic notice mandates.",
+    keyTakeaways: [
+      "Strict 30-day statutory limitation window for issuing demand legal notice from cheque return memo date.",
+      "Presumption of legally enforceable liability under Section 139 requires cogent rebuttal evidence from the drawer.",
+      "Court endorsement of Section 143A interim compensation up to 20% of cheque amount during trial.",
+      "Encouragement of court-annexed Lok Adalat and mediation settlements to secure commercial recovery."
+    ],
+    fullAnalysis: [
+      "Cheque dishonour proceedings under Section 138 of the Negotiable Instruments Act, 1881 represent one of the most common commercial litigation actions before Judicial Magistrate First Class (JMFC) courts. Over recent terms, the Supreme Court of India has issued several directives aimed at unclogging trial dockets and curbing deliberate delays by drawers.",
+      "A primary evidentiary battleground in Section 138 trials centers around Section 139 of the Act, which establishes a statutory presumption that the cheque was issued in discharge of a legally enforceable debt or liability. The apex court has repeatedly affirmed that while this presumption is rebuttable, a bare denial by the accused is insufficient. The drawer must establish a probable defense through cross-examination or documentary evidence raising reasonable doubt.",
+      "Furthermore, the insertion and active implementation of Section 143A empowers trial courts to direct the drawer to deposit interim compensation not exceeding 20% of the cheque face value. This procedural tool provides timely liquidity relief to bona fide payees while trials progress.",
+      "At our chambers, Section 138 prosecution and defense are approached with rigorous documentary discipline: verifying dispatch receipts, drafting unequivocal statutory demand notices, and examining banking audit trails to protect our clients' commercial and personal interests."
+    ]
+  },
+  {
+    id: "property-title-due-diligence",
+    title: "30-Year Title Due Diligence & Land Revenue Verification in Maharashtra",
+    category: "Regulatory Updates",
+    date: "September 2026",
+    readTime: "6 min read",
+    author: "Shri Balu K. Gaikwad",
+    tags: ["Property Law", "7/12 Extract", "Title Search", "Conveyance"],
+    summary: "Critical due diligence steps for prospective buyers, families, and developers verifying 30-year parent title chains, mutation entries (Ferfar), and RERA compliance.",
+    keyTakeaways: [
+      "An unbroken 30-year chain of registered title deeds is mandatory to establish marketable ownership.",
+      "Revenue entries (7/12 & Ferfar) create fiscal tax liability but do not independently confer proprietary title.",
+      "Mandatory public notice in local daily newspapers invites bona fide third-party claims prior to sale.",
+      "Rigorous verification of pending court lis pendens, encumbrance certificates, and zone planning permissions."
+    ],
+    fullAnalysis: [
+      "Real estate transactions in Pune district and wider Maharashtra represent high-value commitments that necessitate exhaustive title scrutiny. Many purchasers incorrectly assume that having the seller's name on the 7/12 village extract (Saat-Baara) guarantees absolute ownership. However, the Supreme Court and Bombay High Court have consistently held that revenue records are maintained for fiscal revenue collection and do not confer ownership title.",
+      "A diligent property audit requires examining the 'Parent Title Chain' covering a minimum of 30 continuous years. Every conveyance deed, gift deed, release deed, partition deed, and succession certificate must be inspected to ensure title flowed lawfully between predecessors without missing legal heirs or unpartitioned coparcenary shares.",
+      "Special attention must be paid to ancestral property rights under the Hindu Succession (Amendment) Act, 2005. Daughters and coparceners possess equal birthrights in coparcenary property, and any family arrangement or sale executed without their consent remains susceptible to partition challenges.",
+      "Our chambers regularly conduct 30-year Sub-Registrar title searches, issue statutory public notices in leading Marathi and English newspapers, and draft detailed Title Search Reports and watertight Sale Deeds to safeguard purchasers against future boundary, inheritance, or encumbrance litigation."
+    ]
+  },
+  {
+    id: "commercial-pre-institution-mediation",
+    title: "Mandatory Pre-Institution Mediation under Commercial Courts Act: Strategic Advantages",
+    category: "Commercial Advisory",
+    date: "August 2026",
+    readTime: "5 min read",
+    author: "Adv. Shraddha B. Gaikwad (Sontakke)",
+    tags: ["Commercial Courts", "Mediation", "ADR", "Section 12A"],
+    summary: "How Section 12A of the Commercial Courts Act, 2015 enables businesses to resolve contractual and financial disputes swiftly while preserving valuable commercial partnerships.",
+    keyTakeaways: [
+      "Pre-institution mediation is mandatory unless urgent interim relief is genuinely required by the plaintiff.",
+      "Settlement agreements executed under Section 12A hold the equivalent force and enforceability of an arbitral award.",
+      "Substantial cost savings and privacy preservation compared to lengthy multi-year court litigation.",
+      "A structured 3-month window provides a constructive forum to re-negotiate viable commercial terms."
+    ],
+    fullAnalysis: [
+      "The Commercial Courts Act, 2015 introduced a transformative procedural milestone through Section 12A, which mandates that a commercial suit cannot be instituted unless the plaintiff first exhausts the remedy of pre-institution mediation, except in matters contemplating urgent interim injunctive relief.",
+      "In commercial transactions involving vendor agreements, master service agreements, distributorship contracts, and outstanding corporate dues, prolonged litigation often drains company resources and irreparably destroys business relationships. Pre-institution mediation conducted under the Legal Services Authorities framework offers a private, confidential, and time-bound alternative.",
+      "A crucial feature that businesses often overlook is Section 12A(4): any settlement reached in pre-institution mediation possesses the same legal status and effect as an arbitral award under Section 30(4) of the Arbitration & Conciliation Act, 1996. Consequently, if a defaulting party breaches the mediated agreement, it can be directly enforced through execution proceedings without filing a fresh suit.",
+      "Combining legal acumen with certified counselling skills, our advocates represent commercial entities in mediation sessions to secure balanced settlements, structured repayment schedules, and binding consent terms."
+    ]
+  },
+  {
+    id: "mact-compensation-multipliers",
+    title: "Motor Accident Claims (MACT): Determining Loss of Dependency & Income Multipliers",
+    category: "Judicial Pronouncements",
+    date: "July 2026",
+    readTime: "4 min read",
+    author: "Adv. Shreya B. Gaikwad",
+    tags: ["MACT", "MACP", "Compensation", "Accident Claims"],
+    summary: "A practical guide to proving actual occupational income, calculating statutory future prospects, and applying appropriate multipliers before Motor Accident Claims Tribunals.",
+    keyTakeaways: [
+      "Strict application of Sarla Verma & Pranay Sethi multiplier tables according to the age bracket of the victim.",
+      "Addition of 10% to 50% for future prospects based on permanent employment or self-employed status.",
+      "Medical expense reimbursement requires verified original hospital bills, treatment vouchers, and doctor testimony.",
+      "Prompt filing of Section 166 claim petitions before the MACT having territorial jurisdiction."
+    ],
+    fullAnalysis: [
+      "Proceedings before the Motor Accident Claims Tribunal (MACT) under the Motor Vehicles Act, 1988 are social welfare proceedings designed to provide fair, just, and reasonable compensation to accident victims and their grieving dependents. However, securing a just award requires meticulous factual presentation and evidentiary rigor.",
+      "The computation of compensation rests on three pivotal pillars: established monthly income, deduction for personal living expenses, and the multiplier corresponding to the age of the deceased as crystallized in the landmark decisions of Sarla Verma v. DTC and National Insurance Co. v. Pranay Sethi.",
+      "In situations involving unorganized workers, agriculturists, or business proprietors without formal salary slips, our chambers lead corroborative evidence including bank statements, land revenue extracts, trade licenses, and witness depositions to establish realistic earning capacity before the tribunal.",
+      "We represent both victims seeking rightful compensation and vehicle owners/insurance respondents, ensuring all evidentiary mandates—from spot panchnama to medical disability certificates—are rigorously inspected."
+    ]
+  },
+  {
+    id: "bnss-bail-jurisprudence",
+    title: "Bail Jurisprudence Under BNSS: Procedural Transitions & Safeguards",
+    category: "Procedural Guides",
+    date: "June 2026",
+    readTime: "5 min read",
+    author: "Adv. Shreya B. Gaikwad",
+    tags: ["BNSS", "Criminal Law", "Bail Procedure", "Sessions Court"],
+    summary: "Navigating regular and anticipatory bail petitions under the Bharatiya Nagarik Suraksha Sanhita (BNSS), electronic summons, and timeline compliances.",
+    keyTakeaways: [
+      "Anticipatory bail applications require demonstrable grounds showing genuine apprehension of arrest for non-bailable offences.",
+      "Enhanced statutory emphasis on electronic records, digital signatures, and video-conferenced remand hearings.",
+      "Clear distinction between preliminary inquiry and immediate FIR registration depending on offense gravity.",
+      "Bail conditions must strike an equitable balance between individual personal liberty and witness protection."
+    ],
+    fullAnalysis: [
+      "The enactment of the Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023 marks a significant procedural shift in India's criminal justice system, modernizing investigative protocols, electronic summons, and court remands while preserving essential constitutional guarantees of personal liberty under Article 21.",
+      "In bail jurisprudence, the fundamental maxim that 'bail is the rule, jail is the exception' continues to anchor judicial discretion. For anticipatory bail under BNSS, applicants must demonstrate a genuine, reasonable apprehension of arrest in connection with a non-bailable offense, supported by contextual facts showing absence of flight risk or tampering potential.",
+      "The BNSS incorporates clear parameters for electronic evidence presentation, audio-video recording of search and seizure operations, and expedited communication of court orders. Advocates must ensure that procedural lapses by investigating agencies are promptly highlighted during initial remand hearings.",
+      "Our courtroom practice combines urgent preparation of bail petitions, concise presentation of judicial precedents, and unwavering advocacy before Magistrates, Sessions Courts, and the High Court of Bombay."
+    ]
   }
 ];

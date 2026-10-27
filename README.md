@@ -1,6 +1,6 @@
 # Lawyers’ Associates & B.K. Associates — Legal Practice Portal
 
-A modern, responsive, single-page website for **B.K. Associates / Lawyers’ Associates — Advocates & Legal Consultants**, built with **React 18**, **TypeScript**, **Tailwind CSS**, and **Vite**.
+A modern, responsive, single-page website for **Lawyers’ Associates** (incorporating B.K. Associates / Chambers of Adv. B.K. Gaikwad — Advocates & Legal Consultants), built with **React 18**, **TypeScript**, **Tailwind CSS**, and **Vite**, featuring typography in **Playfair Display** & **Inter**.
 
 ---
 

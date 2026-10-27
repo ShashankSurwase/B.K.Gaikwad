@@ -78,8 +78,39 @@ The website incorporates genuine certificates and photos located in `/public/ima
 - **Backgrounds:** Pure White `#FFFFFF` & Soft Blue-Gray `#F4F7FA` (`bg-slate-soft`)
 - **Body Text:** Dark Slate `#243247` (`text-slate-dark`)
 - **Typography:**
-  - Headings: Serif **Cormorant Garamond** (`font-serif`)
-  - Body Text: Sans-Serif **Plus Jakarta Sans** (`font-sans`)
+  - Headings: Refined Serif **Playfair Display** (`font-serif`)
+  - Body Text & UI: Clean Sans-Serif **Inter** (`font-sans`)
+
+---
+
+## 🏛️ Benchmark Analysis of 5 Reference Law Firm Websites
+
+The design and information architecture draws deliberate inspiration from premier Indian legal practices:
+
+1. **Bombay Law Chambers (`bombaylawchambers.com`)**:
+   - Refined legal identity and serene, uncluttered aesthetic.
+   - Minimalist navigation header with prominent consultation CTA.
+   - Clear professional disclaimer architecture compliant with the Advocates Act, 1961.
+
+2. **Maheshwari & Co. (`maheshwariandco.com`)**:
+   - Clear practice area taxonomy and service card categorization.
+   - Actionable calls-to-action for preliminary legal evaluation.
+   - Transparent multi-forum courtroom representation details and direct chamber telephone lines.
+
+3. **Bharucha & Partners (`bharucha.in`)**:
+   - Ethical foundation and uncompromised commitment to professional excellence.
+   - Transparent courtroom philosophy: "Courteous and straight dealing".
+   - Client-focused collaborative partnership emphasizing integrity and privilege.
+
+4. **Sagus Legal (`saguslegal.com`)**:
+   - Editorial-grade legal updates and insights section.
+   - Categorized commentary across Judicial Pronouncements, Regulatory Updates, and Commercial Advisory.
+   - Author attribution, publication date, reading time estimates, and core takeaway callouts.
+
+5. **Dhaval Vussonji & Associates (`dhavalvussonji.com`)**:
+   - Comprehensive partner and associate presentations.
+   - Verified Bar admissions, academic qualifications, and specialized practice domains.
+   - Direct consultation links and downloadable credential documents.
 
 ---
 
@@ -106,30 +137,31 @@ The website incorporates genuine certificates and photos located in `/public/ima
 │       └── team-shruti.jpg       # Shruti associate portrait
 ├── src/
 │   ├── components/
-│   │   ├── About.tsx             # Two-column firm introduction & philosophy
-│   │   ├── Approach.tsx          # 4-step client journey (timeline)
-│   │   ├── BCIDisclaimerModal.tsx# Bar Council of India entrance notice
-│   │   ├── CTA.tsx               # Final consultation call-to-action
-│   │   ├── CertificateModal.tsx  # Zoomable viewer for official Bar Council certificates
-│   │   ├── Contact.tsx           # Contact details, map link & intake form
-│   │   ├── FAQ.tsx               # Accessible legal FAQ accordion
-│   │   ├── FloatingActions.tsx   # Quick call, book, and back-to-top buttons
-│   │   ├── Footer.tsx            # BCI disclaimer, links, policy triggers
-│   │   ├── Hero.tsx              # First-screen banner with badges & CTAs
 │   │   ├── Navbar.tsx            # Sticky navigation with mobile menu
-│   │   ├── PolicyModals.tsx      # Privacy, Terms of Use, and Disclaimer popups
+│   │   ├── Hero.tsx              # Split layout hero with badges & CTAs
+│   │   ├── TrustValues.tsx       # 4 core value propositions (Integrity, Communication, Confidentiality, Guidance)
+│   │   ├── About.tsx             # Two-column firm introduction & philosophy
 │   │   ├── PracticeAreas.tsx     # 10 service cards with category filter
-│   │   ├── PracticeModal.tsx     # Practice area deep-dive drawer
+│   │   ├── Approach.tsx          # 4-step client journey (timeline)
 │   │   ├── Team.tsx              # Advocate profile cards & resume links
-│   │   ├── TrustValues.tsx       # 4 core value propositions
-│   │   └── WhyChooseUs.tsx       # 6 editorial pillars
+│   │   ├── WhyChooseUs.tsx       # 6 editorial pillars
+│   │   ├── Insights.tsx          # Editorial insights & legal updates (Sagus-inspired)
+│   │   ├── InsightModal.tsx      # In-depth article reader modal
+│   │   ├── FAQ.tsx               # Accessible legal FAQ accordion
+│   │   ├── Contact.tsx           # Contact details, map link & intake form
+│   │   ├── Footer.tsx            # BCI disclaimer, links, policy triggers
+│   │   ├── BCIDisclaimerModal.tsx# Bar Council of India entrance notice
+│   │   ├── CertificateModal.tsx  # Zoomable viewer for official Bar Council certificates
+│   │   ├── PracticeModal.tsx     # Practice area deep-dive modal
+│   │   ├── PolicyModals.tsx      # Privacy, Terms of Use, and Disclaimer popups
+│   │   └── FloatingActions.tsx   # Quick call, book, and back-to-top buttons
 │   ├── data/
-│   │   └── firmData.ts           # Central content file: lawyers, services, address, FAQs
+│   │   └── firmData.ts           # Central content file: lawyers, services, address, FAQs, insights
 │   ├── types/
 │   │   └── index.ts              # TypeScript interfaces
 │   ├── utils/
 │   │   └── assets.ts             # Dynamic asset URL resolver for GitHub Pages
-│   ├── App.tsx                   # Master page assembler & modal state manager
+│   ├── App.tsx                   # Master single-page assembler & modal state manager
 │   ├── index.css                 # Tailwind directives & smooth scrolling
 │   └── main.tsx                  # React DOM entry point
 ├── package.json

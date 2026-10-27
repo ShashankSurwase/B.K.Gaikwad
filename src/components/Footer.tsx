@@ -62,6 +62,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPolicy, onSelectPracticeAr
               <li><a href="#approach" className="hover:text-gold-400 transition-colors">Our Approach</a></li>
               <li><a href="#team" className="hover:text-gold-400 transition-colors">Our Legal Team</a></li>
               <li><a href="#why-us" className="hover:text-gold-400 transition-colors">Why Choose Us</a></li>
+              <li><a href="#insights" className="hover:text-gold-400 transition-colors">Legal Insights</a></li>
               <li><a href="#faq" className="hover:text-gold-400 transition-colors">Frequently Asked</a></li>
               <li><a href="#contact" className="hover:text-gold-400 transition-colors">Chamber Contact</a></li>
             </ul>

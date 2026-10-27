@@ -7,16 +7,17 @@ import { PracticeAreas } from './components/PracticeAreas';
 import { Approach } from './components/Approach';
 import { Team } from './components/Team';
 import { WhyChooseUs } from './components/WhyChooseUs';
+import { Insights } from './components/Insights';
 import { FAQ } from './components/FAQ';
 import { Contact } from './components/Contact';
-import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
 import { CertificateModal } from './components/CertificateModal';
 import { PracticeModal } from './components/PracticeModal';
+import { InsightModal } from './components/InsightModal';
 import { PolicyModals, PolicyType } from './components/PolicyModals';
 import { BCIDisclaimerModal } from './components/BCIDisclaimerModal';
 import { FloatingActions } from './components/FloatingActions';
-import { PracticeArea, TeamMember } from './types';
+import { PracticeArea, TeamMember, InsightArticle } from './types';
 import { practiceAreas } from './data/firmData';
 
 export const App: React.FC = () => {
@@ -26,6 +27,9 @@ export const App: React.FC = () => {
   
   const [selectedPracticeArea, setSelectedPracticeArea] = useState<PracticeArea | null>(null);
   const [practiceModalOpen, setPracticeModalOpen] = useState(false);
+
+  const [selectedArticle, setSelectedArticle] = useState<InsightArticle | null>(null);
+  const [insightModalOpen, setInsightModalOpen] = useState(false);
 
   const [activePolicy, setActivePolicy] = useState<PolicyType>(null);
   const [policyModalOpen, setPolicyModalOpen] = useState(false);
@@ -91,6 +95,15 @@ export const App: React.FC = () => {
     scrollTo('contact');
   };
 
+  const handleSelectArticle = (article: InsightArticle) => {
+    setSelectedArticle(article);
+    setInsightModalOpen(true);
+  };
+
+  const handleConsultOnArticle = (_title: string) => {
+    scrollTo('contact');
+  };
+
   const handleOpenPolicy = (type: 'privacy' | 'terms' | 'disclaimer') => {
     setActivePolicy(type);
     setPolicyModalOpen(true);
@@ -104,45 +117,58 @@ export const App: React.FC = () => {
       {/* Main Navigation */}
       <Navbar onBookConsultation={handleBookConsultation} />
 
-      {/* Main Content Sections */}
+      {/* Main Content Sections in exact sequential order */}
       <main className="flex-1">
+        {/* 2. Hero */}
         <Hero
           onScheduleConsultation={handleBookConsultation}
           onExploreServices={handleExploreServices}
           onViewCertificates={() => handleOpenCertificate('bk-1987')}
         />
 
+        {/* 3. Trust and Values */}
         <TrustValues />
 
+        {/* 4. About the Firm */}
         <About
           onLearnApproach={handleLearnApproach}
           onViewCertificates={() => handleOpenCertificate('bk-1987')}
         />
 
+        {/* 5. Practice Areas */}
         <PracticeAreas
           onSelectPracticeArea={handleSelectPracticeArea}
           onBookConsultation={handleBookConsultation}
         />
 
+        {/* 6. Our Approach */}
         <Approach
           onScheduleConsultation={handleBookConsultation}
         />
 
+        {/* 7. Our Legal Team */}
         <Team
           onViewMemberCertificates={handleViewMemberCertificates}
           onConsultWithMember={handleConsultWithMember}
         />
 
+        {/* 8. Why Choose Us */}
         <WhyChooseUs />
 
+        {/* 9. Insights and Legal Updates */}
+        <Insights
+          onSelectArticle={handleSelectArticle}
+          onBookConsultation={handleBookConsultation}
+        />
+
+        {/* 10. FAQ */}
         <FAQ />
 
+        {/* 11. Contact */}
         <Contact />
-
-        <CTA onContactClick={handleBookConsultation} />
       </main>
 
-      {/* Footer */}
+      {/* 12. Footer */}
       <Footer
         onOpenPolicy={handleOpenPolicy}
         onSelectPracticeArea={handleSelectPracticeById}
@@ -163,6 +189,13 @@ export const App: React.FC = () => {
         isOpen={practiceModalOpen}
         onClose={() => setPracticeModalOpen(false)}
         onConsult={handleConsultOnArea}
+      />
+
+      <InsightModal
+        article={selectedArticle}
+        isOpen={insightModalOpen}
+        onClose={() => setInsightModalOpen(false)}
+        onConsult={handleConsultOnArticle}
       />
 
       <PolicyModals

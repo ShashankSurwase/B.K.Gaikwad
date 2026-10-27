@@ -15,7 +15,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onBookConsultation }) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = ['home', 'about', 'practice-areas', 'approach', 'team', 'why-us', 'faq', 'contact'];
+      const sections = ['home', 'about', 'practice-areas', 'approach', 'team', 'why-us', 'insights', 'faq', 'contact'];
       const scrollPosition = window.scrollY + 120;
 
       for (const section of sections) {
@@ -39,8 +39,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onBookConsultation }) => {
     { name: 'Home', href: '#home', id: 'home' },
     { name: 'About', href: '#about', id: 'about' },
     { name: 'Practice Areas', href: '#practice-areas', id: 'practice-areas' },
-    { name: 'Our Approach', href: '#approach', id: 'approach' },
-    { name: 'Legal Team', href: '#team', id: 'team' },
+    { name: 'Our Team', href: '#team', id: 'team' },
+    { name: 'Insights', href: '#insights', id: 'insights' },
     { name: 'FAQ', href: '#faq', id: 'faq' },
     { name: 'Contact', href: '#contact', id: 'contact' },
   ];

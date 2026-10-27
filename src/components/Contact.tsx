@@ -102,7 +102,7 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-slate-soft/40 border-b border-slate-200/70">
+    <section id="contact" className="py-20 md:py-28 bg-white border-b border-slate-200/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -124,7 +124,7 @@ export const Contact: React.FC = () => {
           {/* Column 1: Contact Details & Office Location */}
           <div className="lg:col-span-5 space-y-6 text-left">
             
-            <div className="p-7 rounded-2xl bg-white border border-slate-200/90 shadow-card space-y-6">
+            <div className="p-7 rounded-2xl bg-slate-soft/60 border border-slate-200/90 shadow-soft space-y-6">
               <div>
                 <h3 className="font-serif text-2xl font-bold text-navy-800">
                   Advocate Chambers

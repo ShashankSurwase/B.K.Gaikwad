@@ -80,18 +80,18 @@ export const Approach: React.FC<ApproachProps> = ({ onScheduleConsultation }) =>
         </div>
 
         {/* Bottom CTA Banner */}
-        <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-navy-900 text-white shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+        <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-soft flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
           <div className="space-y-1">
-            <h4 className="font-serif text-xl sm:text-2xl font-bold text-white">
+            <h4 className="font-serif text-xl sm:text-2xl font-bold text-navy-800">
               Ready to take the first step in resolving your legal matter?
             </h4>
-            <p className="text-slate-300 text-xs sm:text-sm">
+            <p className="text-slate-muted text-xs sm:text-sm">
               Schedule an introductory intake session with our advocates.
             </p>
           </div>
           <button
             onClick={onScheduleConsultation}
-            className="px-6 py-3 rounded-xl bg-teal-500 hover:bg-teal-600 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all shrink-0"
+            className="px-6 py-3 rounded-xl bg-navy-800 hover:bg-navy-900 text-white font-semibold text-sm shadow-md transition-all shrink-0"
           >
             Start Initial Consultation
           </button>
