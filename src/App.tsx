@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { TrustValues } from './components/TrustValues';
@@ -21,6 +21,30 @@ import { PracticeArea, TeamMember, InsightArticle } from './types';
 import { practiceAreas } from './data/firmData';
 
 export const App: React.FC = () => {
+  // Dark / Night Mode state with localStorage persistence
+  const [isDark, setIsDark] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('theme');
+      if (saved) return saved === 'dark';
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDark]);
+
+  const toggleDarkMode = () => {
+    setIsDark(prev => !prev);
+  };
+
   // Modal states
   const [certModalOpen, setCertModalOpen] = useState(false);
   const [selectedCertId, setSelectedCertId] = useState<string>('bk-1987');
@@ -110,71 +134,75 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-slate-dark antialiased">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-navy-950 text-slate-dark dark:text-slate-100 antialiased transition-colors duration-200">
       {/* Bar Council of India Entrance Disclaimer */}
       <BCIDisclaimerModal />
 
-      {/* Main Navigation */}
-      <Navbar onBookConsultation={handleBookConsultation} />
+      {/* Main Navigation with Dark Mode Switch */}
+      <Navbar 
+        onBookConsultation={handleBookConsultation} 
+        isDark={isDark}
+        onToggleDark={toggleDarkMode}
+      />
 
-      {/* Main Content Sections in exact sequential order */}
+      {/* Main Content Sections */}
       <main className="flex-1">
-        {/* 2. Hero */}
+        {/* 1. Hero (Maheshwari-inspired with stats counters & clean imagery) */}
         <Hero
           onScheduleConsultation={handleBookConsultation}
           onExploreServices={handleExploreServices}
           onViewCertificates={() => handleOpenCertificate('bk-1987')}
         />
 
-        {/* 3. Trust and Values */}
-        <TrustValues />
-
-        {/* 4. About the Firm */}
-        <About
-          onLearnApproach={handleLearnApproach}
-          onViewCertificates={() => handleOpenCertificate('bk-1987')}
-        />
-
-        {/* 5. Practice Areas */}
+        {/* 2. Practice Areas Grid */}
         <PracticeAreas
           onSelectPracticeArea={handleSelectPracticeArea}
           onBookConsultation={handleBookConsultation}
         />
 
-        {/* 6. Our Approach */}
-        <Approach
-          onScheduleConsultation={handleBookConsultation}
+        {/* 3. About the Firm */}
+        <About
+          onLearnApproach={handleLearnApproach}
+          onViewCertificates={() => handleOpenCertificate('bk-1987')}
         />
 
-        {/* 7. Our Legal Team */}
+        {/* 4. Trust and Core Values */}
+        <TrustValues />
+
+        {/* 5. Our Legal Team / Meet Our Attorneys */}
         <Team
           onViewMemberCertificates={handleViewMemberCertificates}
           onConsultWithMember={handleConsultWithMember}
         />
 
-        {/* 8. Why Choose Us */}
+        {/* 6. Why Choose Us */}
         <WhyChooseUs />
 
-        {/* 9. Insights and Legal Updates */}
+        {/* 7. Our 4-Step Approach */}
+        <Approach
+          onScheduleConsultation={handleBookConsultation}
+        />
+
+        {/* 8. Recent Blogs & Legal Insights */}
         <Insights
           onSelectArticle={handleSelectArticle}
           onBookConsultation={handleBookConsultation}
         />
 
-        {/* 10. FAQ */}
+        {/* 9. FAQ Accordion */}
         <FAQ />
 
-        {/* 11. Contact */}
+        {/* 10. Contact Chambers & Validated Intake */}
         <Contact />
       </main>
 
-      {/* 12. Footer */}
+      {/* Footer */}
       <Footer
         onOpenPolicy={handleOpenPolicy}
         onSelectPracticeArea={handleSelectPracticeById}
       />
 
-      {/* Floating Helpers */}
+      {/* Floating Action Hub (Responsive for Mobile & Desktop) */}
       <FloatingActions onBookConsultation={handleBookConsultation} />
 
       {/* Interactive Modals */}

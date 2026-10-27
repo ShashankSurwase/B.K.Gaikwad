@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, FileCheck, Award, FileText, Download, GraduationCap, MapPin } from 'lucide-react';
+import { Award, FileText, Download, GraduationCap, MapPin, ChevronRight, FileCheck } from 'lucide-react';
 import { teamMembers } from '../data/firmData';
 import { TeamMember } from '../types';
 
@@ -13,119 +13,106 @@ export const Team: React.FC<TeamProps> = ({
   onConsultWithMember 
 }) => {
   return (
-    <section id="team" className="py-20 md:py-28 bg-white border-b border-slate-200/70">
+    <section id="team" className="py-16 md:py-24 bg-white dark:bg-navy-950 border-b border-slate-200/70 dark:border-navy-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-3 py-1 rounded-md border border-teal-200/60 inline-block">
-            Our Legal Team & Associates
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
+          <span className="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-900/40 px-3 py-1 rounded-md border border-teal-200/60 dark:border-teal-700/50 inline-block">
+            Our Attorneys
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-800">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-800 dark:text-white">
             Dedicated Advocates with Verified Credentials
           </h2>
-          <p className="text-base sm:text-lg text-slate-muted">
-            Representing clients across trial & appellate courts with verified Bar Council credentials, academic depth, and strict adherence to Bar Council of India standards.
+          <p className="text-base sm:text-lg text-slate-muted dark:text-slate-400">
+            Representing clients across trial & appellate courts with verified Bar Council admissions, academic depth, and ethical advocacy.
           </p>
         </div>
 
         {/* Team Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
           {teamMembers.map((member) => (
             <div
               key={member.id}
-              className="group flex flex-col justify-between rounded-2xl bg-white border border-slate-200/90 hover:border-teal-500/40 hover:shadow-card-hover transition-all duration-300 overflow-hidden text-left"
+              className="group flex flex-col justify-between rounded-2xl bg-white dark:bg-navy-900 border border-slate-200/90 dark:border-navy-800 hover:border-teal-500/40 dark:hover:border-teal-500/50 hover:shadow-card-hover transition-all duration-300 overflow-hidden text-left"
             >
               <div>
-                {/* Portrait / Visual Frame */}
-                <div className="relative h-72 sm:h-80 bg-slate-100 overflow-hidden">
+                {/* Portrait Frame */}
+                <div className="relative h-64 sm:h-72 bg-slate-100 dark:bg-navy-950 overflow-hidden">
                   {member.hasCustomPhoto ? (
                     <img
                       src={member.photoUrl}
                       alt={member.name}
-                      className="w-full h-full object-cover object-top filter contrast-[1.03] group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover object-top filter contrast-[1.02] group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
                   ) : (
                     // Senior Founder Presentation
                     <div className="w-full h-full bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 flex flex-col items-center justify-center p-6 text-center text-white relative">
-                      <div className="w-20 h-20 rounded-full bg-navy-700/80 border-2 border-gold-400/80 flex items-center justify-center mb-3 shadow-lg">
-                        <Award className="w-10 h-10 text-gold-400" />
+                      <div className="w-16 h-16 rounded-full bg-navy-700/80 border-2 border-gold-400/80 flex items-center justify-center mb-3 shadow-md">
+                        <Award className="w-8 h-8 text-gold-400" />
                       </div>
-                      <div className="font-serif text-lg font-bold text-gold-300">
+                      <div className="font-serif text-base font-bold text-gold-300">
                         Senior Legal Counsel
                       </div>
                       <div className="text-xs text-slate-300 font-medium mt-1">
                         Bar Enrolled 1987
                       </div>
-                      <div className="text-[11px] text-teal-300 bg-teal-900/60 px-2.5 py-1 rounded-full mt-3 border border-teal-500/30">
+                      <div className="text-[11px] text-teal-300 bg-teal-900/60 px-2.5 py-0.5 rounded-full mt-2 border border-teal-500/30">
                         MAH / 1647 / 1987
                       </div>
                     </div>
                   )}
 
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/75 via-transparent to-transparent" />
+                  {/* Subtle Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent" />
 
-                  {/* Top Bar Registration Badge */}
-                  {member.barEnrolment && (
-                    <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-md text-[11px] font-semibold text-navy-800 border border-slate-200 shadow-sm flex items-center gap-1">
-                      <Shield className="w-3 h-3 text-teal-600" />
-                      <span>{member.barEnrolment}</span>
-                    </div>
-                  )}
-
-                  {/* Bottom Name on Photo */}
+                  {/* Name on Photo */}
                   <div className="absolute bottom-3 left-4 right-4 text-white">
-                    <div className="text-xs font-medium text-gold-300 uppercase tracking-wider">
+                    <div className="text-[11px] font-medium text-gold-300 uppercase tracking-wider">
                       {member.role}
                     </div>
-                    <div className="font-serif text-xl font-bold leading-tight drop-shadow-sm">
+                    <div className="font-serif text-lg font-bold leading-tight">
                       {member.name}
                     </div>
                   </div>
                 </div>
 
                 {/* Content Body */}
-                <div className="p-5 space-y-4">
+                <div className="p-4 sm:p-5 space-y-3.5">
                   {/* Qualifications & Designation */}
                   <div>
-                    <div className="text-xs font-bold text-teal-700">
+                    <div className="text-xs font-bold text-teal-700 dark:text-teal-400">
                       {member.qualifications}
                     </div>
-                    <div className="text-xs text-slate-muted leading-tight mt-0.5">
+                    <div className="text-xs text-slate-muted dark:text-slate-400 leading-tight mt-0.5">
                       {member.designation}
                     </div>
-                    {member.copNumber && (
-                      <div className="text-[10px] text-navy-800 font-mono bg-slate-soft px-2 py-0.5 rounded mt-1.5 inline-block border border-slate-200">
-                        BCI CoP: {member.copNumber}
-                      </div>
-                    )}
                   </div>
 
                   {/* Education snippet if available */}
                   {member.education && member.education.length > 0 && (
-                    <div className="p-2.5 rounded-lg bg-teal-50/50 border border-teal-100 text-[11px] space-y-1">
-                      <div className="font-bold text-teal-800 flex items-center gap-1">
+                    <div className="p-2.5 rounded-lg bg-teal-50/50 dark:bg-teal-900/30 border border-teal-100 dark:border-teal-800/40 text-[11px] space-y-0.5">
+                      <div className="font-bold text-teal-800 dark:text-teal-300 flex items-center gap-1">
                         <GraduationCap className="w-3.5 h-3.5" />
-                        <span>Academic Excellence</span>
+                        <span>Education</span>
                       </div>
-                      <div className="text-slate-muted text-[10px] leading-tight">
+                      <div className="text-slate-muted dark:text-slate-400 text-[10px] leading-tight line-clamp-1">
                         {member.education[0].degree} — {member.education[0].institution.split(',')[0]}
                       </div>
                     </div>
                   )}
 
                   {/* Practice Specialties */}
-                  <div className="space-y-1.5">
-                    <div className="text-[11px] font-bold uppercase tracking-wider text-slate-subtle">
-                      Core Practice
+                  <div className="space-y-1">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-subtle dark:text-slate-500">
+                      Specialties
                     </div>
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-1">
                       {member.specialties.slice(0, 3).map((spec, sIdx) => (
                         <span
                           key={sIdx}
-                          className="text-[11px] bg-slate-soft text-slate-dark px-2 py-0.5 rounded border border-slate-200"
+                          className="text-[10px] bg-slate-soft dark:bg-navy-800 text-slate-dark dark:text-slate-300 px-2 py-0.5 rounded border border-slate-200 dark:border-navy-700"
                         >
                           {spec}
                         </span>
@@ -134,43 +121,43 @@ export const Team: React.FC<TeamProps> = ({
                   </div>
 
                   {/* Bio snippet */}
-                  <p className="text-xs text-slate-muted leading-relaxed line-clamp-4">
+                  <p className="text-xs text-slate-muted dark:text-slate-400 leading-relaxed line-clamp-3">
                     {member.bio}
                   </p>
                 </div>
               </div>
 
               {/* Card Footer Actions */}
-              <div className="p-5 pt-0 space-y-2">
-                {/* Resume download / view button if available */}
+              <div className="p-4 sm:p-5 pt-0 space-y-2">
                 {member.resumeUrl && (
                   <a
                     href={member.resumeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-2 px-3 rounded-lg bg-navy-50 hover:bg-navy-100/80 text-navy-900 text-xs font-semibold flex items-center justify-center gap-1.5 border border-navy-200 transition-colors"
+                    className="w-full py-2 px-3 rounded-lg bg-navy-50 dark:bg-navy-800 hover:bg-navy-100/80 dark:hover:bg-navy-700 text-navy-900 dark:text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 border border-navy-200/80 dark:border-navy-700 transition-colors"
                   >
-                    <FileText className="w-3.5 h-3.5 text-navy-700" />
-                    <span>View Legal Resume (PDF)</span>
-                    <Download className="w-3 h-3 text-navy-500 ml-auto" />
+                    <FileText className="w-3.5 h-3.5 text-navy-700 dark:text-teal-400" />
+                    <span>View Resume (PDF)</span>
+                    <Download className="w-3 h-3 text-navy-500 dark:text-slate-400 ml-auto" />
                   </a>
                 )}
 
                 {member.certificates.length > 0 && (
                   <button
                     onClick={() => onViewMemberCertificates(member)}
-                    className="w-full py-2 px-3 rounded-lg bg-teal-50 hover:bg-teal-100/80 text-teal-800 text-xs font-semibold flex items-center justify-center gap-1.5 border border-teal-200/70 transition-colors"
+                    className="w-full py-1.5 px-3 rounded-lg bg-slate-soft dark:bg-navy-800/60 hover:bg-slate-200/70 dark:hover:bg-navy-800 text-slate-dark dark:text-slate-300 text-xs font-medium flex items-center justify-center gap-1.5 border border-slate-200/70 dark:border-navy-700 transition-colors"
                   >
-                    <FileCheck className="w-3.5 h-3.5 text-teal-600" />
-                    <span>View Bar Certificate ({member.certificates.length})</span>
+                    <FileCheck className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
+                    <span>Credentials ({member.certificates.length})</span>
                   </button>
                 )}
 
                 <button
                   onClick={() => onConsultWithMember(member)}
-                  className="w-full py-2 px-3 rounded-lg bg-navy-800 hover:bg-navy-900 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors shadow-xs"
+                  className="w-full py-2 px-3 rounded-lg bg-navy-800 hover:bg-navy-900 dark:bg-teal-600 dark:hover:bg-teal-500 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors shadow-xs"
                 >
                   <span>Request Consultation</span>
+                  <ChevronRight className="w-3.5 h-3.5 text-gold-400 dark:text-white" />
                 </button>
               </div>
 
@@ -179,22 +166,17 @@ export const Team: React.FC<TeamProps> = ({
         </div>
 
         {/* Regulatory Transparency Box with Courts */}
-        <div className="mt-12 p-5 rounded-xl bg-slate-soft/70 border border-slate-200 text-center max-w-4xl mx-auto space-y-2">
-          <div className="flex items-center justify-center gap-2 text-xs font-bold text-navy-800 uppercase tracking-wider">
-            <MapPin className="w-4 h-4 text-teal-600" />
+        <div className="mt-12 p-4 sm:p-5 rounded-xl bg-slate-soft/70 dark:bg-navy-900/60 border border-slate-200 dark:border-navy-800 text-center max-w-4xl mx-auto space-y-2 transition-colors">
+          <div className="flex items-center justify-center gap-2 text-xs font-bold text-navy-800 dark:text-slate-200 uppercase tracking-wider">
+            <MapPin className="w-4 h-4 text-teal-600 dark:text-teal-400" />
             <span>Active Trial & Appellate Jurisdictions</span>
           </div>
           <div className="flex flex-wrap justify-center gap-2 pt-1 text-xs">
-            <span className="px-2.5 py-1 bg-white rounded-md border border-slate-200 text-navy-800 font-medium">Rajgurunagar (Khed) Court</span>
-            <span className="px-2.5 py-1 bg-white rounded-md border border-slate-200 text-navy-800 font-medium">Pune District & Sessions Court</span>
-            <span className="px-2.5 py-1 bg-white rounded-md border border-slate-200 text-navy-800 font-medium">Bombay High Court (Mumbai)</span>
-            <span className="px-2.5 py-1 bg-white rounded-md border border-slate-200 text-navy-800 font-medium">Thane Judiciary</span>
-            <span className="px-2.5 py-1 bg-white rounded-md border border-slate-200 text-navy-800 font-medium">Junnar Court</span>
-            <span className="px-2.5 py-1 bg-white rounded-md border border-slate-200 text-navy-800 font-medium">Vadgaon Maval</span>
+            <span className="px-2.5 py-1 bg-white dark:bg-navy-800 rounded-md border border-slate-200 dark:border-navy-700 text-navy-800 dark:text-slate-200 font-medium">Rajgurunagar (Khed) Court</span>
+            <span className="px-2.5 py-1 bg-white dark:bg-navy-800 rounded-md border border-slate-200 dark:border-navy-700 text-navy-800 dark:text-slate-200 font-medium">Pune District & Sessions Court</span>
+            <span className="px-2.5 py-1 bg-white dark:bg-navy-800 rounded-md border border-slate-200 dark:border-navy-700 text-navy-800 dark:text-slate-200 font-medium">Bombay High Court (Mumbai)</span>
+            <span className="px-2.5 py-1 bg-white dark:bg-navy-800 rounded-md border border-slate-200 dark:border-navy-700 text-navy-800 dark:text-slate-200 font-medium">Thane District Court</span>
           </div>
-          <p className="text-[11px] text-slate-muted pt-1">
-            Enrolment records and certifications displayed above are verified against original records maintained with the Bar Council of Maharashtra & Goa under Section 17 of the Advocates Act, 1961.
-          </p>
         </div>
 
       </div>
