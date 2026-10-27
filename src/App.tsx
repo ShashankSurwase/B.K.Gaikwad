@@ -166,8 +166,8 @@ export const App: React.FC = () => {
           onViewCertificates={() => handleOpenCertificate('bk-1987')}
         />
 
-        {/* 4. Trust and Core Values */}
-        <TrustValues />
+        {/* 4. Why Choose Us (Maheshwari & Co. benchmark sequence) */}
+        <WhyChooseUs />
 
         {/* 5. Our Legal Team / Meet Our Attorneys */}
         <Team
@@ -175,8 +175,8 @@ export const App: React.FC = () => {
           onConsultWithMember={handleConsultWithMember}
         />
 
-        {/* 6. Why Choose Us */}
-        <WhyChooseUs />
+        {/* 6. Trust and Core Values */}
+        <TrustValues />
 
         {/* 7. Our 4-Step Approach */}
         <Approach

@@ -108,13 +108,13 @@ export const Contact: React.FC = () => {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
           <span className="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-900/40 px-3 py-1 rounded-md border border-teal-200/60 dark:border-teal-700/50 inline-block">
-            Get in Touch with Us
+            Connect With Our Chambers
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-800 dark:text-white">
-            Schedule a Confidential Consultation
+            Get in Touch with Us!
           </h2>
           <p className="text-base sm:text-lg text-slate-muted dark:text-slate-400">
-            Visit our chambers in Rajgurunagar (Pune) or connect directly with our advocates to discuss your matter with complete privilege.
+            Connect with Confidence: We’re Here to Help. Visit our chambers in Rajgurunagar (Pune) or submit an inquiry for preliminary consultation.
           </p>
         </div>
 

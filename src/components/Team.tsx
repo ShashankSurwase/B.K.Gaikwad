@@ -13,19 +13,19 @@ export const Team: React.FC<TeamProps> = ({
   onConsultWithMember 
 }) => {
   return (
-    <section id="team" className="py-16 md:py-24 bg-white dark:bg-navy-950 border-b border-slate-200/70 dark:border-navy-800 transition-colors">
+    <section id="team" className="py-16 md:py-24 bg-slate-soft/50 dark:bg-navy-900/60 border-b border-slate-200/70 dark:border-navy-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
           <span className="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-900/40 px-3 py-1 rounded-md border border-teal-200/60 dark:border-teal-700/50 inline-block">
-            Our Attorneys
+            Legal Practitioners
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-800 dark:text-white">
-            Dedicated Advocates with Verified Credentials
+            Meet Our Attorneys
           </h2>
           <p className="text-base sm:text-lg text-slate-muted dark:text-slate-400">
-            Representing clients across trial & appellate courts with verified Bar Council admissions, academic depth, and ethical advocacy.
+            Distinguished legal practitioners dedicated to protecting your rights, providing clear strategy, and resolving complex courtroom disputes.
           </p>
         </div>
 

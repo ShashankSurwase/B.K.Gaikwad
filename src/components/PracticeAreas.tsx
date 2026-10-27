@@ -52,10 +52,10 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
             Practice Areas
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-800 dark:text-white">
-            Comprehensive Legal Advisory & Trial Advocacy
+            Explore Our Services: Every Sector, Every Need
           </h2>
           <p className="text-base sm:text-lg text-slate-muted dark:text-slate-400">
-            Specialized representation tailored for individuals, families, businesses, and institutions with strict adherence to professional standards.
+            Comprehensive legal advisory and trial advocacy tailored for individuals, families, businesses, and institutions across trial and appellate courts.
           </p>
         </div>
 

@@ -21,13 +21,13 @@ export const Approach: React.FC<ApproachProps> = ({ onScheduleConsultation }) =>
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
           <span className="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-900/40 px-3 py-1 rounded-md border border-teal-200/60 dark:border-teal-700/50 inline-block">
-            Our Approach
+            Our Working Process
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-800 dark:text-white">
-            A Transparent, Four-Step Legal Roadmap
+            Transparent Four-Step Client Roadmap
           </h2>
           <p className="text-base sm:text-lg text-slate-muted dark:text-slate-400">
-            Navigating a legal proceeding requires methodical preparation, statutory clarity, and disciplined execution at each stage.
+            Navigating legal proceedings requires methodical preparation, statutory clarity, and disciplined courtroom execution at every stage.
           </p>
         </div>
 

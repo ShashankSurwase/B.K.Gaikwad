@@ -36,7 +36,7 @@ export const About: React.FC<AboutProps> = ({ onLearnApproach, onViewCertificate
                 About The Firm
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-4xl font-bold text-navy-800 dark:text-white leading-tight">
-                Grounded in Judicial Ethics, Dedicated to Resolving Complex Legal Matters.
+                A Legacy of Principled Advocacy & Trial Court Excellence
               </h2>
             </div>
 

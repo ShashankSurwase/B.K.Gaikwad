@@ -33,13 +33,13 @@ export const Insights: React.FC<InsightsProps> = ({ onSelectArticle, onBookConsu
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">
           <span className="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-900/40 px-3 py-1 rounded-md border border-teal-200/60 dark:border-teal-700/50 inline-block">
-            Recent Blogs & Insights
+            Legal Insights & Thought Leadership
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-800 dark:text-white">
-            Statutory Perspectives & Commentary
+            Recent Blogs & Legal Insights
           </h2>
           <p className="text-base sm:text-lg text-slate-muted dark:text-slate-400">
-            Authoritative analysis on landmark judicial pronouncements, regulatory amendments, and trial procedures in India.
+            Authoritative statutory commentary, landmark judicial pronouncements, and practical trial procedures in India.
           </p>
         </div>
 

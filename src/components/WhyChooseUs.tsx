@@ -13,19 +13,19 @@ const pillarIcons: Record<string, React.ReactNode> = {
 
 export const WhyChooseUs: React.FC = () => {
   return (
-    <section id="why-us" className="py-16 md:py-24 bg-slate-soft/50 dark:bg-navy-900/60 border-b border-slate-200/70 dark:border-navy-800 transition-colors">
+    <section id="why-us" className="py-16 md:py-24 bg-white dark:bg-navy-950 border-b border-slate-200/70 dark:border-navy-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
           <span className="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-900/40 px-3 py-1 rounded-md border border-teal-200/60 dark:border-teal-700/50 inline-block">
-            Firm Principles
+            Our Proven Principles
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-800 dark:text-white">
-            Why Individuals & Businesses Choose Us
+            Why Choose Us?
           </h2>
           <p className="text-base sm:text-lg text-slate-muted dark:text-slate-400">
-            Legal matters demand a disciplined equilibrium between aggressive courtroom advocacy and cautious pre-litigation analysis.
+            Let our experience pave the path to your success. Grounded in 35+ years of courtroom heritage, meticulous pre-litigation scrutiny, and dedicated client advocacy.
           </p>
         </div>
 
@@ -34,7 +34,7 @@ export const WhyChooseUs: React.FC = () => {
           {whyChooseUsPillars.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-navy-900 border border-slate-200/80 dark:border-navy-800 hover:border-teal-500/30 dark:hover:border-teal-500/50 hover:shadow-card transition-all duration-300 text-left relative group"
+              className="p-6 sm:p-7 rounded-2xl bg-slate-soft/50 dark:bg-navy-900/60 border border-slate-200/80 dark:border-navy-800 hover:border-teal-500/30 dark:hover:border-teal-500/50 hover:shadow-card transition-all duration-300 text-left relative group"
             >
               <div className="w-10 h-10 rounded-xl bg-slate-soft dark:bg-navy-800 group-hover:bg-teal-50 dark:group-hover:bg-teal-900/40 border border-slate-200/70 dark:border-navy-700 flex items-center justify-center mb-4 transition-colors">
                 {pillarIcons[item.icon] || <Scale className="w-5 h-5 text-navy-800 dark:text-gold-400" />}
