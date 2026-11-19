@@ -2,11 +2,13 @@ import { PracticeArea, TeamMember, FAQItem, ValueProp, ApproachStep, InsightArti
 import { getAssetUrl } from '../utils/assets';
 
 export const firmConfig = {
-  name: "Lawyers’ Associates",
-  altName: "B.K. Associates",
+  name: "B.K. Associates",
+  altName: "Lawyers’ Associates",
   chambersName: "Shivanushka Advocate Chambers & Chambers of Adv. B.K. Gaikwad",
-  tagline: "Advocates & Legal Consultants",
-  jurisdiction: "Bar Council of Maharashtra & Goa, India",
+  tagline: "Advocates, Legal Counsel & Counselling Chambers",
+  legalDivision: "B.K. Legal Practice (Litigation & Courtroom Advocacy)",
+  counsellingDivision: "Shivanushka MindCare & Counselling Wing",
+  jurisdiction: "All-India Legal Practice · Enrolled under the Advocates Act, 1961",
   phone: "+91 75070 95230",
   altPhone: "+91 98220 12345",
   displayPhone: "+91 75070 95230 / +91 98220 12345",

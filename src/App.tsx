@@ -1,23 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { TrustValues } from './components/TrustValues';
-import { About } from './components/About';
 import { PracticeAreas } from './components/PracticeAreas';
-import { Approach } from './components/Approach';
 import { Team } from './components/Team';
-import { WhyChooseUs } from './components/WhyChooseUs';
-import { Insights } from './components/Insights';
-import { FAQ } from './components/FAQ';
+import { Gallery } from './components/Gallery';
+import { Counselling } from './components/Counselling';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
-import { CertificateModal } from './components/CertificateModal';
 import { PracticeModal } from './components/PracticeModal';
-import { InsightModal } from './components/InsightModal';
-import { PolicyModals, PolicyType } from './components/PolicyModals';
-import { BCIDisclaimerModal } from './components/BCIDisclaimerModal';
-import { FloatingActions } from './components/FloatingActions';
-import { PracticeArea, TeamMember, InsightArticle } from './types';
+import { PracticeArea } from './types';
 import { practiceAreas } from './data/firmData';
 
 export const App: React.FC = () => {
@@ -45,18 +36,9 @@ export const App: React.FC = () => {
     setIsDark(prev => !prev);
   };
 
-  // Modal states
-  const [certModalOpen, setCertModalOpen] = useState(false);
-  const [selectedCertId, setSelectedCertId] = useState<string>('bk-1987');
-  
+  // Practice Modal state
   const [selectedPracticeArea, setSelectedPracticeArea] = useState<PracticeArea | null>(null);
   const [practiceModalOpen, setPracticeModalOpen] = useState(false);
-
-  const [selectedArticle, setSelectedArticle] = useState<InsightArticle | null>(null);
-  const [insightModalOpen, setInsightModalOpen] = useState(false);
-
-  const [activePolicy, setActivePolicy] = useState<PolicyType>(null);
-  const [policyModalOpen, setPolicyModalOpen] = useState(false);
 
   // Smooth scroll helper
   const scrollTo = (elementId: string) => {
@@ -66,37 +48,8 @@ export const App: React.FC = () => {
     }
   };
 
-  const handleBookConsultation = () => {
-    scrollTo('contact');
-  };
-
-  const handleExploreServices = () => {
-    scrollTo('practice-areas');
-  };
-
-  const handleLearnApproach = () => {
-    scrollTo('approach');
-  };
-
-  const handleOpenCertificate = (certId?: string) => {
-    if (certId) {
-      setSelectedCertId(certId);
-    }
-    setCertModalOpen(true);
-  };
-
-  const handleViewMemberCertificates = (member: TeamMember) => {
-    if (member.id === 'balu-gaikwad') {
-      setSelectedCertId('bk-1987');
-    } else if (member.id === 'shraddha-gaikwad') {
-      setSelectedCertId('shraddha-2021');
-    } else if (member.id === 'shreya-gaikwad') {
-      setSelectedCertId('shreya-2021');
-    } else if (member.id === 'shruti-gaikwad') {
-      setSelectedCertId('shruti-cert');
-    }
-    setCertModalOpen(true);
-  };
+  const handleBookConsultation = () => scrollTo('contact');
+  const handleExploreServices = () => scrollTo('practice-areas');
 
   const handleSelectPracticeArea = (area: PracticeArea) => {
     setSelectedPracticeArea(area);
@@ -115,121 +68,49 @@ export const App: React.FC = () => {
     scrollTo('contact');
   };
 
-  const handleConsultWithMember = (_member: TeamMember) => {
-    scrollTo('contact');
-  };
-
-  const handleSelectArticle = (article: InsightArticle) => {
-    setSelectedArticle(article);
-    setInsightModalOpen(true);
-  };
-
-  const handleConsultOnArticle = (_title: string) => {
-    scrollTo('contact');
-  };
-
-  const handleOpenPolicy = (type: 'privacy' | 'terms' | 'disclaimer') => {
-    setActivePolicy(type);
-    setPolicyModalOpen(true);
-  };
-
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-navy-950 text-slate-dark dark:text-slate-100 antialiased transition-colors duration-200">
-      {/* Bar Council of India Entrance Disclaimer */}
-      <BCIDisclaimerModal />
 
-      {/* Main Navigation with Dark Mode Switch */}
-      <Navbar 
-        onBookConsultation={handleBookConsultation} 
+      <Navbar
+        onBookConsultation={handleBookConsultation}
         isDark={isDark}
         onToggleDark={toggleDarkMode}
       />
 
-      {/* Main Content Sections */}
       <main className="flex-1">
-        {/* 1. Hero (Maheshwari-inspired with stats counters & clean imagery) */}
+        {/* 1. Hero & About Chambers (Integrated) */}
         <Hero
           onScheduleConsultation={handleBookConsultation}
           onExploreServices={handleExploreServices}
-          onViewCertificates={() => handleOpenCertificate('bk-1987')}
         />
 
-        {/* 2. Practice Areas Grid */}
+        {/* 2. Practice Areas */}
         <PracticeAreas
           onSelectPracticeArea={handleSelectPracticeArea}
           onBookConsultation={handleBookConsultation}
         />
 
-        {/* 3. About the Firm */}
-        <About
-          onLearnApproach={handleLearnApproach}
-          onViewCertificates={() => handleOpenCertificate('bk-1987')}
-        />
+        {/* 3. Team & Active Jurisdictions */}
+        <Team onConsultWithMember={() => handleBookConsultation()} />
 
-        {/* 4. Why Choose Us (Maheshwari & Co. benchmark sequence) */}
-        <WhyChooseUs />
+        {/* 4. Gallery & Media */}
+        <Gallery />
 
-        {/* 5. Our Legal Team / Meet Our Attorneys */}
-        <Team
-          onViewMemberCertificates={handleViewMemberCertificates}
-          onConsultWithMember={handleConsultWithMember}
-        />
+        {/* 5. Counselling Services */}
+        <Counselling />
 
-        {/* 6. Trust and Core Values */}
-        <TrustValues />
-
-        {/* 7. Our 4-Step Approach */}
-        <Approach
-          onScheduleConsultation={handleBookConsultation}
-        />
-
-        {/* 8. Recent Blogs & Legal Insights */}
-        <Insights
-          onSelectArticle={handleSelectArticle}
-          onBookConsultation={handleBookConsultation}
-        />
-
-        {/* 9. FAQ Accordion */}
-        <FAQ />
-
-        {/* 10. Contact Chambers & Validated Intake */}
+        {/* 6. Contact & Consultation Intake */}
         <Contact />
       </main>
 
-      {/* Footer */}
-      <Footer
-        onOpenPolicy={handleOpenPolicy}
-        onSelectPracticeArea={handleSelectPracticeById}
-      />
+      <Footer onSelectPracticeArea={handleSelectPracticeById} />
 
-      {/* Floating Action Hub (Responsive for Mobile & Desktop) */}
-      <FloatingActions onBookConsultation={handleBookConsultation} />
-
-      {/* Interactive Modals */}
-      <CertificateModal
-        isOpen={certModalOpen}
-        onClose={() => setCertModalOpen(false)}
-        selectedId={selectedCertId}
-      />
-
+      {/* Practice Area Modal */}
       <PracticeModal
         area={selectedPracticeArea}
         isOpen={practiceModalOpen}
         onClose={() => setPracticeModalOpen(false)}
         onConsult={handleConsultOnArea}
-      />
-
-      <InsightModal
-        article={selectedArticle}
-        isOpen={insightModalOpen}
-        onClose={() => setInsightModalOpen(false)}
-        onConsult={handleConsultOnArticle}
-      />
-
-      <PolicyModals
-        type={activePolicy}
-        isOpen={policyModalOpen}
-        onClose={() => setPolicyModalOpen(false)}
       />
     </div>
   );
