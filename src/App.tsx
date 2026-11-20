@@ -55,7 +55,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-navy-950 text-slate-dark dark:text-slate-100 antialiased transition-colors duration-200">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-navy-950 text-slate-dark dark:text-slate-100 antialiased transition-colors duration-200 overflow-x-hidden w-full max-w-full">
 
       {/* Mandatory Bar Council of India Rule 36 Pop-up Notice on Entry */}
       <DisclaimerModal

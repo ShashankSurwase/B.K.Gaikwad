@@ -263,11 +263,11 @@ export const Team: React.FC<TeamProps> = ({ onConsultWithMember }) => {
             <MapPin className="w-4 h-4 text-teal-400" />
             Active Trial Jurisdictions (District & Sessions Courts · JMFC)
           </div>
-          <div className="flex flex-wrap gap-2.5 sm:gap-3">
+          <div className="flex flex-wrap gap-2 sm:gap-2.5">
             {jurisdictionPills.map((court) => (
               <span
                 key={court}
-                className="px-4 py-2.5 rounded-lg bg-navy-800/90 dark:bg-navy-900 border border-navy-700 text-sm sm:text-base text-slate-100 font-medium shadow-xs"
+                className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-navy-800/90 dark:bg-navy-900 border border-navy-700 text-xs sm:text-sm text-slate-100 font-medium shadow-xs"
               >
                 {court}
               </span>

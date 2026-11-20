@@ -134,18 +134,22 @@ export const Contact: React.FC = () => {
                 </div>
 
                 {/* Direct Booking Emails for Legal & MindCare */}
-                <div className="pt-3 border-t border-slate-200 dark:border-navy-800 space-y-2 text-xs sm:text-sm">
-                  <div className="flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-gold-400 shrink-0" />
-                    <span className="font-semibold text-slate-300">Legal Practice:</span>
-                    <a href="mailto:gaikwad.legaladvisory@gmail.com" className="text-gold-300 hover:text-white underline font-mono">
+                <div className="pt-3 border-t border-slate-200 dark:border-navy-800 space-y-2.5 text-xs sm:text-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                    <div className="flex items-center gap-2">
+                      <Mail className="w-4 h-4 text-gold-400 shrink-0" />
+                      <span className="font-semibold text-slate-300">Legal Practice:</span>
+                    </div>
+                    <a href="mailto:gaikwad.legaladvisory@gmail.com" className="text-gold-300 hover:text-white underline font-mono break-all text-xs">
                       gaikwad.legaladvisory@gmail.com
                     </a>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-teal-400 shrink-0" />
-                    <span className="font-semibold text-slate-300">MindCare Wing:</span>
-                    <a href="mailto:themindcare.counselling@gmail.com" className="text-teal-300 hover:text-white underline font-mono">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                    <div className="flex items-center gap-2">
+                      <Mail className="w-4 h-4 text-teal-400 shrink-0" />
+                      <span className="font-semibold text-slate-300">MindCare Wing:</span>
+                    </div>
+                    <a href="mailto:themindcare.counselling@gmail.com" className="text-teal-300 hover:text-white underline font-mono break-all text-xs">
                       themindcare.counselling@gmail.com
                     </a>
                   </div>

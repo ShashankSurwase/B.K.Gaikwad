@@ -181,7 +181,7 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
               {displayItems.map((area, index) => (
                 <div
                   key={`${area.id}-${index}`}
-                  className="w-[320px] sm:w-[380px] shrink-0 flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-navy-900 to-navy-950 border border-gold-500/25 hover:border-gold-400/80 hover:shadow-card-hover transition-all duration-300 text-left group"
+                  className="w-[82vw] xs:w-[310px] sm:w-[380px] max-w-[380px] shrink-0 flex flex-col justify-between p-5 sm:p-7 rounded-2xl bg-gradient-to-b from-navy-900 to-navy-950 border border-gold-500/25 hover:border-gold-400/80 hover:shadow-card-hover transition-all duration-300 text-left group"
                 >
                   <div className="space-y-4">
                     {/* Header Row: Icon + Category Badge */}

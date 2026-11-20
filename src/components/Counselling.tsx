@@ -309,8 +309,8 @@ export const Counselling: React.FC = () => {
         </div>
 
         {/* Psychology Framework Visual Banner (Mind Science & Well-being) */}
-        <div className="mb-10 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-[#0C223E]/90 via-[#0E294A]/90 to-[#0A1D35]/90 border border-teal-500/30 backdrop-blur-md shadow-lg">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
+        <div className="mb-10 p-4 sm:p-6 rounded-2xl bg-gradient-to-r from-[#0C223E]/90 via-[#0E294A]/90 to-[#0A1D35]/90 border border-teal-500/30 backdrop-blur-md shadow-lg">
+          <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 text-left">
             <div className="flex items-start gap-3">
               <div className="w-9 h-9 rounded-xl bg-cyan-950/70 border border-cyan-500/40 flex items-center justify-center text-cyan-400 shrink-0">
                 <Brain className="w-4 h-4" />
@@ -451,7 +451,7 @@ export const Counselling: React.FC = () => {
                 <div
                   key={`${service.id}-${index}`}
                   onClick={() => setSelectedService(service)}
-                  className="group shrink-0 w-[310px] sm:w-[360px] flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-[#0F2542]/95 via-[#0C1F38]/95 to-[#08172C]/95 border border-teal-500/30 hover:border-teal-400/80 shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_0_25px_rgba(20,184,166,0.25)] transition-all duration-300 text-left cursor-pointer"
+                  className="group shrink-0 w-[82vw] xs:w-[300px] sm:w-[360px] max-w-[360px] flex flex-col justify-between p-5 sm:p-7 rounded-2xl bg-gradient-to-br from-[#0F2542]/95 via-[#0C1F38]/95 to-[#08172C]/95 border border-teal-500/30 hover:border-teal-400/80 shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_0_25px_rgba(20,184,166,0.25)] transition-all duration-300 text-left cursor-pointer"
                 >
                   <div className="space-y-4">
                     {/* Header: Icon Halo & Tag (NO Numbering) */}

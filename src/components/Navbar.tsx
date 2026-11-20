@@ -90,14 +90,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onBookConsultation }) => {
           <div className="flex items-center justify-between gap-4">
 
             {/* Left: Authentic B.K. Gaikwad and Associates Logo */}
-            <a href="#home" className="flex items-center gap-3 group focus:outline-none shrink-0">
+            <a href="#home" className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none min-w-0">
               <img
                 src={getAssetUrl('images/logo.jpeg')}
                 alt="B.K. Gaikwad and Associates Logo"
-                className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl object-contain shadow-md border border-gold-400/50 shrink-0 bg-navy-900 p-0.5 group-hover:scale-105 transition-transform"
+                className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl object-contain shadow-md border border-gold-400/50 shrink-0 bg-navy-900 p-0.5 group-hover:scale-105 transition-transform"
               />
-              <div className="flex flex-col text-left">
-                <span className="font-serif text-lg sm:text-xl font-bold tracking-tight text-white group-hover:text-gold-300 transition-colors whitespace-nowrap">
+              <div className="flex flex-col text-left min-w-0">
+                <span className="font-serif text-base sm:text-lg lg:text-xl font-bold tracking-tight text-white group-hover:text-gold-300 transition-colors truncate">
                   {firmConfig.name}
                 </span>
                 <span className="text-[10px] sm:text-[11px] tracking-wide text-slate-300 font-medium hidden xl:inline whitespace-nowrap">
@@ -130,10 +130,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onBookConsultation }) => {
             </nav>
 
             {/* Right: Book Consultation Button (Clean & Always Fully In View) */}
-            <div className="flex items-center gap-3 shrink-0">
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
               <button
                 onClick={onBookConsultation}
-                className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold text-navy-950 bg-gold-500 hover:bg-gold-400 rounded-xl shadow-gold-glow transition-all duration-200 shrink-0 whitespace-nowrap"
+                className="hidden sm:inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold text-navy-950 bg-gold-500 hover:bg-gold-400 rounded-xl shadow-gold-glow transition-all duration-200 shrink-0 whitespace-nowrap"
               >
                 <span>Book Consultation</span>
                 <ChevronRight className="w-4 h-4 text-navy-950" />
@@ -143,10 +143,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onBookConsultation }) => {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-navy-900 focus:outline-none"
+                className="lg:hidden p-2 rounded-xl text-slate-300 hover:text-white bg-navy-900/80 border border-navy-700 hover:bg-navy-800 focus:outline-none shrink-0"
                 aria-label="Toggle menu"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
               </button>
             </div>
 
