@@ -1,212 +1,162 @@
 import React, { useState } from 'react';
-import { Building, Newspaper, Trophy, Users, Award, ExternalLink, Image as ImageIcon } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, Sparkles, Eye } from 'lucide-react';
 import { getAssetUrl } from '../utils/assets';
 
-interface GalleryItem {
+interface OfficePhoto {
   id: string;
-  category: 'chambers' | 'media' | 'awards' | 'functions';
-  title: string;
-  subtitle: string;
-  description: string;
-  tag: string;
-  imageUrl?: string;
-  icon?: React.ElementType;
+  imageUrl: string;
+  label: string;
 }
 
 export const Gallery: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [activePhotoModal, setActivePhotoModal] = useState<OfficePhoto | null>(null);
 
-  const categories = [
-    { label: 'All Records', value: 'all' },
-    { label: 'Chambers & Library', value: 'chambers' },
-    { label: 'News & Media', value: 'media' },
-    { label: 'Awards & Honors', value: 'awards' },
-    { label: 'Court & Functions', value: 'functions' },
+  // Exactly 4 authentic office photos provided in Office Photos folder
+  const officePhotos: OfficePhoto[] = [
+    {
+      id: 'photo-1',
+      imageUrl: getAssetUrl('images/office/reception-frosted-glass-entrance.jpg'),
+      label: 'Reception, Frosted Glass Entrance & Bar Council Certificates'
+    },
+    {
+      id: 'photo-2',
+      imageUrl: getAssetUrl('images/office/main-executive-cabin.jpg'),
+      label: 'Main Executive Cabin'
+    },
+    {
+      id: 'photo-3',
+      imageUrl: getAssetUrl('images/office/executive-chair-law-library.jpg'),
+      label: 'Executive Chair, Scales of Justice Emblem & Law Library'
+    },
+    {
+      id: 'photo-4',
+      imageUrl: getAssetUrl('images/office/client-waiting-counselling-area.jpg'),
+      label: 'Client Waiting & Counselling Wall Art Area'
+    }
   ];
 
-  const galleryItems: GalleryItem[] = [
-    {
-      id: 'chambers-suite',
-      category: 'chambers',
-      title: 'Advocate Chambers & Consultation Suite',
-      subtitle: 'Shivanushka Advocate Chambers',
-      description: 'Dedicated consultation chambers equipped for confidential client conferences, strategic briefs, and multi-party conciliations.',
-      tag: 'Chambers Architecture',
-      imageUrl: getAssetUrl('images/firm-architecture.jpg'),
-      icon: Building,
-    },
-    {
-      id: 'chambers-library',
-      category: 'chambers',
-      title: 'Judicial Repository & Law Library',
-      subtitle: 'Statutory Research & Precedent Wing',
-      description: 'Extensive private archive housing Supreme Court Cases (SCC), All India Reporter (AIR), state land enactments, and procedural digests.',
-      tag: 'Legal Library',
-      imageUrl: getAssetUrl('images/about-office.jpg'),
-      icon: Building,
-    },
-    {
-      id: 'media-notices',
-      category: 'media',
-      title: 'Newspaper Publications & Press Coverage',
-      subtitle: 'Public Notices, Title Searches & Court News',
-      description: 'Documented archive of statutory 30-year title public notices, press updates on trial outcomes, and legal columns in leading Marathi and English dailies.',
-      tag: 'Press & Clippings',
-      imageUrl: getAssetUrl('images/hero-legal.jpg'),
-      icon: Newspaper,
-    },
-    {
-      id: 'bar-felicitation',
-      category: 'awards',
-      title: '35-Year Courtroom Milestone & Bar Felicitation',
-      subtitle: 'All-India Courtroom Practice & Senior Heritage',
-      description: 'Recognizing continuous senior courtroom practice since December 1987 (MAH/1647/1987) with exemplary fidelity to judicial standards.',
-      tag: 'Senior Heritage Award',
-      icon: Trophy,
-    },
-    {
-      id: 'bar-functions',
-      category: 'functions',
-      title: 'Bar Association Engagements & Court Conferences',
-      subtitle: 'Bench-Bar Conclaves & Lok Adalat Panels',
-      description: 'Active leadership in Rajgurunagar Bar Association functions, National Lok Adalat settlements, and professional development seminars.',
-      tag: 'Judicial Functions',
-      icon: Users,
-    },
-    {
-      id: 'counselling-distinction',
-      category: 'awards',
-      title: 'Interdisciplinary Counselling & Wellbeing Distinction',
-      subtitle: 'Medhavi Skills University & Brainway Research',
-      description: 'Honored credentials in Basic Counselling Skills, Mental Health Literacy, and Brain Science integrated into pre-litigation family settlements.',
-      tag: 'Academic Distinction',
-      icon: Award,
-    },
-  ];
+  const handleNextPhoto = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!activePhotoModal) return;
+    const currentIndex = officePhotos.findIndex(p => p.id === activePhotoModal.id);
+    const nextIndex = (currentIndex + 1) % officePhotos.length;
+    setActivePhotoModal(officePhotos[nextIndex]);
+  };
 
-  const filteredItems = activeCategory === 'all'
-    ? galleryItems
-    : galleryItems.filter(item => item.category === activeCategory);
+  const handlePrevPhoto = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!activePhotoModal) return;
+    const currentIndex = officePhotos.findIndex(p => p.id === activePhotoModal.id);
+    const prevIndex = (currentIndex - 1 + officePhotos.length) % officePhotos.length;
+    setActivePhotoModal(officePhotos[prevIndex]);
+  };
 
   return (
-    <section id="gallery" className="py-20 md:py-28 bg-white dark:bg-navy-950 border-t border-slate-100 dark:border-navy-900 transition-colors">
+    <section id="gallery" className="py-16 md:py-24 bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950 text-white border-t border-navy-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="max-w-2xl mb-12 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-teal-600 dark:text-teal-400">
-            Heritage & Visual Records
-          </span>
-          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-navy-800 dark:text-white leading-tight">
-            Gallery
+        <div className="max-w-2xl mb-10 space-y-2 text-left">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/15 border border-gold-400/40 text-gold-300 text-xs sm:text-sm font-bold uppercase tracking-wider">
+            <Sparkles className="w-4 h-4 text-gold-400" />
+            Chambers Infrastructure
+          </div>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+            Our Chambers & Facilities
           </h2>
           <div className="h-0.5 w-16 bg-gold-500" />
-          <p className="text-slate-muted dark:text-slate-400 text-base leading-relaxed pt-1">
-            A visual record of our 35+ years of courtroom heritage, chamber facilities, newspaper publications, bar functions, and judicial milestones.
-          </p>
         </div>
 
-        {/* Filter Pills */}
-        <div className="flex flex-wrap items-center gap-2 mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat.value}
-              onClick={() => setActiveCategory(cat.value)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
-                activeCategory === cat.value
-                  ? 'bg-navy-800 dark:bg-gold-500 text-white dark:text-navy-950 shadow-sm'
-                  : 'bg-slate-soft dark:bg-navy-900 text-slate-muted dark:text-slate-300 hover:bg-slate-200/80 dark:hover:bg-navy-800 border border-slate-200/70 dark:border-navy-800'
-              }`}
+        {/* 4 Pure Image Cards (Only Images, No Text Explanations) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {officePhotos.map((photo) => (
+            <div
+              key={photo.id}
+              onClick={() => setActivePhotoModal(photo)}
+              className="group relative h-64 sm:h-72 rounded-2xl overflow-hidden border border-gold-500/30 hover:border-gold-400 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer bg-navy-950"
             >
-              {cat.label}
-            </button>
+              <img
+                src={photo.imageUrl}
+                alt={photo.label}
+                className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700 filter contrast-[1.04]"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
+
+              {/* Minimal Bottom Label */}
+              <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-2 pointer-events-none">
+                <span className="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-navy-950/95 text-gold-300 border border-gold-400/40 backdrop-blur-sm shadow-md leading-tight line-clamp-2">
+                  {photo.label}
+                </span>
+                <span className="p-1.5 rounded-lg bg-gold-500 text-navy-950 opacity-0 group-hover:opacity-100 transition-opacity shadow-md shrink-0">
+                  <Eye className="w-4 h-4" />
+                </span>
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-          {filteredItems.map((item) => {
-            const IconComponent = item.icon || ImageIcon;
-            return (
-              <div
-                key={item.id}
-                className="group flex flex-col justify-between rounded-2xl bg-white dark:bg-navy-900 border border-slate-200/90 dark:border-navy-800 overflow-hidden hover:border-gold-500/50 hover:shadow-card transition-all duration-300"
-              >
-                <div>
-                  {/* Visual Top Frame */}
-                  {item.imageUrl ? (
-                    <div className="relative h-56 sm:h-60 overflow-hidden bg-slate-100 dark:bg-navy-950">
-                      <img
-                        src={item.imageUrl}
-                        alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter contrast-[1.03]"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-transparent" />
-                      <div className="absolute top-3 left-3">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-navy-900/85 text-gold-300 border border-gold-400/30 backdrop-blur-xs">
-                          <IconComponent className="w-3 h-3 text-gold-400" />
-                          {item.tag}
-                        </span>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="relative h-56 sm:h-60 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 p-6 flex flex-col justify-between text-white">
-                      <div className="flex items-center justify-between">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-white/10 text-gold-300 border border-gold-400/30">
-                          <IconComponent className="w-3 h-3 text-gold-400" />
-                          {item.tag}
-                        </span>
-                        <Award className="w-5 h-5 text-gold-400/60" />
-                      </div>
-                      <div>
-                        <div className="w-12 h-12 rounded-xl bg-gold-500/20 border border-gold-400/40 flex items-center justify-center text-gold-400 mb-3">
-                          <IconComponent className="w-6 h-6" />
-                        </div>
-                        <h4 className="font-serif text-lg font-bold text-white leading-snug">
-                          {item.title}
-                        </h4>
-                        <p className="text-xs text-gold-300/90 font-medium mt-1">
-                          {item.subtitle}
-                        </p>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Body Content */}
-                  <div className="p-6 space-y-2.5">
-                    {item.imageUrl && (
-                      <div>
-                        <h4 className="font-serif text-lg font-bold text-navy-800 dark:text-white leading-snug group-hover:text-gold-600 dark:group-hover:text-gold-400 transition-colors">
-                          {item.title}
-                        </h4>
-                        <p className="text-xs font-semibold text-teal-700 dark:text-teal-400 mt-0.5">
-                          {item.subtitle}
-                        </p>
-                      </div>
-                    )}
-                    <p className="text-xs text-slate-muted dark:text-slate-400 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Footer Tag */}
-                <div className="px-6 pb-5 pt-0 flex items-center justify-between border-t border-slate-100 dark:border-navy-800/80 mt-2">
-                  <span className="text-[11px] font-medium text-slate-400 dark:text-slate-500 capitalize">
-                    {item.category === 'chambers' ? 'Chambers Facility' : item.category === 'media' ? 'Press & Legal Notices' : item.category === 'awards' ? 'Honors & Credentials' : 'Bar Engagement'}
-                  </span>
-                  <span className="text-[11px] font-semibold text-navy-800 dark:text-gold-400 group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1">
-                    Verified
-                    <ExternalLink className="w-2.5 h-2.5" />
-                  </span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
       </div>
+
+      {/* Lightbox Image Modal (Clean Image View Only) */}
+      {activePhotoModal && (
+        <div
+          onClick={() => setActivePhotoModal(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-950/90 backdrop-blur-md animate-fadeIn"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-4xl max-h-[92vh] overflow-hidden rounded-2xl bg-navy-900 border border-gold-500/40 shadow-2xl flex flex-col"
+          >
+            {/* Modal Header Bar */}
+            <div className="flex items-center justify-between px-6 py-3.5 bg-navy-950 border-b border-navy-800">
+              <span className="text-sm font-semibold text-gold-300">
+                {activePhotoModal.label}
+              </span>
+
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handlePrevPhoto}
+                  className="p-1.5 rounded-lg bg-navy-800 hover:bg-navy-700 text-slate-200 transition-colors"
+                  title="Previous photo"
+                  aria-label="Previous photo"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNextPhoto}
+                  className="p-1.5 rounded-lg bg-navy-800 hover:bg-navy-700 text-slate-200 transition-colors"
+                  title="Next photo"
+                  aria-label="Next photo"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActivePhotoModal(null)}
+                  className="p-1.5 rounded-lg bg-navy-800 hover:bg-red-500/80 text-slate-200 hover:text-white transition-colors ml-2"
+                  title="Close"
+                  aria-label="Close"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Pure Image View (No Long Essays) */}
+            <div className="relative flex-1 bg-black/80 flex items-center justify-center overflow-hidden p-3">
+              <img
+                src={activePhotoModal.imageUrl}
+                alt={activePhotoModal.label}
+                className="max-w-full max-h-[75vh] object-contain rounded-lg"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
     </section>
   );
 };

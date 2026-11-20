@@ -39,7 +39,7 @@ export const CTA: React.FC<CTAProps> = ({ onContactClick }) => {
               onClick={onContactClick}
               className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 text-base font-semibold text-white bg-navy-800 hover:bg-navy-900 rounded-xl shadow-card hover:shadow-card-hover transition-all duration-200 group border border-navy-700"
             >
-              <span>Contact Lawyers’ Associates</span>
+              <span>Contact {firmConfig.name}</span>
               <ChevronRight className="w-5 h-5 ml-2 text-gold-400 group-hover:translate-x-0.5 transition-transform" />
             </button>
 

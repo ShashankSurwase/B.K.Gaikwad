@@ -25,7 +25,7 @@ export const WhyChooseUs: React.FC = () => {
             Why Choose Us?
           </h2>
           <p className="text-base sm:text-lg text-slate-muted dark:text-slate-400">
-            Let our experience pave the path to your success. Grounded in 35+ years of courtroom heritage, meticulous pre-litigation scrutiny, and dedicated client advocacy.
+            Let our experience pave the path to your success. Grounded in 38+ years of courtroom heritage, meticulous pre-litigation scrutiny, and dedicated client advocacy.
           </p>
         </div>
 

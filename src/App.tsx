@@ -2,43 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { PracticeAreas } from './components/PracticeAreas';
+import { Counselling } from './components/Counselling';
 import { Team } from './components/Team';
 import { Gallery } from './components/Gallery';
-import { Counselling } from './components/Counselling';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { PracticeModal } from './components/PracticeModal';
+import { DisclaimerModal } from './components/DisclaimerModal';
 import { PracticeArea } from './types';
 import { practiceAreas } from './data/firmData';
 
 export const App: React.FC = () => {
-  // Dark / Night Mode state with localStorage persistence
-  const [isDark, setIsDark] = useState<boolean>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('theme');
-      if (saved) return saved === 'dark';
-      return window.matchMedia('(prefers-color-scheme: dark)').matches;
-    }
-    return false;
-  });
-
+  // Unified single view theme (Rich Dark Navy Luxury Chambers Theme)
   useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [isDark]);
-
-  const toggleDarkMode = () => {
-    setIsDark(prev => !prev);
-  };
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+  }, []);
 
   // Practice Modal state
   const [selectedPracticeArea, setSelectedPracticeArea] = useState<PracticeArea | null>(null);
   const [practiceModalOpen, setPracticeModalOpen] = useState(false);
+
+  // Disclaimer Modal state (can be triggered from footer as well)
+  const [disclaimerForceOpen, setDisclaimerForceOpen] = useState(false);
 
   // Smooth scroll helper
   const scrollTo = (elementId: string) => {
@@ -71,11 +57,13 @@ export const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-navy-950 text-slate-dark dark:text-slate-100 antialiased transition-colors duration-200">
 
-      <Navbar
-        onBookConsultation={handleBookConsultation}
-        isDark={isDark}
-        onToggleDark={toggleDarkMode}
+      {/* Mandatory Bar Council of India Rule 36 Pop-up Notice on Entry */}
+      <DisclaimerModal
+        forceOpen={disclaimerForceOpen}
+        onCloseForce={() => setDisclaimerForceOpen(false)}
       />
+
+      <Navbar onBookConsultation={handleBookConsultation} />
 
       <main className="flex-1">
         {/* 1. Hero & About Chambers (Integrated) */}
@@ -84,26 +72,29 @@ export const App: React.FC = () => {
           onExploreServices={handleExploreServices}
         />
 
-        {/* 2. Practice Areas */}
+        {/* 2. Legal Practice Areas */}
         <PracticeAreas
           onSelectPracticeArea={handleSelectPracticeArea}
           onBookConsultation={handleBookConsultation}
         />
 
-        {/* 3. Team & Active Jurisdictions */}
-        <Team onConsultWithMember={() => handleBookConsultation()} />
-
-        {/* 4. Gallery & Media */}
-        <Gallery />
-
-        {/* 5. Counselling Services */}
+        {/* 3. Mind Care & Counselling Wing (Positioned before Team Section) */}
         <Counselling />
 
-        {/* 6. Contact & Consultation Intake */}
+        {/* 4. Our Team & Advocates */}
+        <Team onConsultWithMember={() => handleBookConsultation()} />
+
+        {/* 5. Chambers Gallery (Positioned before Get In Touch / Contact) */}
+        <Gallery />
+
+        {/* 6. Contact & Consultation Intake (Get In Touch) */}
         <Contact />
       </main>
 
-      <Footer onSelectPracticeArea={handleSelectPracticeById} />
+      <Footer
+        onSelectPracticeArea={handleSelectPracticeById}
+        onOpenDisclaimer={() => setDisclaimerForceOpen(true)}
+      />
 
       {/* Practice Area Modal */}
       <PracticeModal

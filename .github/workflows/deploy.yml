@@ -1,4 +1,4 @@
-name: Deploy Lawyers Associates to GitHub Pages
+name: Deploy B.K. Gaikwad and Associates to GitHub Pages
 
 on:
   push:

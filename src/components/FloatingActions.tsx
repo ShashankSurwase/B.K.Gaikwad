@@ -34,7 +34,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({ onBookConsulta
         </a>
 
         <a
-          href={`https://wa.me/${firmConfig.phone.replace(/[^0-9]/g, '')}?text=Hello%20Lawyers%20Associates,%20I%20would%20like%20to%20inquire%20about%20legal%20services.`}
+          href={`https://wa.me/${firmConfig.phone.replace(/[^0-9]/g, '')}?text=Hello%20B.K.%20Gaikwad%20and%20Associates,%20I%20would%20like%20to%20inquire%20about%20legal%20services.`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 py-2 px-2.5 rounded-lg bg-emerald-600 text-white text-xs font-semibold flex items-center justify-center gap-1.5 shadow-xs"
@@ -56,7 +56,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({ onBookConsulta
       <div className="hidden sm:flex fixed bottom-6 right-6 z-40 flex-col items-end gap-2.5">
         {/* WhatsApp Quick Action */}
         <a
-          href={`https://wa.me/${firmConfig.phone.replace(/[^0-9]/g, '')}?text=Hello%20Lawyers%20Associates,%20I%20would%20like%20to%20inquire%20about%20legal%20services.`}
+          href={`https://wa.me/${firmConfig.phone.replace(/[^0-9]/g, '')}?text=Hello%20B.K.%20Gaikwad%20and%20Associates,%20I%20would%20like%20to%20inquire%20about%20legal%20services.`}
           target="_blank"
           rel="noopener noreferrer"
           className="w-11 h-11 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-card flex items-center justify-center transition-all hover:scale-105"

@@ -1,12 +1,14 @@
 import React from 'react';
-import { Phone, Mail, MapPin, ChevronRight, Shield } from 'lucide-react';
+import { MapPin, ChevronRight, Shield } from 'lucide-react';
 import { firmConfig, practiceAreas } from '../data/firmData';
+import { getAssetUrl } from '../utils/assets';
 
 interface FooterProps {
   onSelectPracticeArea: (areaId: string) => void;
+  onOpenDisclaimer?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onSelectPracticeArea }) => {
+export const Footer: React.FC<FooterProps> = ({ onSelectPracticeArea, onOpenDisclaimer }) => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -19,14 +21,11 @@ export const Footer: React.FC<FooterProps> = ({ onSelectPracticeArea }) => {
           {/* Col 1: Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-navy-800 text-gold-400 flex items-center justify-center border border-navy-700 shrink-0">
-                <svg className="w-4.5 h-4.5 stroke-current fill-none" viewBox="0 0 24 24" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
-                  <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
-                  <path d="M7 21h10" />
-                  <path d="M12 3v18" />
-                </svg>
-              </div>
+              <img
+                src={getAssetUrl('images/logo.jpeg')}
+                alt="B.K. Gaikwad and Associates Logo"
+                className="w-11 h-11 rounded-xl object-contain border border-gold-400/50 bg-navy-900 p-0.5 shadow-md shrink-0"
+              />
               <div>
                 <h3 className="font-serif text-lg font-bold text-white">{firmConfig.name}</h3>
                 <p className="text-xs text-gold-400/80">{firmConfig.altName} · {firmConfig.tagline}</p>
@@ -63,27 +62,52 @@ export const Footer: React.FC<FooterProps> = ({ onSelectPracticeArea }) => {
             </ul>
           </div>
 
-          {/* Col 3: Contact Info */}
-          <div className="space-y-3">
-            <h4 className="font-serif text-sm font-bold uppercase tracking-wider text-white">Chambers</h4>
-            <ul className="space-y-3 text-xs">
-              <li className="flex items-start gap-2.5">
+          {/* Col 3: Contact Info (Both Offices) */}
+          <div className="space-y-4">
+            <div>
+              <h4 className="font-serif text-sm font-bold uppercase tracking-wider text-white">Chamber Offices</h4>
+            </div>
+
+            {/* Office 1: Pune */}
+            <div className="space-y-2 text-sm">
+              <div className="font-semibold text-gold-400 text-xs uppercase tracking-wider">
+                Principal Chambers (Pune / Khed)
+              </div>
+              <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
-                <span className="text-slate-300 leading-snug">{firmConfig.address}</span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-teal-400 shrink-0" />
-                <a href={`tel:${firmConfig.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-gold-400 transition-colors">
-                  {firmConfig.phone}
+                <span className="text-slate-200 leading-snug">{firmConfig.address}</span>
+              </div>
+              <div className="flex items-center gap-3 pt-0.5 font-mono text-xs sm:text-sm font-semibold">
+                <a href="tel:+917507095230" className="hover:text-gold-400 text-slate-200 transition-colors">
+                  +91 75070 95230
                 </a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-teal-400 shrink-0" />
-                <a href={`mailto:${firmConfig.email}`} className="hover:text-gold-400 transition-colors">
-                  {firmConfig.email}
+                <span>•</span>
+                <a href="tel:+919850145197" className="hover:text-gold-400 text-slate-200 transition-colors">
+                  +91 98501 45197
                 </a>
-              </li>
-            </ul>
+              </div>
+            </div>
+
+            {/* Office 2: Tuljapur Associate Partner Chambers */}
+            <div className="space-y-2 text-sm pt-3 border-t border-navy-800/80">
+              <div className="font-semibold text-teal-400 text-xs uppercase tracking-wider">
+                Associate Partner Chambers (Tuljapur / Dharashiv)
+              </div>
+              <div className="text-xs text-amber-300 font-semibold -mt-1">
+                Chambers of Adv. Deepak Hundekar (Associate Partner)
+              </div>
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <span className="text-slate-200 leading-snug">
+                  Kranti Lodge, Bhavani Road, Near Tuljabhavani Temple, Tuljapur, Dist. Dharashiv - 413601
+                </span>
+              </div>
+              <div className="flex items-center gap-2 pt-0.5 font-mono text-xs sm:text-sm font-semibold">
+                <a href="tel:+919890006200" className="hover:text-gold-400 text-slate-200 transition-colors">
+                  +91 98900 06200
+                </a>
+              </div>
+            </div>
 
             {/* Practice Areas quick list */}
             <div className="pt-4 border-t border-navy-800 space-y-2">
@@ -110,13 +134,22 @@ export const Footer: React.FC<FooterProps> = ({ onSelectPracticeArea }) => {
           <p className="text-[11px] text-slate-500 leading-relaxed">
             <span className="font-semibold text-slate-400">Bar Council of India Disclaimer:</span>{' '}
             As per Rule 36 of the Bar Council of India Rules, advocates are prohibited from soliciting work or advertising in any form. By accessing this website, the user acknowledges that the information is solely for informational purposes and does not create an advocate-client relationship. Independent legal advice should always be sought for specific matters.
+            {onOpenDisclaimer && (
+              <button
+                type="button"
+                onClick={onOpenDisclaimer}
+                className="ml-2 text-gold-400 hover:text-gold-300 underline font-semibold transition-colors cursor-pointer"
+              >
+                Review BCI Disclaimer Pop-up
+              </button>
+            )}
           </p>
         </div>
 
         {/* Bottom bar */}
         <div className="pt-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
           <div>
-            © {currentYear} {firmConfig.name} & {firmConfig.altName}. All rights reserved.
+            © {currentYear} {firmConfig.name}. All rights reserved.
           </div>
           <div className="text-[11px]">
             Advocates Act, 1961 · All-India Practice Rights under Section 30

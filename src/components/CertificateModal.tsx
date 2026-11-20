@@ -49,6 +49,17 @@ const allCertificates: CertificateItem[] = [
     badge: 'Advocate on Roll (2021)'
   },
   {
+    id: 'abhijeet-2023',
+    holderName: 'Gaikwad Abhijeet Balasaheb',
+    title: 'Bar Council of Maharashtra & Goa — Roll of Advocates',
+    authority: 'Bar Council of Maharashtra & Goa',
+    enrolmentNo: 'En. No. MAH/3455/2023 (Sr. No. 226567)',
+    date: '1st July 2023',
+    imageUrl: getAssetUrl('images/certificate-abhijeet.png'),
+    description: 'Official Certificate of Enrolment granted under Section 17 of the Advocates Act, 1961 at Mumbai, certifying Gaikwad Abhijeet Balasaheb (B.Com. LL.B.) as an Advocate.',
+    badge: 'Advocate on Roll (2023)'
+  },
+  {
     id: 'shraddha-counsel',
     holderName: 'Adv. Shraddha Mahavir Sontakke (Gaikwad)',
     title: 'Diploma in Basic Counselling Skill & Brain Science',

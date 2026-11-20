@@ -1,38 +1,64 @@
-import { PracticeArea, TeamMember, FAQItem, ValueProp, ApproachStep, InsightArticle } from '../types';
+import { PracticeArea, TeamMember, FAQItem, ValueProp, ApproachStep, InsightArticle, CounsellingDomain } from '../types';
 import { getAssetUrl } from '../utils/assets';
 
 export const firmConfig = {
-  name: "B.K. Associates",
-  altName: "Lawyers’ Associates",
-  chambersName: "Shivanushka Advocate Chambers & Chambers of Adv. B.K. Gaikwad",
-  tagline: "Advocates, Legal Counsel & Counselling Chambers",
-  legalDivision: "B.K. Legal Practice (Litigation & Courtroom Advocacy)",
-  counsellingDivision: "Shivanushka MindCare & Counselling Wing",
+  name: "B.K. Gaikwad and Associates",
+  altName: "B.K. Gaikwad and Associates",
+  chambersName: "B.K. Gaikwad and Associates",
+  tagline: "Advocates, Legal Counsel & MindCare Counselling Chambers",
+  shortTagline: "Advocates & MindCare Counselling",
+  legalDivision: "B.K. Legal Practice (Courtroom Advocacy & Trial Practice)",
+  counsellingDivision: "Mind Care & Counselling Wing",
   jurisdiction: "All-India Legal Practice · Enrolled under the Advocates Act, 1961",
   phone: "+91 75070 95230",
-  altPhone: "+91 98220 12345",
-  displayPhone: "+91 75070 95230 / +91 98220 12345",
-  email: "gaikwadshreya30@gmail.com",
-  altEmail: "contact@lawyersassociates.in",
-  address: "No. 204, Shivanushka Advocate Chambers & Chambers of Adv. B.K. Gaikwad, Near District Court, Rajgurunagar, Pune - 410505, Maharashtra, India",
-  googleMapsUrl: "https://maps.google.com/?q=Near+District+Court,+Rajgurunagar,+Pune+-+410505",
+  altPhone: "+91 98501 45197",
+  displayPhone: "+91 75070 95230 / +91 98501 45197",
+  email: "gaikwad.legaladvisory@gmail.com",
+  altEmail: "themindcare.counselling@gmail.com",
+  legalEmail: "gaikwad.legaladvisory@gmail.com",
+  counsellingEmail: "themindcare.counselling@gmail.com",
+  address: "No. 204, Shivanushka Advocate Chambers, Near Session & District Court, Rajgurunagar, Tal. Khed, Dist. Pune - 410505",
+  branchAddress: "Kranti Lodge, Bhavani Road, Near Tuljabhavani Temple, Tuljapur, Dist. Dharashiv - 413601",
+  googleMapsUrl: "https://maps.app.goo.gl/CVAaBVgH2MLnPBBT6",
+  branchGoogleMapsUrl: "https://maps.app.goo.gl/FvnMoYQ446jaeqvz8",
+  offices: [
+    {
+      id: "pune-principal",
+      type: "Principal Chambers (Pune / Rajgurunagar)",
+      name: "B.K. Gaikwad and Associates",
+      address: "No. 204, Shivanushka Advocate Chambers, Near Session & District Court, Rajgurunagar, Tal. Khed, Dist. Pune - 410505",
+      phone: "+91 75070 95230 / +91 98501 45197",
+      email: "gaikwad.legaladvisory@gmail.com",
+      googleMapsUrl: "https://maps.app.goo.gl/CVAaBVgH2MLnPBBT6"
+    },
+    {
+      id: "tuljapur-branch",
+      type: "Associate Partner Chambers (Tuljapur / Dharashiv)",
+      name: "Chambers of Adv. Deepak Hundekar (Associate Partner Office)",
+      address: "Kranti Lodge, Bhavani Road, Near Tuljabhavani Temple, Tuljapur, Dist. Dharashiv - 413601",
+      phone: "+91 98900 06200",
+      email: "gaikwad.legaladvisory@gmail.com",
+      googleMapsUrl: "https://maps.app.goo.gl/FvnMoYQ446jaeqvz8"
+    }
+  ],
   officeHours: "Monday – Saturday: 10:00 AM – 7:30 PM (Sunday: By Prior Appointment)",
   foundedYear: "1987",
-  seniorHeritage: "35+ Years of Legal Heritage",
+  seniorHeritage: "38+ Years Senior Courtroom Heritage · Ex-Public Prosecutor",
   activeJurisdictions: [
     "Rajgurunagar (Khed) District & Sessions Court",
     "Pune District & Sessions Court & Family Courts",
-    "High Court of Judicature at Bombay (Mumbai)",
-    "Thane District & Sessions Court",
+    "Thane Court",
+    "Belapur District & Sessions Court",
     "Junnar Civil & Criminal Courts",
-    "Vadgaon Maval Judicial Court"
+    "Vadgaon Maval Judicial Court",
+    "Tuljapur / Dharashiv District Courts"
   ]
 };
 
 export const valueProps: ValueProp[] = [
   {
     title: "Professional Integrity",
-    description: "Strict adherence to the Advocates Act, 1961 and uncompromising ethical standards established across 35+ years of courtroom heritage.",
+    description: "Strict adherence to the Advocates Act, 1961 and uncompromising ethical standards established across 38+ years of courtroom heritage.",
     icon: "ShieldCheck"
   },
   {
@@ -59,7 +85,7 @@ export const practiceAreas: PracticeArea[] = [
     shortDesc: "Comprehensive representation in recovery suits, injunctions, declarations, land disputes, and appellate proceedings.",
     category: "litigation",
     icon: "Scale",
-    fullDesc: "We provide comprehensive civil dispute representation before Civil Courts, District Courts, High Courts, and Appellate Tribunals. Our practice spans money recovery, property title declarations, perpetual and temporary injunctions, execution proceedings, and contractual breaches.",
+    fullDesc: "We provide comprehensive civil dispute representation before Civil Courts, District & Sessions Courts, and Appellate Forums. Our practice spans money recovery, property title declarations, perpetual and temporary injunctions, execution proceedings, and contractual breaches.",
     keyServices: [
       "Civil Suits for Declaration, Possession & Injunction (Order 39 CPC)",
       "Summary Suits & Commercial Money Recovery",
@@ -89,7 +115,7 @@ export const practiceAreas: PracticeArea[] = [
       "Cheque Dishonour Defense & Prosecution (Sec. 138 NI Act)",
       "Domestic Violence (DV Act) and Penal Offense Defense"
     ],
-    procedure: "Urgent review of FIR / charge-sheet, drafting bail petition highlighting judicial precedents, representation before Magistrates / Sessions / High Courts, and rigorous trial cross-examination.",
+    procedure: "Urgent review of FIR / charge-sheet, drafting bail petition highlighting judicial precedents, representation before Magistrates / JMFC & Sessions Courts, and rigorous trial cross-examination.",
     requiredDocuments: [
       "Copy of FIR, remand orders, or police complaint",
       "Charge-sheet / police investigation report (if filed)",
@@ -131,7 +157,7 @@ export const practiceAreas: PracticeArea[] = [
       "Calculation of Multiplier, Future Income Loss & Medical Expenses",
       "Securing Interim Relief & 'No Fault Liability' Compensation",
       "Trial Representation & Expert Doctor / Mechanical Witness Cross-Examination",
-      "Execution of MACT Awards & High Court First Appeals"
+      "Execution of MACT Awards & Statutory Appeals"
     ],
     procedure: "Gathering police Panchnama, FIR, and charge-sheet; filing claim petition before MACT having jurisdiction; framing issues; lead evidence of doctors and employers; and securing decree execution.",
     requiredDocuments: [
@@ -307,17 +333,72 @@ export const approachSteps: ApproachStep[] = [
 export const teamMembers: TeamMember[] = [
   {
     id: "balu-gaikwad",
-    name: "Shri Balu K. Gaikwad",
+    name: "Adv. Balasaheb K. Gaikwad",
     role: "Founder & Senior Counsel",
-    designation: "Advocate, High Court & District Courts",
+    designation: "Advocate, District & Sessions Court · Ex-Special Public Prosecutor (PCPNDT, Pune & Thane) · Ex-Govt. Public Prosecutor (22 Yrs)",
     qualifications: "B.A., LL.B.",
+    mobile: "+91 98501 45197",
+    whatsappNumber: "919850145197",
+    email: "appbkgaikwad@gmail.com",
+    officeLocation: "No. 204, Shivanushka Advocate Chambers, Near Session & District Court, Rajgurunagar, Pune - 410505",
     barEnrolment: "MAH / 1647 / 1987",
     barEnrolmentDate: "22nd December 1987",
-    experienceYears: "35+ Years Senior Courtroom Practice",
-    specialties: ["Civil Litigation", "Property Law & Land Revenue", "Criminal Trials", "Appellate Advocacy"],
-    bio: "Enrolled with the Bar Council of Maharashtra in December 1987 under the Advocates Act, 1961, Shri Balu K. Gaikwad brings over three and a half decades of deep courtroom experience. Having represented clients across civil, land revenue, and criminal proceedings, his practice is rooted in meticulous legal drafting, unshakeable courtroom advocacy, and judicial integrity.",
-    photoUrl: getAssetUrl('images/certificate-bk.jpg'),
-    hasCustomPhoto: false,
+    experienceYears: "38+ Years Senior Courtroom Practice",
+    specialties: [
+      "Criminal Defense & Sessions Trials (10,000+ Cases Handled)",
+      "Ex-Special Public Prosecutor for PCPNDT (Pune & Thane Districts)",
+      "Defense Counsel in JMFC & Sessions Court",
+      "High-Stakes Bail Applications (Sec 437/438/439 CrPC / BNSS)",
+      "Land Revenue, 7/12 Mutation & Ancestral Partition",
+      "Civil Suits & Appellate Advocacy"
+    ],
+    bio: "Enrolled with the Bar Council of Maharashtra in December 1987 under the Advocates Act, 1961, Adv. Balasaheb K. Gaikwad brings over 38+ years of courtroom mastery with over 10,000+ cases handled as senior defense counsel and prosecutor across JMFC (Judicial Magistrate First Class) and District & Sessions Courts. Appointed by the Government of Maharashtra, he served for over 22 years (1997–2019) as Ex-Public Prosecutor across Vaijapur, Barshi, Rajgurunagar, Thane Court, and Vadgaon Maval, and notably served as Ex-Special Public Prosecutor for PCPNDT cases across both Thane and Pune districts. Returning to senior private practice in 2019, his advocacy combines unmatched prosecution insight with formidable criminal defense and civil litigation leadership.",
+    photoUrl: getAssetUrl('images/team-balasaheb.jpg'),
+    hasCustomPhoto: true,
+    careerTimeline: [
+      {
+        period: "2019 – Present",
+        role: "Senior Counsel & Founder",
+        location: "Chambers of Adv. B.K. Gaikwad & B.K. Gaikwad and Associates",
+        details: "Senior trial counsel, strategic defense advocate, and mentor across District & Sessions Courts and JMFC."
+      },
+      {
+        period: "2014 – 2019",
+        role: "Ex-Public Prosecutor & Ex-Special Public Prosecutor (PCPNDT, Pune & Thane)",
+        location: "Vadgaon Maval Court (Lonavala Jurisdiction)",
+        details: "Supervised state prosecutions and served as nominated legal expert and Ex-Special Public Prosecutor for the Government of Maharashtra for PCPNDT cases in Pune and Thane districts."
+      },
+      {
+        period: "2010 – 2014",
+        role: "Ex-Public Prosecutor (Govt. of Maharashtra)",
+        location: "Thane Court",
+        details: "Handled extensive sessions trials, economic offenses, and serious penal code prosecutions in Thane district."
+      },
+      {
+        period: "2005 – 2010",
+        role: "Ex-Public Prosecutor (Govt. of Maharashtra)",
+        location: "Rajgurunagar (Khed) Court",
+        details: "Managed prosecution before Judicial Magistrates and Sessions Courts across the Khed-Rajgurunagar taluka."
+      },
+      {
+        period: "1999 – 2005",
+        role: "Ex-Public Prosecutor (Govt. of Maharashtra)",
+        location: "Barshi Court (Solapur District)",
+        details: "Led trial prosecution across IPC offenses, evidentiary witness cross-examinations, and contested bail oppositions."
+      },
+      {
+        period: "1997 – 1999",
+        role: "Ex-Public Prosecutor (Govt. of Maharashtra)",
+        location: "Vaijapur Judicial Court (Aurangabad District)",
+        details: "Conducted statutory state prosecutions, police charge-sheet reviews, and criminal trial hearings."
+      },
+      {
+        period: "1987 – 1997",
+        role: "Advocate – Independent Legal Practice",
+        location: "District & Sessions Courts",
+        details: "Built foundational trial practice across civil suits, land revenue litigations, and criminal defense matters."
+      }
+    ],
     certificates: [
       {
         title: "Bar Council of Maharashtra Enrolment Certificate",
@@ -328,11 +409,54 @@ export const teamMembers: TeamMember[] = [
     ]
   },
   {
+    id: "deepak-hundekar",
+    name: "Adv. Deepak Hundekar",
+    role: "Associate Partner · Advocate & Senior Business Tax Consultant",
+    designation: "Associate Partner · Advocate (MAH/2119/2000) · Senior Business Tax Consultant",
+    qualifications: "M.A., LL.B.",
+    mobile: "+91 98900 06200",
+    whatsappNumber: "919890006200",
+    officeLocation: "Associate Partner Chambers: Kranti Lodge, Bhavani Road, Near Tuljabhavani Temple, Tuljapur, Dist. Dharashiv - 413601",
+    barEnrolment: "MAH / 2119 / 2000",
+    barEnrolmentDate: "Year 2000",
+    experienceYears: "24+ Years Legal Practice (Since 2000)",
+    specialties: [
+      "Business Tax Consultancy (Since 2005)",
+      "Corporate & Commercial Tax Planning",
+      "GST, Income Tax & Revenue Compliance",
+      "Civil & Commercial Litigation",
+      "Contractual Due Diligence & Financial Advisory"
+    ],
+    bio: "Adv. Deepak Hundekar is an Associate Partner associated with B.K. Gaikwad and Associates, operating his own established chambers at Tuljapur (Dharashiv District). Holding an M.A. and LL.B. and enrolled with the Bar Council of Maharashtra & Goa (Enrolment No. MAH/2119/2000), he brings over 24+ years of rich legal and consulting experience. Since 2005, he has specialized in business tax consultancy, corporate tax planning, statutory revenue compliance, and commercial contract advisory from our Tuljapur / Dharashiv associate partner chambers, assisting enterprises and private clients with precision and fiscal acumen.",
+    photoUrl: getAssetUrl('images/team-deepak.jpg'),
+    hasCustomPhoto: true,
+    careerTimeline: [
+      {
+        period: "2005 – Present",
+        role: "Associate Partner & Senior Business Tax Consultant",
+        location: "Associate Partner Chambers at Tuljapur / Dharashiv",
+        details: "Specialized in corporate tax advisory, GST/income tax strategy, commercial structuring, and business compliance."
+      },
+      {
+        period: "2000 – Present",
+        role: "Advocate – Legal Practice",
+        location: "District Courts & Tribunals",
+        details: "Commenced active courtroom practice in 2000 under Bar Council Enrolment No. MAH/2119/2000 across civil, property, and commercial disputes."
+      }
+    ],
+    certificates: []
+  },
+  {
     id: "shreya-gaikwad",
-    name: "Adv. Shreya Balasaheb Gaikwad",
+    name: "Adv. Shreya B. Gaikwad",
     role: "Advocate – District & Sessions Court",
     designation: "Advocate (Civil, Criminal & Business Law)",
     qualifications: "B.A., LL.B., LL.M. (Business Law)",
+    mobile: "+91 75070 95230",
+    whatsappNumber: "917507095230",
+    email: "gaikwadshreya30@gmail.com",
+    linkedinUrl: "https://www.linkedin.com/in/shreya-gaikwad-a16b0a442/",
+    officeLocation: "No. 204, Shivanushka Advocate Chambers & Chambers of Adv. B.K. Gaikwad, Near District Court, Rajgurunagar, Pune - 410505",
     barEnrolment: "MAH / 10606 / 2021",
     copNumber: "COP/2023/1111388 (AIBE-XVII)",
     barAssociation: "Rajgurunagar Bar Association (Active Member, 2021–Present)",
@@ -340,42 +464,74 @@ export const teamMembers: TeamMember[] = [
     experienceYears: "5+ Years Active Trial Practice",
     resumeUrl: getAssetUrl('documents/Shreya_Gaikwad_Legal_Resume.pdf'),
     specialties: [
-      "Criminal & Sessions Trials",
-      "Family Court & Matrimonial",
-      "Civil & Commercial Suits",
-      "Bail & Interim Injunctions",
-      "Motor Accident Claims (MACP)",
-      "Cheque Bounce (Sec 138 NI Act)"
+      "Criminal & Sessions Trials (IPC / BNSS & Bail Petitions)",
+      "Corporate & Business Law (LL.M.) & Commercial Contracts",
+      "Family Court & Matrimonial (Sole Custody & Maintenance)",
+      "Civil & Commercial Suits (Order 39 CPC Injunctions)",
+      "Motor Accident Claims (MACP / MACT)",
+      "Consumer Court Disputes (DCDRC)",
+      "Cheque Bounce (Sec 138 NI Act Recovery)",
+      "Pre-Litigation Dispute Conciliation & Structured Mediation"
     ],
     education: [
       { degree: "LL.M. (Business Law)", institution: "DES Shri Navalmal Firodia Law College, Pune (SPPU)", year: "2021 – 2023" },
       { degree: "LL.B.", institution: "Sarsenapati Hambirrao Mohite Law College, Rajgurunagar (SPPU)", year: "2018 – 2021" },
       { degree: "B.A.", institution: "Modern College of Arts, Science & Commerce, Ganeshkhind (SPPU)", year: "2013 – 2016" }
     ],
-    bio: "Adv. Shreya Balasaheb Gaikwad is an accomplished litigator with 5 years of courtroom experience practicing before the District and Sessions Courts across Maharashtra. Holding an LL.M. in Business Law and enrolled with the Bar Council of Maharashtra & Goa (MAH/10606/2021, BCI COP/2023/1111388), she has independently managed over 50 contested matters across criminal defense, anticipatory bails, matrimonial disputes, MACP compensation claims, and commercial debt recovery under Sec. 138 NI Act.",
+    bio: "Dedicated Advocate with five years of active litigation experience practicing before the District and Sessions Courts across Maharashtra. Holding an LL.M. in Business Law, she independently manages a diverse litigation docket of 50+ contested matters across Criminal Defense, Anticipatory & Regular Bails (Sec 437/438/439 CrPC / BNSS), Family Law, Motor Accident Claims (MACP), and Commercial Debt Recovery (Sec 138 NI Act). Notable achievements include securing sole child custody of a minor boy in favor of the mother alongside maintenance relief in Family Court, and successfully settling over 35% of disputes through pre-litigation structured mediation. Enrolled with the Bar Council of Maharashtra & Goa (MAH/10606/2021, BCI COP/2023/1111388) and holder of Certification in Medico-Legal Studies.",
     photoUrl: getAssetUrl('images/team-shreya.jpg'),
     hasCustomPhoto: true,
+    careerTimeline: [
+      {
+        period: "Oct 2021 – Present",
+        role: "Advocate – Litigation & Trial Practice",
+        location: "District & Sessions Court, Rajgurunagar (Khed) & Pune Judiciary",
+        details: "Independently managing 50+ contested trial matters across Criminal Defense, Sessions Trials, Family Court, MACP, and Sec 138 NI Act recovery."
+      },
+      {
+        period: "2021 – 2023",
+        role: "LL.M. Candidate (Business Law)",
+        location: "DES Shri Navalmal Firodia Law College, Pune",
+        details: "Specialized in corporate governance, commercial contract drafting, IP assignments, and business law dispute resolution."
+      }
+    ],
     certificates: [
       {
         title: "Bar Council of Maharashtra & Goa Enrolment Certificate",
         description: "Enrolment No. MAH/10606/2021 (Sr. No. 204981) entered on 11th October 2021 in the Roll of Advocates.",
         imageUrl: getAssetUrl('images/certificate-shreya.png'),
         enrolmentNo: "MAH/10606/2021"
+      },
+      {
+        title: "Certificate Course in Medico-Legal Studies",
+        description: "Certification in Medico-Legal jurisprudence, forensic evidence analysis, and medical negligence from DES SNFLC Pune.",
+        imageUrl: getAssetUrl('images/certificate-shreya.png')
       }
     ]
   },
   {
     id: "shraddha-gaikwad",
-    name: "Adv. Shraddha B. Gaikwad (Sontakke)",
-    role: "Advocate & Dispute Resolution Counsel",
-    designation: "Advocate, Bar Council of Maharashtra & Goa",
-    qualifications: "B.A., LL.B., Dip. Basic Counselling Skills",
+    name: "Adv. Shraddha B. Gaikwad",
+    role: "Advocate & Dispute Resolution Counsellor",
+    designation: "Advocate, Bar Council of Maharashtra & Goa · Certified Counsellor",
+    qualifications: "B.A., LL.B. (Counsellor)",
+    mobile: "+91 88578 03403",
+    whatsappNumber: "918857803403",
+    email: "shraddharajvirmahavir@gmail.com",
+    officeLocation: "No. 204, Shivanushka Advocate Chambers, Near Session & District Court, Rajgurunagar, Pune - 410505",
     barEnrolment: "MAH / 11145 / 2021",
     barEnrolmentDate: "11th October 2021",
     experienceYears: "Active Practice",
-    specialties: ["Family & Matrimonial Law", "Civil Dispute Resolution", "Mediation & Conciliation", "Consumer Rights"],
-    bio: "Adv. Shraddha B. Gaikwad holds a B.A., LL.B. and is enrolled with the Bar Council of Maharashtra & Goa (MAH/11145/2021). Distinctively combining legal expertise with a certified Diploma in Basic Counselling Skills (Brain Science, Mental Health & Psychology), she excels in resolving sensitive matrimonial disputes, family partitions, and mediation matters with exceptional clarity and empathy.",
-    photoUrl: getAssetUrl('images/team-shraddha.png'),
+    specialties: [
+      "Parent Counselling & Parental Guidance",
+      "Parent–Child Relationship Counselling",
+      "Family & Matrimonial Dispute Mediation",
+      "Pre-Litigation Conflict Conciliation",
+      "Emotional Well-being & Marital Alignment",
+      "Civil & Family Settlement Documentation"
+    ],
+    bio: "Adv. Shraddha B. Gaikwad holds a B.A., LL.B. and is enrolled with the Bar Council of Maharashtra & Goa (MAH/11145/2021). Distinctively combining legal expertise with a certified Diploma in Basic Counselling Skills (Brain Science, Mental Health & Psychology from Medhavi Skills University & Brainway Research Foundation), she focuses on resolving sensitive matrimonial disputes, parent-child generational gaps, and family conflicts through structured mediation, mutual understanding, and empathetic psychological guidance.",
+    photoUrl: getAssetUrl('images/team-shraddha.jpg'),
     hasCustomPhoto: true,
     certificates: [
       {
@@ -392,13 +548,57 @@ export const teamMembers: TeamMember[] = [
     ]
   },
   {
+    id: "abhijeet-gaikwad",
+    name: "Adv. Abhijeet S. Gaikwad",
+    role: "Advocate – Civil Suits, Documentation & Litigation",
+    designation: "Advocate, Bar Council of Maharashtra & Goa · Civil Suits & Documentation Specialist",
+    qualifications: "B.A., LL.M.",
+    mobile: "+91 83810 10305",
+    whatsappNumber: "918381010305",
+    officeLocation: "No. 204, Shivanushka Advocate Chambers, Near Session & District Court, Rajgurunagar, Pune - 410505",
+    barEnrolment: "MAH / 3455 / 2023",
+    barEnrolmentDate: "1st July 2023",
+    experienceYears: "Active Court Practice",
+    specialties: [
+      "Civil Suits (Plaints, Injunctions & Written Statements)",
+      "Civil & Property Documentation (Deeds, Partition, Gift Deeds)",
+      "Revenue Court Matters (7/12 Extracts, Mutation & PR Cards)",
+      "Commercial Contract Drafting & Legal Review",
+      "Criminal Bail Defense & Trial Support",
+      "Title Verification & Real Estate Due Diligence"
+    ],
+    bio: "Adv. Abhijeet S. Gaikwad holds a B.A. and LL.M. and is enrolled with the Bar Council of Maharashtra & Goa (MAH/3455/2023, Sr. No. 226567). He specializes in contested Civil Suits, property conveyance deeds, ancestral partition agreements, revenue court filings (7/12 & mutation entries), and corporate contract drafting with precision and diligent procedural execution.",
+    photoUrl: getAssetUrl('images/team-abhijeet.jpg'),
+    hasCustomPhoto: true,
+    certificates: [
+      {
+        title: "Bar Council of Maharashtra & Goa Enrolment Certificate",
+        description: "Enrolment No. MAH/3455/2023 (Sr. No. 226567) entered on 1st July 2023 in the Roll of Advocates under Section 17 of the Advocates Act, 1961.",
+        imageUrl: getAssetUrl('images/certificate-abhijeet.png'),
+        enrolmentNo: "MAH/3455/2023"
+      }
+    ]
+  },
+  {
     id: "shruti-gaikwad",
-    name: "Shruti B. Gaikwad",
+    name: "Miss. Shruti B. Gaikwad",
     role: "Legal Associate & Research Analyst",
-    designation: "Legal Researcher & Client Relations",
-    qualifications: "B.A., Dip. Basic Counselling Skills",
-    specialties: ["Case Law Research", "Client Intake Analysis", "Documentation Audit", "Conciliation Coordination"],
-    bio: "Shruti B. Gaikwad plays a pivotal role in the firm's pre-litigation case preparation and statutory research. Holding a Diploma in Basic Counselling Skills & Brain Science, she assists the counsel team in organizing evidence, drafting chronological briefs, and ensuring clients experience smooth, responsive communication.",
+    designation: "Legal Researcher & Certified Brain Science Counsellor",
+    qualifications: "M.Sc. (Organic Chemistry), Dip. in Counselling (Counsellor)",
+    mobile: "+91 83800 83657",
+    whatsappNumber: "918380083657",
+    email: "shrutigaikwad3703@gmail.com",
+    linkedinUrl: "https://www.linkedin.com/in/shruti-gaikwad-887a3232b/",
+    officeLocation: "No. 204, Shivanushka Advocate Chambers, Near Session & District Court, Rajgurunagar, Pune - 410505",
+    specialties: [
+      "Student Counselling & Academic Guidance (Exam Anxiety & Focus)",
+      "Adolescent Counselling & Youth Emotional Support",
+      "Overthinking & Negative Thought Management",
+      "Hormonal Health Awareness & Psychoeducation (Cortisol & Adrenaline)",
+      "Introduction to Therapeutic Approaches (CBT Awareness & Mindfulness)",
+      "Breathing & Diaphragmatic Relaxation Techniques"
+    ],
+    bio: "Miss Shruti B. Gaikwad holds a Master of Science (M.Sc.) in Organic Chemistry and a certified Diploma in Basic Counselling Skills & Brain Science from Medhavi Skills University and Brainway Research Foundation (Certificate No. 1930/2026). Combining her biochemical scientific background with psychological training, she specializes in student academic stress, adolescent guidance, overthinking patterns, psychoeducation on stress hormones (cortisol/adrenaline) and lifestyle habits, as well as practical mindfulness and breathing relaxation techniques.",
     photoUrl: getAssetUrl('images/team-shruti.jpg'),
     hasCustomPhoto: true,
     certificates: [
@@ -447,7 +647,7 @@ export const whyChooseUsPillars = [
 export const faqs: FAQItem[] = [
   {
     question: "How can I schedule an initial consultation?",
-    answer: "You can schedule a consultation by submitting the consultation form on this website, calling our chambers directly at +91 75070 95230, or emailing gaikwadshreya30@gmail.com. Our team will review the availability of counsel and confirm a mutually suitable time slot for an in-person or video conference."
+    answer: "You can schedule a consultation by submitting the consultation form on this website, calling our chambers directly at +91 75070 95230, or emailing gaikwad.legaladvisory@gmail.com (for legal practice) or themindcare.counselling@gmail.com (for MindCare psychological counselling). Our team will review the availability of counsel and confirm a mutually suitable time slot for an in-person or video conference."
   },
   {
     question: "What documents should I bring to the first consultation?",
@@ -463,7 +663,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: "Which courts and districts does your firm practice in?",
-    answer: "Our advocates regularly represent clients across District & Sessions Court Rajgurunagar (Khed), Pune Judiciary, Bombay High Court (Mumbai), Thane District Court, Junnar, and Vadgaon Maval Courts, as well as tribunals including MACT, DCDRC, and Revenue authorities."
+    answer: "Our advocates regularly represent clients across District & Sessions Court Rajgurunagar (Khed), Pune Judiciary, Thane Court, Belapur District & Sessions Court, Junnar, and Vadgaon Maval Courts, as well as tribunals including MACT, DCDRC, and Revenue authorities."
   },
   {
     question: "Can I request a review of my existing legal documents or contracts?",
@@ -514,7 +714,7 @@ export const insightArticles: InsightArticle[] = [
       "Rigorous verification of pending court lis pendens, encumbrance certificates, and zone planning permissions."
     ],
     fullAnalysis: [
-      "Real estate transactions in Pune district and wider Maharashtra represent high-value commitments that necessitate exhaustive title scrutiny. Many purchasers incorrectly assume that having the seller's name on the 7/12 village extract (Saat-Baara) guarantees absolute ownership. However, the Supreme Court and Bombay High Court have consistently held that revenue records are maintained for fiscal revenue collection and do not confer ownership title.",
+      "Real estate transactions in Pune district and wider Maharashtra represent high-value commitments that necessitate exhaustive title scrutiny. Many purchasers incorrectly assume that having the seller's name on the 7/12 village extract (Saat-Baara) guarantees absolute ownership. However, the Supreme Court of India and appellate courts have consistently held that revenue records are maintained for fiscal revenue collection and do not confer ownership title.",
       "A diligent property audit requires examining the 'Parent Title Chain' covering a minimum of 30 continuous years. Every conveyance deed, gift deed, release deed, partition deed, and succession certificate must be inspected to ensure title flowed lawfully between predecessors without missing legal heirs or unpartitioned coparcenary shares.",
       "Special attention must be paid to ancestral property rights under the Hindu Succession (Amendment) Act, 2005. Daughters and coparceners possess equal birthrights in coparcenary property, and any family arrangement or sale executed without their consent remains susceptible to partition challenges.",
       "Our chambers regularly conduct 30-year Sub-Registrar title searches, issue statutory public notices in leading Marathi and English newspapers, and draft detailed Title Search Reports and watertight Sale Deeds to safeguard purchasers against future boundary, inheritance, or encumbrance litigation."
@@ -583,7 +783,213 @@ export const insightArticles: InsightArticle[] = [
       "The enactment of the Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023 marks a significant procedural shift in India's criminal justice system, modernizing investigative protocols, electronic summons, and court remands while preserving essential constitutional guarantees of personal liberty under Article 21.",
       "In bail jurisprudence, the fundamental maxim that 'bail is the rule, jail is the exception' continues to anchor judicial discretion. For anticipatory bail under BNSS, applicants must demonstrate a genuine, reasonable apprehension of arrest in connection with a non-bailable offense, supported by contextual facts showing absence of flight risk or tampering potential.",
       "The BNSS incorporates clear parameters for electronic evidence presentation, audio-video recording of search and seizure operations, and expedited communication of court orders. Advocates must ensure that procedural lapses by investigating agencies are promptly highlighted during initial remand hearings.",
-      "Our courtroom practice combines urgent preparation of bail petitions, concise presentation of judicial precedents, and unwavering advocacy before Magistrates, Sessions Courts, and the High Court of Bombay."
+      "Our courtroom practice combines urgent preparation of bail petitions, concise presentation of judicial precedents, and unwavering advocacy before Magistrates, JMFC, and Sessions Courts."
     ]
   }
 ];
+
+export const counsellingDomains: CounsellingDomain[] = [
+  {
+    id: "student-counselling",
+    number: 10,
+    title: "Student Counselling & Academic Guidance",
+    category: "students-parents",
+    categoryTitle: "Academic & Youth Guidance",
+    shortDesc: "Understanding academic stress, exam anxiety, overthinking, and performance pressure.",
+    bullets: [
+      "Understanding academic stress, exam anxiety, overthinking, and performance pressure.",
+      "Developing effective study habits, time management, concentration, and goal-setting skills.",
+      "Providing emotional support to students dealing with academic challenges, peer pressure, and career-related confusion."
+    ],
+    recommendedFor: "School and college students, competitive exam aspirants, and youths facing career crossroads.",
+    counsellorLead: "Miss. Shruti B. Gaikwad"
+  },
+  {
+    id: "parent-counselling",
+    number: 11,
+    title: "Parent Counselling & Parental Guidance",
+    category: "students-parents",
+    categoryTitle: "Parental Guidance",
+    shortDesc: "Understanding children's emotional, psychological, and developmental needs.",
+    bullets: [
+      "Understanding children's emotional, psychological, and developmental needs.",
+      "Helping parents improve communication, build healthy relationships, and understand their children's behaviour.",
+      "Guiding parents in managing academic pressure, behavioural challenges, screen time, and emotional difficulties."
+    ],
+    recommendedFor: "Parents seeking structured guidance on parenting styles, developmental shifts, and adolescent changes.",
+    counsellorLead: "Adv. Shraddha B. Gaikwad"
+  },
+  {
+    id: "parent-child-relationship",
+    number: 12,
+    title: "Parent–Child Relationship Counselling",
+    category: "students-parents",
+    categoryTitle: "Family Dynamics",
+    shortDesc: "Improving parent–child communication through active listening and mutual understanding.",
+    bullets: [
+      "Improving parent–child communication through active listening and mutual understanding.",
+      "Addressing generational gaps, conflicts, trust issues, and differences in expectations.",
+      "Encouraging positive parenting practices and a supportive home environment."
+    ],
+    recommendedFor: "Families experiencing communication friction, generational disputes, or trust concerns.",
+    counsellorLead: "Adv. Shraddha B. Gaikwad"
+  },
+  {
+    id: "adolescent-counselling",
+    number: 13,
+    title: "Adolescent Counselling",
+    category: "students-parents",
+    categoryTitle: "Youth & Teen Support",
+    shortDesc: "Supporting teenagers through emotional, physical, social, and behavioural changes.",
+    bullets: [
+      "Supporting teenagers through emotional, physical, social, and behavioural changes.",
+      "Addressing peer pressure, self-esteem, identity concerns, and emotional challenges.",
+      "Encouraging healthy decision-making, confidence, and responsible behaviour."
+    ],
+    recommendedFor: "Teenagers (12–19 yrs) coping with identity questions, peer pressure, and emotional shifts.",
+    counsellorLead: "Miss. Shruti B. Gaikwad"
+  },
+  {
+    id: "overthinking-negative-thoughts",
+    number: 1,
+    title: "Overthinking & Negative Thought Management",
+    category: "stress-emotional",
+    categoryTitle: "Cognitive Well-being",
+    shortDesc: "Understanding the psychological causes and patterns of overthinking.",
+    bullets: [
+      "Understanding the psychological causes and patterns of overthinking.",
+      "Identifying repetitive negative thoughts and developing healthier thinking habits.",
+      "Learning practical strategies to manage excessive worrying and improve mental clarity."
+    ],
+    recommendedFor: "Individuals trapped in repetitive worry cycles, analysis paralysis, and rumination.",
+    counsellorLead: "Miss. Shruti B. Gaikwad"
+  },
+  {
+    id: "stress-management",
+    number: 2,
+    title: "Stress Management & Emotional Well-being",
+    category: "stress-emotional",
+    categoryTitle: "Stress Relief",
+    shortDesc: "Understanding the psychological and physical effects of stress.",
+    bullets: [
+      "Understanding the psychological and physical effects of stress.",
+      "Identifying personal stress triggers and developing healthy coping strategies.",
+      "Learning relaxation and self-management techniques to improve emotional balance."
+    ],
+    recommendedFor: "Professionals, homemakers, and individuals undergoing acute work, legal, or personal stress.",
+    counsellorLead: "Both Counsellors"
+  },
+  {
+    id: "anxiety-awareness",
+    number: 3,
+    title: "Anxiety Awareness & Management",
+    category: "stress-emotional",
+    categoryTitle: "Anxiety Support",
+    shortDesc: "Understanding anxiety, common symptoms, triggers, and behavioural patterns.",
+    bullets: [
+      "Understanding anxiety, common symptoms, triggers, and behavioural patterns.",
+      "Learning grounding, relaxation, and emotional regulation techniques.",
+      "Developing practical coping strategies to manage everyday anxiety."
+    ],
+    recommendedFor: "Individuals experiencing situational nervousness, restlessness, social discomfort, or panic feelings.",
+    counsellorLead: "Both Counsellors"
+  },
+  {
+    id: "depression-awareness",
+    number: 4,
+    title: "Depression Awareness & Supportive Counselling",
+    category: "stress-emotional",
+    categoryTitle: "Supportive Care",
+    shortDesc: "Understanding depressive symptoms, emotional difficulties, and behavioural changes.",
+    bullets: [
+      "Understanding depressive symptoms, emotional difficulties, and behavioural changes.",
+      "Exploring negative thought patterns and their influence on everyday functioning.",
+      "Providing emotional support, psychological guidance, and referrals for clinical assessment when required."
+    ],
+    recommendedFor: "Those feeling persistent low energy, emotional fatigue, or loss of interest in daily life.",
+    counsellorLead: "Both Counsellors"
+  },
+  {
+    id: "hormonal-health-awareness",
+    number: 5,
+    title: "Hormonal Health Awareness & Psychoeducation",
+    category: "psychoeducation",
+    categoryTitle: "Mind-Body Health",
+    shortDesc: "Understanding the role of hormones in mood, sleep, energy, stress, and emotional well-being.",
+    bullets: [
+      "Understanding the role of hormones in mood, sleep, energy, stress, and emotional well-being.",
+      "Learning how hormonal deficiencies or imbalances may influence physical and psychological health.",
+      "Providing awareness about healthy lifestyle habits that support hormonal well-being, while encouraging medical evaluation for suspected hormonal problems."
+    ],
+    recommendedFor: "Individuals seeking to understand how lifestyle, sleep, and physiological factors influence emotional balance.",
+    counsellorLead: "Miss. Shruti B. Gaikwad"
+  },
+  {
+    id: "stress-hormones-impact",
+    number: 6,
+    title: "Stress Hormones & Their Impact",
+    category: "psychoeducation",
+    categoryTitle: "Neurobiology & Stress",
+    shortDesc: "Understanding the functions of cortisol and adrenaline in the body's stress response.",
+    bullets: [
+      "Understanding the functions of cortisol and adrenaline in the body's stress response.",
+      "Exploring the effects of prolonged stress on sleep, mood, concentration, and physical well-being.",
+      "Learning stress-management and relaxation practices that support healthy stress regulation."
+    ],
+    recommendedFor: "Anyone suffering from burnout, sleep disruption, chronic fatigue, or nervous exhaustion.",
+    counsellorLead: "Miss. Shruti B. Gaikwad"
+  },
+  {
+    id: "intro-therapeutic-approaches",
+    number: 7,
+    title: "Introduction to Therapeutic Approaches",
+    category: "therapeutic-mindfulness",
+    categoryTitle: "Evidence-Based Tools",
+    shortDesc: "Understanding psychological approaches such as Cognitive Behavioural Therapy (CBT) and other evidence-based approaches.",
+    bullets: [
+      "Understanding psychological approaches such as Cognitive Behavioural Therapy (CBT) and other evidence-based approaches.",
+      "Exploring how therapeutic techniques can help manage unhelpful thoughts, stress, and emotional difficulties.",
+      "Learning practical coping, self-awareness, and emotional regulation strategies within the scope of counselling qualifications."
+    ],
+    recommendedFor: "Clients seeking structured, evidence-based self-awareness and emotional regulation strategies.",
+    counsellorLead: "Both Counsellors"
+  },
+  {
+    id: "meditation-mindfulness",
+    number: 8,
+    title: "Meditation & Mindfulness Practices",
+    category: "therapeutic-mindfulness",
+    categoryTitle: "Mindfulness & Focus",
+    shortDesc: "Understanding the psychological benefits of mindfulness and meditation.",
+    bullets: [
+      "Understanding the psychological benefits of mindfulness and meditation.",
+      "Practising guided meditation and present-moment awareness.",
+      "Developing relaxation habits to support emotional well-being."
+    ],
+    recommendedFor: "Individuals seeking mental clarity, reduced emotional reactivity, and daily tranquility.",
+    counsellorLead: "Miss. Shruti B. Gaikwad"
+  },
+  {
+    id: "breathing-relaxation",
+    number: 9,
+    title: "Breathing & Relaxation Techniques",
+    category: "therapeutic-mindfulness",
+    categoryTitle: "Somatic Relaxation",
+    shortDesc: "Learning diaphragmatic breathing, deep breathing, and controlled breathing exercises.",
+    bullets: [
+      "Learning diaphragmatic breathing, deep breathing, and controlled breathing exercises.",
+      "Practising breathing techniques to manage everyday stress and anxiety.",
+      "Using relaxation exercises to promote calmness and emotional regulation."
+    ],
+    recommendedFor: "Immediate self-regulation during moments of anxiety, stress spikes, or physical restlessness.",
+    counsellorLead: "Both Counsellors"
+  }
+];
+
+export const counsellingScopeNotice = {
+  approachTitle: "Our Approach to Counselling",
+  approachText: "Our counselling approach focuses on understanding thoughts, emotions, and behavioural patterns through psychological awareness and supportive guidance. We encourage individuals to develop healthier coping mechanisms, emotional resilience, self-awareness, and positive lifestyle habits.",
+  scopeTitle: "Professional Scope & Clinical Boundaries",
+  scopeText: "Counselling services focus on emotional support, psychological guidance, psychoeducation, and self-management techniques. We do not provide medical diagnosis, prescribe medication, or treat hormonal disorders. Individuals experiencing severe or persistent mental health symptoms are encouraged to seek assessment from a qualified clinical psychologist or psychiatrist. Hormonal concerns should be evaluated by a qualified medical professional.",
+  ethicsNote: "Therapeutic approaches including Cognitive Behavioural Therapy (CBT) concepts, mindfulness, and breathing techniques are introduced as knowledge of evidence-based self-regulation and psychoeducation within the scope of basic counselling qualifications."
+};

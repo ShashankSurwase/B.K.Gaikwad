@@ -88,7 +88,7 @@ export const PolicyModals: React.FC<PolicyModalProps> = ({ type, isOpen, onClose
               </p>
               <h4 className="font-serif font-bold text-navy-800 dark:text-white text-base">Governing Jurisdiction</h4>
               <p>
-                Any dispute arising out of or related to the use of this website shall be subject to the exclusive jurisdiction of the competent courts in Pune / Bombay High Court, Maharashtra, India.
+                Any dispute arising out of or related to the use of this website shall be subject to the exclusive jurisdiction of the competent courts in Pune District & Sessions Court, Maharashtra, India.
               </p>
             </>
           )}

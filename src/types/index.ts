@@ -26,6 +26,17 @@ export interface TeamMember {
   photoUrl: string;
   hasCustomPhoto: boolean;
   resumeUrl?: string;
+  email?: string;
+  mobile?: string;
+  whatsappNumber?: string;
+  linkedinUrl?: string;
+  officeLocation?: string;
+  careerTimeline?: {
+    period: string;
+    role: string;
+    location: string;
+    details?: string;
+  }[];
   education?: {
     degree: string;
     institution: string;
@@ -70,4 +81,16 @@ export interface InsightArticle {
   tags: string[];
   keyTakeaways: string[];
   fullAnalysis: string[];
+}
+
+export interface CounsellingDomain {
+  id: string;
+  number: number;
+  title: string;
+  category: 'students-parents' | 'stress-emotional' | 'psychoeducation' | 'therapeutic-mindfulness';
+  categoryTitle: string;
+  shortDesc: string;
+  bullets: string[];
+  recommendedFor: string;
+  counsellorLead: string;
 }
