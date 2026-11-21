@@ -43,7 +43,7 @@ export const firmConfig = {
   ],
   officeHours: "Monday – Saturday: 10:00 AM – 7:30 PM (Sunday: By Prior Appointment)",
   foundedYear: "1987",
-  seniorHeritage: "38+ Years Senior Courtroom Heritage · Ex-Public Prosecutor",
+  seniorHeritage: "38+ Years Senior Courtroom Heritage · Former Asst. Public Prosecutor",
   activeJurisdictions: [
     "Rajgurunagar (Khed) District & Sessions Court",
     "Pune District & Sessions Court & Family Courts",
@@ -335,7 +335,7 @@ export const teamMembers: TeamMember[] = [
     id: "balu-gaikwad",
     name: "Adv. Balasaheb K. Gaikwad",
     role: "Founder & Senior Counsel",
-    designation: "Advocate, District & Sessions Court · Ex-Special Public Prosecutor (PCPNDT, Pune & Thane) · Ex-Govt. Public Prosecutor (22 Yrs)",
+    designation: "Advocate, District & Sessions Court · Former Asst. Public Prosecutor (1997–2019, 22 Yrs) & Ex-Special Public Prosecutor (PCPNDT, Pune & Thane)",
     qualifications: "B.A., LL.B.",
     mobile: "+91 98501 45197",
     whatsappNumber: "919850145197",
@@ -352,7 +352,7 @@ export const teamMembers: TeamMember[] = [
       "Land Revenue, 7/12 Mutation & Ancestral Partition",
       "Civil Suits & Appellate Advocacy"
     ],
-    bio: "Enrolled with the Bar Council of Maharashtra in December 1987 under the Advocates Act, 1961, Adv. Balasaheb K. Gaikwad brings over 38+ years of courtroom mastery with over 10,000+ cases handled as senior defense counsel and prosecutor across JMFC (Judicial Magistrate First Class) and District & Sessions Courts. Appointed by the Government of Maharashtra, he served for over 22 years (1997–2019) as Ex-Public Prosecutor across Vaijapur, Barshi, Rajgurunagar, Thane Court, and Vadgaon Maval, and notably served as Ex-Special Public Prosecutor for PCPNDT cases across both Thane and Pune districts. Returning to senior private practice in 2019, his advocacy combines unmatched prosecution insight with formidable criminal defense and civil litigation leadership.",
+    bio: "Enrolled with the Bar Council of Maharashtra in December 1987 under the Advocates Act, 1961, Adv. Balasaheb K. Gaikwad brings over 38+ years of courtroom mastery with over 10,000+ cases handled as senior defense counsel and prosecutor across JMFC (Judicial Magistrate First Class) and District & Sessions Courts. Appointed by the Government of Maharashtra, he served for over 22 years (1997–2019) as Asst. Public Prosecutor across Vaijapur, Barshi, Rajgurunagar, Thane Court, and Vadgaon Maval, and notably served as Ex-Special Public Prosecutor for PCPNDT cases across both Thane and Pune districts. Returning to senior private practice in 2019, his advocacy combines unmatched prosecution insight with formidable criminal defense and civil litigation leadership.",
     photoUrl: getAssetUrl('images/team-balasaheb.jpg'),
     hasCustomPhoto: true,
     careerTimeline: [
@@ -364,31 +364,31 @@ export const teamMembers: TeamMember[] = [
       },
       {
         period: "2014 – 2019",
-        role: "Ex-Public Prosecutor & Ex-Special Public Prosecutor (PCPNDT, Pune & Thane)",
+        role: "Ex-Asst. Public Prosecutor & Ex-Special Public Prosecutor (PCPNDT, Pune & Thane)",
         location: "Vadgaon Maval Court (Lonavala Jurisdiction)",
         details: "Supervised state prosecutions and served as nominated legal expert and Ex-Special Public Prosecutor for the Government of Maharashtra for PCPNDT cases in Pune and Thane districts."
       },
       {
         period: "2010 – 2014",
-        role: "Ex-Public Prosecutor (Govt. of Maharashtra)",
+        role: "Ex-Asst. Public Prosecutor (Govt. of Maharashtra)",
         location: "Thane Court",
         details: "Handled extensive sessions trials, economic offenses, and serious penal code prosecutions in Thane district."
       },
       {
         period: "2005 – 2010",
-        role: "Ex-Public Prosecutor (Govt. of Maharashtra)",
+        role: "Ex-Asst. Public Prosecutor (Govt. of Maharashtra)",
         location: "Rajgurunagar (Khed) Court",
         details: "Managed prosecution before Judicial Magistrates and Sessions Courts across the Khed-Rajgurunagar taluka."
       },
       {
         period: "1999 – 2005",
-        role: "Ex-Public Prosecutor (Govt. of Maharashtra)",
+        role: "Ex-Asst. Public Prosecutor (Govt. of Maharashtra)",
         location: "Barshi Court (Solapur District)",
         details: "Led trial prosecution across IPC offenses, evidentiary witness cross-examinations, and contested bail oppositions."
       },
       {
         period: "1997 – 1999",
-        role: "Ex-Public Prosecutor (Govt. of Maharashtra)",
+        role: "Ex-Asst. Public Prosecutor (Govt. of Maharashtra)",
         location: "Vaijapur Judicial Court (Aurangabad District)",
         details: "Conducted statutory state prosecutions, police charge-sheet reviews, and criminal trial hearings."
       },
@@ -416,6 +416,7 @@ export const teamMembers: TeamMember[] = [
     qualifications: "M.A., LL.B.",
     mobile: "+91 98900 06200",
     whatsappNumber: "919890006200",
+    email: "samarth151@gmail.com",
     officeLocation: "Associate Partner Chambers: Kranti Lodge, Bhavani Road, Near Tuljabhavani Temple, Tuljapur, Dist. Dharashiv - 413601",
     barEnrolment: "MAH / 2119 / 2000",
     barEnrolmentDate: "Year 2000",
@@ -525,7 +526,7 @@ export const teamMembers: TeamMember[] = [
     specialties: [
       "Parent Counselling & Parental Guidance",
       "Parent–Child Relationship Counselling",
-      "Family & Matrimonial Dispute Mediation",
+      "Brain Science Counselling",
       "Pre-Litigation Conflict Conciliation",
       "Emotional Well-being & Marital Alignment",
       "Civil & Family Settlement Documentation"
@@ -555,6 +556,7 @@ export const teamMembers: TeamMember[] = [
     qualifications: "B.A., LL.M.",
     mobile: "+91 83810 10305",
     whatsappNumber: "918381010305",
+    email: "abhijeetgaikwad28797@gmail.com",
     officeLocation: "No. 204, Shivanushka Advocate Chambers, Near Session & District Court, Rajgurunagar, Pune - 410505",
     barEnrolment: "MAH / 3455 / 2023",
     barEnrolmentDate: "1st July 2023",
@@ -582,8 +584,8 @@ export const teamMembers: TeamMember[] = [
   {
     id: "shruti-gaikwad",
     name: "Miss. Shruti B. Gaikwad",
-    role: "Legal Associate & Research Analyst",
-    designation: "Legal Researcher & Certified Brain Science Counsellor",
+    role: "Certified Brain Science Counsellor",
+    designation: "Certified Brain Science Counsellor",
     qualifications: "M.Sc. (Organic Chemistry), Dip. in Counselling (Counsellor)",
     mobile: "+91 83800 83657",
     whatsappNumber: "918380083657",

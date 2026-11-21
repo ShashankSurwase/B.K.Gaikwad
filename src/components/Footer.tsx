@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, ChevronRight, Shield } from 'lucide-react';
+import { ChevronRight, Shield } from 'lucide-react';
 import { firmConfig, practiceAreas } from '../data/firmData';
 import { getAssetUrl } from '../utils/assets';
 
@@ -62,68 +62,27 @@ export const Footer: React.FC<FooterProps> = ({ onSelectPracticeArea, onOpenDisc
             </ul>
           </div>
 
-          {/* Col 3: Contact Info (Both Offices) */}
-          <div className="space-y-4">
-            <div>
-              <h4 className="font-serif text-sm font-bold uppercase tracking-wider text-white">Chamber Offices</h4>
-            </div>
-
-            {/* Office 1: Pune */}
-            <div className="space-y-2 text-sm">
-              <div className="font-semibold text-gold-400 text-xs uppercase tracking-wider">
-                Principal Chambers (Pune / Khed)
-              </div>
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
-                <span className="text-slate-200 leading-snug">{firmConfig.address}</span>
-              </div>
-              <div className="flex items-center gap-3 pt-0.5 font-mono text-xs sm:text-sm font-semibold">
-                <a href="tel:+917507095230" className="hover:text-gold-400 text-slate-200 transition-colors">
-                  +91 75070 95230
-                </a>
-                <span>•</span>
-                <a href="tel:+919850145197" className="hover:text-gold-400 text-slate-200 transition-colors">
-                  +91 98501 45197
-                </a>
-              </div>
-            </div>
-
-            {/* Office 2: Tuljapur Associate Partner Chambers */}
-            <div className="space-y-2 text-sm pt-3 border-t border-navy-800/80">
-              <div className="font-semibold text-teal-400 text-xs uppercase tracking-wider">
-                Associate Partner Chambers (Tuljapur / Dharashiv)
-              </div>
-              <div className="text-xs text-amber-300 font-semibold -mt-1">
-                Chambers of Adv. Deepak Hundekar (Associate Partner)
-              </div>
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                <span className="text-slate-200 leading-snug">
-                  Kranti Lodge, Bhavani Road, Near Tuljabhavani Temple, Tuljapur, Dist. Dharashiv - 413601
-                </span>
-              </div>
-              <div className="flex items-center gap-2 pt-0.5 font-mono text-xs sm:text-sm font-semibold">
-                <a href="tel:+919890006200" className="hover:text-gold-400 text-slate-200 transition-colors">
-                  +91 98900 06200
-                </a>
-              </div>
-            </div>
-
-            {/* Practice Areas quick list */}
-            <div className="pt-4 border-t border-navy-800 space-y-2">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Practice Areas</div>
-              <ul className="space-y-1.5 text-xs">
-                {practiceAreas.slice(0, 5).map((pa) => (
-                  <li key={pa.id}>
-                    <button
-                      onClick={() => onSelectPracticeArea(pa.id)}
-                      className="hover:text-gold-400 transition-colors text-left text-slate-400 line-clamp-1"
-                    >
-                      {pa.title}
-                    </button>
-                  </li>
-                ))}
-              </ul>
+          {/* Col 3: Practice Areas */}
+          <div className="space-y-3">
+            <h4 className="font-serif text-sm font-bold uppercase tracking-wider text-white">Practice Areas</h4>
+            <ul className="space-y-2 text-xs">
+              {practiceAreas.slice(0, 6).map((pa) => (
+                <li key={pa.id}>
+                  <button
+                    onClick={() => onSelectPracticeArea(pa.id)}
+                    className="hover:text-gold-400 transition-colors text-left text-slate-400 line-clamp-1 flex items-center gap-1.5"
+                  >
+                    <ChevronRight className="w-3 h-3 text-gold-500/70 shrink-0" />
+                    <span>{pa.title}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <div className="pt-3">
+              <a href="#contact" className="text-xs text-teal-400 hover:text-teal-300 font-semibold inline-flex items-center gap-1">
+                <span>View Chamber Offices & Locations in Contact</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </a>
             </div>
           </div>
 

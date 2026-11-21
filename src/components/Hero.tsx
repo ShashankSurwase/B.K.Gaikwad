@@ -1,7 +1,6 @@
 import React from 'react';
-import { firmConfig } from '../data/firmData';
 import {
-  Scale, Brain, Shield, ChevronRight,
+  Scale, Brain, ChevronRight,
   ArrowUpRight, HeartHandshake, Briefcase,
   Building2, MapPin, ShieldCheck, Award, Lock
 } from 'lucide-react';
@@ -93,7 +92,7 @@ export const Hero: React.FC<HeroProps> = ({ onScheduleConsultation, onExploreSer
                     Chambers of Law & Courtroom Advocacy
                   </h2>
                   <p className="text-xs sm:text-sm font-mono text-gold-400 mt-1 font-semibold">
-                    Adv. Balasaheb Gaikwad · Ex-Special Public Prosecutor (PCPNDT, Pune & Thane) · 10,000+ Cases Handled
+                    Adv. Balasaheb Gaikwad · Former Asst. Public Prosecutor (22 Yrs) & Ex-Special PP (PCPNDT) · 10,000+ Total Cases Handled
                   </p>
                 </div>
 
@@ -169,7 +168,7 @@ export const Hero: React.FC<HeroProps> = ({ onScheduleConsultation, onExploreSer
                 <div className="grid grid-cols-1 xs:grid-cols-2 gap-2 sm:gap-2.5 pt-2 text-xs sm:text-sm text-slate-100 font-medium">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-teal-400 shrink-0" />
-                    <span>Marriage & Couple Care</span>
+                    <span>Student & Parent Counselling</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-teal-400 shrink-0" />
@@ -181,7 +180,7 @@ export const Hero: React.FC<HeroProps> = ({ onScheduleConsultation, onExploreSer
                   </div>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-teal-400 shrink-0" />
-                    <span>Youth & Student Clarity</span>
+                    <span>Adolescent Emotional Support</span>
                   </div>
                 </div>
               </div>
@@ -224,7 +223,7 @@ export const Hero: React.FC<HeroProps> = ({ onScheduleConsultation, onExploreSer
                     </span>
                   </div>
                   <p className="text-xs sm:text-base text-slate-200 leading-relaxed font-normal">
-                    Over <strong className="text-gold-300 font-semibold">10,000+ criminal, civil, and bail cases handled</strong> before Judicial Magistrate First Class (JMFC) and District & Sessions Courts across Maharashtra. Former Ex-Public Prosecutor (1997–2019, 22 Years) & Ex-Special Public Prosecutor (PCPNDT, Pune & Thane).
+                    Over <strong className="text-gold-300 font-semibold">10,000+ criminal, civil, and bail cases handled</strong> before Judicial Magistrate First Class (JMFC) and District & Sessions Courts across Maharashtra. Former Asst. Public Prosecutor (1997–2019, 22 Years) & Ex-Special Public Prosecutor (PCPNDT, Pune & Thane).
                   </p>
                 </div>
               </div>
@@ -235,6 +234,17 @@ export const Hero: React.FC<HeroProps> = ({ onScheduleConsultation, onExploreSer
                 <span>Explore Legal Practices</span>
                 <ArrowUpRight className="w-4 h-4 text-navy-950" />
               </button>
+            </div>
+
+            {/* The Hybrid Superpower Box directly below 10,000+ Cases Banner */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-navy-900 via-navy-850 to-navy-900 border border-teal-500/40 shadow-xl space-y-2 text-left">
+              <div className="text-xs sm:text-sm font-bold text-teal-300 uppercase tracking-wider flex items-center gap-2">
+                <HeartHandshake className="w-4 h-4 text-teal-400 shrink-0" />
+                <span>The Hybrid Superpower: Law & MindCare Under One Roof</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                Whether you require fierce courtroom litigation defense or compassionate, confidential guidance through marriage or personal emotional crisis, our chambers provide comprehensive, end-to-end guidance.
+              </p>
             </div>
 
             {/* Authoritative 8-Metric Grid */}
@@ -352,11 +362,11 @@ export const Hero: React.FC<HeroProps> = ({ onScheduleConsultation, onExploreSer
                     </div>
                   </div>
                   <div className="text-xs xs:text-sm sm:text-base font-bold text-white leading-snug mt-1">
-                    Years Public Prosecutor
+                    Years Asst. Public Prosecutor
                   </div>
                 </div>
                 <p className="text-[11px] sm:text-xs lg:text-sm text-slate-300 mt-1 leading-relaxed">
-                  Govt. Prosecutor & Special PP (PCPNDT, Pune & Thane).
+                  Govt. Asst. Prosecutor (22 Yrs) & Special PP (PCPNDT, Pune & Thane).
                 </p>
               </div>
 
@@ -404,45 +414,6 @@ export const Hero: React.FC<HeroProps> = ({ onScheduleConsultation, onExploreSer
 
           </div>
 
-        </div>
-
-        {/* 2. About Chambers & 38-Year Heritage */}
-        <div className="py-12 sm:py-16 border-t border-navy-800 text-left">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-
-            <div className="lg:col-span-5 space-y-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-gold-400 inline-flex items-center gap-1.5">
-                <Shield className="w-3.5 h-3.5" />
-                Senior Heritage & Chambers Foundation
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white leading-tight">
-                Over 38 Years of Trusted Legal Mastery
-              </h2>
-              <div className="h-0.5 w-16 bg-gold-500" />
-              <div className="pt-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-navy-900 border border-navy-700 text-xs font-mono text-gold-300">
-                  <Scale className="w-3.5 h-3.5 text-gold-400" />
-                  <span>Advocates Act, 1961 · Enrolled 22nd December 1987</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-7 space-y-4 text-slate-200 text-sm sm:text-base leading-relaxed">
-              <p>
-                Founded in 1987 by Senior Counsel <strong className="text-white font-medium">Shri Balu K. (Balasaheb) Gaikwad</strong>, {firmConfig.name} represents clients before District & Sessions Courts, JMFC, and Special Tribunals across Maharashtra and India. Over his 38+ years of trial career with over <strong className="text-gold-300 font-semibold">10,000+ cases handled</strong>, Adv. Balasaheb Gaikwad served for over 22 years (1997–2019) as Ex-Public Prosecutor for the Government of Maharashtra across Vaijapur, Barshi, Rajgurunagar, Thane Court, and Vadgaon Maval, and as <strong className="text-gold-300 font-semibold">Ex-Special Public Prosecutor for PCPNDT for Thane and Pune</strong>.
-              </p>
-              <div className="p-4 rounded-xl bg-navy-900/80 border border-navy-800 space-y-1.5">
-                <div className="text-sm font-bold text-teal-300 uppercase tracking-wider flex items-center gap-1.5">
-                  <HeartHandshake className="w-4 h-4 text-teal-400" />
-                  <span>The Hybrid Superpower: Law & MindCare Under One Roof</span>
-                </div>
-                <p className="text-sm text-slate-200 leading-relaxed">
-                  Whether you require fierce courtroom litigation defense or compassionate, confidential guidance through marriage or personal emotional crisis, our chambers provide comprehensive, end-to-end guidance.
-                </p>
-              </div>
-            </div>
-
-          </div>
         </div>
 
       </div>

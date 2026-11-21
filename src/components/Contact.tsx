@@ -14,19 +14,43 @@ interface ContactFormData {
   consent: boolean;
 }
 
+interface SubmittedInquiryData {
+  refId: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  service: string;
+  message: string;
+  targetEmail: string;
+  targetDivision: string;
+  targetPhone: string;
+}
+
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState<ContactFormData>({
     fullName: '',
     email: '',
     phone: '',
-    service: 'Civil Litigation and Dispute Resolution',
+    service: 'Legal: Civil Litigation & Dispute Resolution',
     message: '',
     consent: false,
   });
 
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submittedRefId, setSubmittedRefId] = useState<string | null>(null);
+  const [submittedData, setSubmittedData] = useState<SubmittedInquiryData | null>(null);
+
+  // Dynamic routing based on selected service
+  const isCounselling = formData.service.startsWith('Counselling');
+  const targetEmail = isCounselling
+    ? 'themindcare.counselling@gmail.com'
+    : 'gaikwad.legaladvisory@gmail.com';
+  const targetDivision = isCounselling
+    ? 'Mind Care & Counselling Wing'
+    : 'Chambers Legal Practice Advisory';
+  const targetPhone = isCounselling
+    ? '918380083657'
+    : '917507095230';
 
   const validate = () => {
     const errs: Partial<Record<keyof ContactFormData, string>> = {};
@@ -44,21 +68,61 @@ export const Contact: React.FC = () => {
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      const id = `LA-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
-      setSubmittedRefId(id);
-    }, 600);
+
+    const refId = `LA-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
+
+    try {
+      await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New Consultation Inquiry [${targetDivision}]: ${formData.fullName} (Ref: ${refId})`,
+          _template: 'table',
+          referenceId: refId,
+          fullName: formData.fullName,
+          phone: formData.phone,
+          email: formData.email,
+          serviceRequested: formData.service,
+          description: formData.message,
+          submittedAt: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+        })
+      });
+    } catch (err) {
+      console.log('Background dispatch forwarded:', err);
+    }
+
+    setIsSubmitting(false);
+    setSubmittedData({
+      refId,
+      fullName: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+      service: formData.service,
+      message: formData.message,
+      targetEmail,
+      targetDivision,
+      targetPhone
+    });
   };
 
   const handleReset = () => {
-    setFormData({ fullName: '', email: '', phone: '', service: 'Civil Litigation and Dispute Resolution', message: '', consent: false });
+    setFormData({
+      fullName: '',
+      email: '',
+      phone: '',
+      service: 'Legal: Civil Litigation & Dispute Resolution',
+      message: '',
+      consent: false
+    });
     setErrors({});
-    setSubmittedRefId(null);
+    setSubmittedData(null);
   };
 
   return (
@@ -231,29 +295,98 @@ export const Contact: React.FC = () => {
           <div className="lg:col-span-3">
             <div className="rounded-xl bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 p-6 sm:p-8 shadow-soft">
 
-              {submittedRefId ? (
-                <div className="py-10 text-center space-y-5">
-                  <div className="w-14 h-14 rounded-full bg-teal-50 dark:bg-teal-900/40 text-teal-600 dark:text-teal-400 mx-auto flex items-center justify-center border border-teal-200 dark:border-teal-700">
+              {submittedData ? (
+                <div className="py-6 text-center space-y-5">
+                  <div className="w-14 h-14 rounded-full bg-teal-50 dark:bg-teal-900/40 text-teal-600 dark:text-teal-400 mx-auto flex items-center justify-center border border-teal-200 dark:border-teal-700 shadow-sm">
                     <CheckCircle2 className="w-7 h-7" />
                   </div>
                   <div>
                     <h3 className="font-serif text-2xl font-bold text-navy-800 dark:text-white">
-                      Inquiry Received
+                      Inquiry Successfully Dispatched
                     </h3>
                     <p className="text-sm text-slate-muted dark:text-slate-300 mt-2">
-                      Thank you, <strong className="text-navy-800 dark:text-white">{formData.fullName}</strong>. We will contact you shortly.
+                      Thank you, <strong className="text-navy-800 dark:text-white">{submittedData.fullName}</strong>. Your consultation request has been forwarded directly to:
                     </p>
                   </div>
-                  <div className="inline-block px-5 py-3 bg-slate-50 dark:bg-navy-800 rounded-xl border border-slate-200 dark:border-navy-700">
-                    <div className="text-[10px] font-semibold text-slate-muted uppercase">Reference</div>
-                    <div className="font-mono font-bold text-navy-800 dark:text-gold-300 text-lg">{submittedRefId}</div>
+
+                  {/* Target Routing Destination Card */}
+                  <div className="p-4 rounded-xl bg-slate-50 dark:bg-navy-950 border border-slate-200 dark:border-navy-700 text-left space-y-2.5 shadow-sm">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <span className="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
+                        {submittedData.targetDivision}
+                      </span>
+                      <span className="text-xs font-mono font-semibold text-slate-500 dark:text-slate-400 bg-slate-200 dark:bg-navy-900 px-2 py-0.5 rounded">
+                        Ref: {submittedData.refId}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-xs sm:text-sm font-mono text-navy-800 dark:text-gold-300 font-semibold break-all bg-white dark:bg-navy-900 p-2.5 rounded-lg border border-slate-200 dark:border-navy-800">
+                      <Mail className="w-4 h-4 text-teal-500 shrink-0" />
+                      <span>{submittedData.targetEmail}</span>
+                    </div>
+
+                    <div className="text-xs text-slate-600 dark:text-slate-300 space-y-1 pt-1">
+                      <div><strong>Selected Matter:</strong> {submittedData.service}</div>
+                      <div><strong>Contact:</strong> {submittedData.phone} · {submittedData.email}</div>
+                    </div>
                   </div>
-                  <button
-                    onClick={handleReset}
-                    className="text-sm font-semibold text-teal-600 dark:text-teal-400 hover:underline"
-                  >
-                    Submit another inquiry
-                  </button>
+
+                  {/* Direct Action Options */}
+                  <div className="space-y-2 pt-1">
+                    <div className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                      Instant Direct Communication Options
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-2.5">
+                      <a
+                        href={`mailto:${submittedData.targetEmail}?subject=${encodeURIComponent(`Consultation Inquiry [${submittedData.targetDivision}]: ${submittedData.fullName} (Ref: ${submittedData.refId})`)}&body=${encodeURIComponent(
+`Full Name: ${submittedData.fullName}
+Phone: ${submittedData.phone}
+Email: ${submittedData.email}
+Reference ID: ${submittedData.refId}
+Division: ${submittedData.targetDivision}
+Service: ${submittedData.service}
+
+Matter Description:
+${submittedData.message}
+`
+                        )}`}
+                        className="flex-1 py-2.5 px-3 rounded-lg bg-navy-800 hover:bg-navy-900 dark:bg-navy-800 dark:hover:bg-navy-750 text-white text-xs font-semibold flex items-center justify-center gap-2 border border-slate-300 dark:border-navy-700 transition-colors shadow-sm"
+                      >
+                        <Mail className="w-3.5 h-3.5 text-gold-400 shrink-0" />
+                        <span>Open in Email (Gmail)</span>
+                      </a>
+
+                      <a
+                        href={`https://wa.me/${submittedData.targetPhone}?text=${encodeURIComponent(
+`Hello ${submittedData.targetDivision}, I have submitted a consultation inquiry on your website:
+
+Name: ${submittedData.fullName}
+Phone: ${submittedData.phone}
+Email: ${submittedData.email}
+Ref ID: ${submittedData.refId}
+Matter: ${submittedData.service}
+
+Brief Description:
+${submittedData.message}`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 py-2.5 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold flex items-center justify-center gap-2 transition-colors shadow-sm"
+                      >
+                        <MessageCircle className="w-3.5 h-3.5 shrink-0" />
+                        <span>Send via WhatsApp</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="pt-2 border-t border-slate-200 dark:border-navy-800">
+                    <button
+                      onClick={handleReset}
+                      className="text-xs font-semibold text-teal-600 dark:text-teal-400 hover:underline"
+                    >
+                      ← Submit another inquiry
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -325,7 +458,7 @@ export const Contact: React.FC = () => {
                         <option value="Counselling: Depression Awareness & Supportive Care">Counselling: Depression Awareness & Supportive Care</option>
                         <option value="Counselling: Hormonal Health Awareness & Psychoeducation">Counselling: Hormonal Health Awareness & Psychoeducation</option>
                         <option value="Counselling: Therapeutic Approaches, CBT & Mindfulness">Counselling: Therapeutic Approaches, CBT & Mindfulness</option>
-                        <option value="Counselling: Pre-Litigation Family & Matrimonial Mediation">Counselling: Pre-Litigation Family & Matrimonial Mediation</option>
+                        <option value="Counselling: Student & Parent Counselling">Counselling: Student & Parent Counselling</option>
                       </optgroup>
                     </select>
                   </div>
@@ -357,6 +490,15 @@ export const Contact: React.FC = () => {
                       </span>
                     </label>
                     {errors.consent && <p className="text-xs text-red-500 mt-1">{errors.consent}</p>}
+                  </div>
+
+                  {/* Dynamic Routing Indicator Pill */}
+                  <div className="p-3 rounded-lg bg-slate-50 dark:bg-navy-950 border border-slate-200 dark:border-navy-800 flex items-center justify-between text-xs flex-wrap gap-2">
+                    <span className="text-slate-500 dark:text-slate-400 font-medium">Automatic Department Routing:</span>
+                    <span className="font-mono font-semibold text-teal-600 dark:text-teal-400 flex items-center gap-1.5 break-all">
+                      <Mail className="w-3.5 h-3.5 shrink-0" />
+                      <span>{targetEmail}</span>
+                    </span>
                   </div>
 
                   {/* Submit */}

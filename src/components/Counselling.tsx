@@ -1,11 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
   Heart, Brain, Users, GraduationCap, ChevronRight,
-  ChevronLeft, ShieldCheck, Lock, Phone, Mail, CheckCircle2,
+  ChevronLeft, ShieldCheck, Lock, CheckCircle2,
   Activity, Compass, BookOpen, Wind, X, AlertCircle, ArrowRight,
-  Play, Pause, LayoutGrid, SlidersHorizontal, Dna
+  Play, Pause, LayoutGrid, SlidersHorizontal, Dna, MessageCircle
 } from 'lucide-react';
-import { counsellingScopeNotice } from '../data/firmData';
 
 interface CombinedCounsellingService {
   id: string;
@@ -139,21 +138,6 @@ const combinedServices: CombinedCounsellingService[] = [
       'Learning practical coping, self-awareness, and emotional regulation skills within the scope of basic counselling qualifications'
     ],
     recommendedFor: 'Clients wanting structured, rational cognitive frameworks to understand and overcome self-limiting beliefs.'
-  },
-  {
-    id: 'pre-litigation-family-mediation',
-    title: 'Pre-Litigation Family & Matrimonial Conflict Conciliation',
-    category: 'family',
-    categoryLabel: 'Parents & Family',
-    tag: 'Peaceful Resolution',
-    iconType: 'heart',
-    shortDesc: 'Empathetic, confidential conciliation to resolve sensitive marital strain and domestic disagreements peacefully outside courtroom battles.',
-    bullets: [
-      'Empathetic pre-court mediation for communication breakdowns and marital realignment',
-      'Neutral, confidential facilitation to de-escalate hostility and protect children’s emotional well-being',
-      'Preventing protracted litigation through structured mutual understanding and amicable consensus'
-    ],
-    recommendedFor: 'Couples, families, and individuals facing domestic friction, pre-divorce crises, or family property disputes.'
   }
 ];
 
@@ -291,7 +275,7 @@ export const Counselling: React.FC = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="max-w-3xl mb-10 sm:mb-14 space-y-3 text-left">
+        <div className="max-w-4xl mb-8 space-y-4 text-left">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-950/80 text-teal-300 border border-teal-500/40 text-xs font-bold tracking-widest uppercase shadow-sm">
             <Brain className="w-3.5 h-3.5 text-teal-400 animate-pulse" />
             <span>Dedicated Psychological Science & Wellness Wing</span>
@@ -303,9 +287,37 @@ export const Counselling: React.FC = () => {
 
           <div className="h-0.5 w-20 bg-gradient-to-r from-teal-400 to-cyan-500" />
 
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed pt-1">
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
             This is the specialized psychological counselling, emotional guidance, and evidence-based support we provide to you. Backed by certified brain science training, our chambers provide a safe, confidential sanctuary for academic pressures, adolescent changes, parenting harmony, and acute stress.
           </p>
+
+          {/* Merged Ethical Framework & Practice Boundaries Notice */}
+          <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#0D2440]/90 via-[#0A1D35]/90 to-[#071526]/90 border border-teal-500/40 shadow-md space-y-3">
+            <div className="flex items-center gap-2 text-xs font-bold text-teal-300 uppercase tracking-wider">
+              <ShieldCheck className="w-4 h-4 text-teal-400 shrink-0" />
+              <span>Ethical Framework & Practice Boundaries</span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 text-xs text-slate-200 leading-relaxed">
+              <div className="p-3 rounded-xl bg-[#061221]/80 border border-teal-900/50 space-y-1">
+                <span className="font-bold text-teal-300">Our Approach to Counselling:</span>
+                <p className="text-slate-300">
+                  Focuses on understanding thoughts, emotions, and behavioural patterns through psychological awareness and supportive guidance. We encourage individuals to develop healthier coping mechanisms, emotional resilience, self-awareness, and positive lifestyle habits.
+                </p>
+              </div>
+              <div className="p-3 rounded-xl bg-[#061221]/80 border border-teal-900/50 space-y-1">
+                <span className="font-bold text-amber-300 flex items-center gap-1">
+                  <AlertCircle className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <span>Professional Scope & Boundaries:</span>
+                </span>
+                <p className="text-slate-300">
+                  Counselling services focus on emotional support, psychological guidance, psychoeducation, and self-management techniques. We do not provide medical diagnosis, prescribe medication, or treat hormonal disorders. Individuals experiencing severe symptoms are encouraged to seek assessment from a qualified clinical psychologist or psychiatrist. Hormonal concerns should be evaluated by a qualified medical professional.
+                </p>
+              </div>
+            </div>
+            <p className="text-[11px] text-slate-400 italic pt-1 border-t border-teal-900/40">
+              * Therapeutic approaches including Cognitive Behavioural Therapy (CBT) concepts, mindfulness, and breathing techniques are introduced as knowledge of evidence-based self-regulation and psychoeducation within the scope of basic counselling qualifications.
+            </p>
+          </div>
         </div>
 
         {/* Psychology Framework Visual Banner (Mind Science & Well-being) */}
@@ -486,24 +498,46 @@ export const Counselling: React.FC = () => {
                   </div>
 
                   {/* Card Action Button */}
-                  <div className="pt-4 mt-4 border-t border-teal-900/50 flex items-center justify-between">
-                    <span className="text-xs text-teal-300/90 font-medium">Confidential Session</span>
-                    <span className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-teal-300 group-hover:translate-x-1 transition-transform">
-                      <span>Explore Guidance</span>
-                      <ChevronRight className="w-4 h-4" />
-                    </span>
+                  <div className="pt-4 mt-4 border-t border-teal-900/50">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        scrollToContact(service.title);
+                      }}
+                      className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-400 hover:to-cyan-400 text-navy-950 text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm"
+                    >
+                      <span>Book Consultation</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="text-center text-xs text-slate-400 mt-3 flex items-center justify-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
-              <span>Continuously moving left to right · Hover over any box or button to pause</span>
+
+            {/* Unified WhatsApp Query Bar for All Counselling Services */}
+            <div className="mt-5 mb-8 flex flex-col sm:flex-row items-center justify-center gap-3 p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-[#0C223E]/95 via-[#0E294A]/95 to-[#0A1D35]/95 border border-teal-500/40 shadow-lg text-center sm:text-left">
+              <div className="flex items-center gap-2 text-teal-300 font-semibold text-xs sm:text-sm">
+                <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Quick Counselling Inquiries & Direct Consultation via WhatsApp:</span>
+              </div>
+              <a
+                href="https://wa.me/918380083657?text=Hello%20MindCare%20Counselling,%20I%20would%20like%20to%20inquire%20about%20a%20counselling%20session."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-bold text-xs sm:text-sm shadow-md transition-colors shrink-0"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.44C8.94 7.44 8.68 7.5 8.46 7.74C8.24 7.97 7.63 8.55 7.63 9.71C7.63 10.88 8.48 12 8.6 12.17C8.72 12.33 10.28 14.73 12.67 15.76C13.24 16.01 13.69 16.16 14.04 16.27C14.62 16.46 15.15 16.43 15.57 16.37C16.04 16.3 17.02 15.78 17.22 15.21C17.43 14.64 17.43 14.15 17.37 14.05C17.31 13.95 17.14 13.89 16.89 13.76C16.63 13.64 15.38 13.02 15.15 12.94C14.92 12.85 14.76 12.81 14.59 13.06C14.43 13.3 13.95 13.87 13.81 14.03C13.67 14.19 13.53 14.21 13.27 14.09C13.02 13.96 12.21 13.7 11.24 12.84C10.49 12.17 9.98 11.35 9.84 11.1C9.69 10.86 9.82 10.72 9.95 10.6C10.06 10.48 10.2 10.3 10.33 10.16C10.46 10.01 10.5 9.91 10.59 9.74C10.67 9.58 10.63 9.43 10.57 9.31C10.5 9.19 10.04 8.04 9.84 7.57C9.66 7.12 9.47 7.18 9.32 7.17C9.18 7.16 9.02 7.16 8.85 7.16L9.11 7.44Z"/>
+                </svg>
+                <span>WhatsApp Query: +91 83800 83657</span>
+              </a>
             </div>
           </div>
         ) : (
           /* Grid View Mode */
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+          <div className="space-y-6 mb-14">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredServices.map((service) => (
               <div
                 key={service.id}
@@ -543,112 +577,43 @@ export const Counselling: React.FC = () => {
                 </div>
 
                 {/* Card Action Button */}
-                <div className="pt-4 mt-4 border-t border-teal-900/50 flex items-center justify-between">
-                  <span className="text-[11px] text-teal-300/80 font-medium">Confidential Session</span>
-                  <span className="inline-flex items-center gap-1 text-xs font-bold text-teal-300 group-hover:translate-x-1 transition-transform">
-                    <span>Explore Guidance</span>
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </span>
+                <div className="pt-4 mt-4 border-t border-teal-900/50">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      scrollToContact(service.title);
+                    }}
+                    className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-400 hover:to-cyan-400 text-navy-950 text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm"
+                  >
+                    <span>Book Consultation</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
                 </div>
               </div>
             ))}
           </div>
-        )}
 
-        {/* Our Approach to Counselling & Professional Scope Box */}
-        <div className="mb-14 rounded-2xl bg-gradient-to-br from-[#0D2440]/90 via-[#0A1D35]/90 to-[#071526]/90 border border-teal-500/40 p-6 sm:p-10 shadow-lg text-left backdrop-blur-md">
-          <div className="max-w-4xl space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-950/80 text-teal-300 border border-teal-500/40 text-xs font-bold uppercase tracking-wider">
-              <ShieldCheck className="w-3.5 h-3.5 text-teal-400" />
-              <span>Ethical Framework & Practice Boundaries</span>
+          {/* Unified WhatsApp Query Bar for Grid Mode */}
+          <div className="mb-14 flex flex-col sm:flex-row items-center justify-center gap-3 p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-[#0C223E]/95 via-[#0E294A]/95 to-[#0A1D35]/95 border border-teal-500/40 shadow-lg text-center sm:text-left">
+            <div className="flex items-center gap-2 text-teal-300 font-semibold text-xs sm:text-sm">
+              <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+              <span>Quick Counselling Inquiries & Direct Consultation via WhatsApp:</span>
             </div>
-
-            <div>
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
-                {counsellingScopeNotice.approachTitle}
-              </h3>
-              <p className="text-sm sm:text-base text-slate-200 leading-relaxed mt-2">
-                {counsellingScopeNotice.approachText}
-              </p>
-            </div>
-
-            {/* Professional Scope Alert Box */}
-            <div className="p-4 sm:p-5 rounded-xl bg-[#061221]/90 border border-teal-800/60 space-y-2">
-              <div className="flex items-center gap-2 text-xs font-bold text-teal-300 uppercase tracking-wider">
-                <AlertCircle className="w-4 h-4 text-amber-400" />
-                <span>{counsellingScopeNotice.scopeTitle}</span>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                {counsellingScopeNotice.scopeText}
-              </p>
-              <p className="text-xs text-slate-400 italic pt-1 border-t border-teal-950">
-                {counsellingScopeNotice.ethicsNote}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Direct Link to Team Section for Practitioner Credentials (De-duplicated) */}
-        <div className="mb-14 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-navy-900 to-navy-950 border border-teal-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-left">
-          <div className="space-y-1">
-            <h4 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-teal-400" />
-              <span>Certified Counsellors & Dispute Resolution Practitioners</span>
-            </h4>
-            <p className="text-xs sm:text-sm text-slate-300">
-              Guidance provided by our certified advocates & legal associates with university diplomas in basic counselling skills and brain science.
-            </p>
-          </div>
-          <a
-            href="#team"
-            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-teal-950/80 hover:bg-teal-900 text-teal-300 border border-teal-500/40 text-xs sm:text-sm font-bold transition-colors shrink-0"
-          >
-            <span>View Counsellor Credentials in Team Section</span>
-            <ChevronRight className="w-4 h-4" />
-          </a>
-        </div>
-
-        {/* 100% Confidentiality & Booking Call to Action */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-[#0C223E] via-[#0E294A] to-[#0A1D35] text-white border border-teal-500/40 shadow-xl items-center text-left">
-          <div className="md:col-span-2 space-y-2">
-            <div className="flex items-center gap-2 text-teal-300 text-xs font-bold uppercase tracking-wider">
-              <Lock className="w-4 h-4 text-teal-400" />
-              <span>100% Confidential & Safe Guidance Space</span>
-            </div>
-            <h3 className="font-serif text-2xl font-bold text-white">
-              Ready to Seek Emotional, Student, or Relationship Guidance?
-            </h3>
-            <p className="text-sm text-slate-200 leading-relaxed max-w-xl">
-              Sessions are available in-person in our private Rajgurunagar chambers or via secure, encrypted virtual video/phone consultations.
-            </p>
-            <div className="flex flex-wrap items-center gap-3 pt-2 text-xs sm:text-sm">
-              <a
-                href="mailto:themindcare.counselling@gmail.com"
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-teal-950/80 border border-teal-500/50 text-teal-300 font-semibold hover:text-white hover:bg-teal-900 transition-colors"
-                title="Send Counselling Booking Email"
-              >
-                <Mail className="w-4 h-4 text-teal-400" />
-                <span>Booking Email: themindcare.counselling@gmail.com</span>
-              </a>
-              <a
-                href="tel:+918857803403"
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-cyan-950/80 border border-cyan-500/50 text-cyan-300 font-mono font-semibold hover:text-white hover:bg-cyan-900 transition-colors"
-              >
-                <Phone className="w-4 h-4 text-cyan-400" />
-                <span>+91 88578 03403 / +91 83800 83657</span>
-              </a>
-            </div>
-          </div>
-          <div className="md:text-right">
-            <button
-              onClick={() => scrollToContact()}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-400 hover:to-cyan-400 text-navy-950 font-bold text-sm shadow-lg transition-all duration-200"
+            <a
+              href="https://wa.me/918380083657?text=Hello%20MindCare%20Counselling,%20I%20would%20like%20to%20inquire%20about%20a%20counselling%20session."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-bold text-xs sm:text-sm shadow-md transition-colors shrink-0"
             >
-              <span>Schedule Counselling Session</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.44C8.94 7.44 8.68 7.5 8.46 7.74C8.24 7.97 7.63 8.55 7.63 9.71C7.63 10.88 8.48 12 8.6 12.17C8.72 12.33 10.28 14.73 12.67 15.76C13.24 16.01 13.69 16.16 14.04 16.27C14.62 16.46 15.15 16.43 15.57 16.37C16.04 16.3 17.02 15.78 17.22 15.21C17.43 14.64 17.43 14.15 17.37 14.05C17.31 13.95 17.14 13.89 16.89 13.76C16.63 13.64 15.38 13.02 15.15 12.94C14.92 12.85 14.76 12.81 14.59 13.06C14.43 13.3 13.95 13.87 13.81 14.03C13.67 14.19 13.53 14.21 13.27 14.09C13.02 13.96 12.21 13.7 11.24 12.84C10.49 12.17 9.98 11.35 9.84 11.1C9.69 10.86 9.82 10.72 9.95 10.6C10.06 10.48 10.2 10.3 10.33 10.16C10.46 10.01 10.5 9.91 10.59 9.74C10.67 9.58 10.63 9.43 10.57 9.31C10.5 9.19 10.04 8.04 9.84 7.57C9.66 7.12 9.47 7.18 9.32 7.17C9.18 7.16 9.02 7.16 8.85 7.16L9.11 7.44Z"/>
+              </svg>
+              <span>WhatsApp Query: +91 83800 83657</span>
+            </a>
           </div>
         </div>
+      )}
 
       </div>
 

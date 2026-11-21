@@ -8,7 +8,7 @@ import { practiceAreas } from '../data/firmData';
 import { PracticeArea } from '../types';
 
 interface PracticeAreasProps {
-  onSelectPracticeArea: (area: PracticeArea) => void;
+  onSelectPracticeArea?: (area: PracticeArea) => void;
   onBookConsultation: () => void;
 }
 
@@ -25,7 +25,6 @@ const practiceIconMap: Record<string, React.ReactNode> = {
 };
 
 export const PracticeAreas: React.FC<PracticeAreasProps> = ({
-  onSelectPracticeArea,
   onBookConsultation,
 }) => {
   const [viewMode, setViewMode] = useState<'rolling' | 'grid'>('rolling');
@@ -215,32 +214,19 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
                     </div>
                   </div>
 
-                  {/* Footer Buttons */}
-                  <div className="mt-6 pt-4 border-t border-navy-800 flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={() => onSelectPracticeArea(area)}
-                      className="flex-1 py-2.5 px-4 rounded-xl bg-navy-800 hover:bg-navy-750 text-gold-300 hover:text-white border border-gold-500/30 text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-colors"
-                    >
-                      <span>Statutory Details</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
+                  {/* Footer Action Button */}
+                  <div className="mt-6 pt-4 border-t border-navy-800">
                     <button
                       type="button"
                       onClick={onBookConsultation}
-                      className="py-2.5 px-4 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 text-xs sm:text-sm font-bold flex items-center justify-center gap-1 transition-colors shadow-sm shrink-0"
+                      className="w-full py-2.5 px-4 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-colors shadow-sm"
                     >
                       <span>Consult</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>
               ))}
-            </div>
-
-            {/* Hover Indicator Hint */}
-            <div className="mt-3 text-center text-xs text-slate-400 flex items-center justify-center gap-2">
-              <span className="inline-block w-2 h-2 rounded-full bg-gold-400 animate-pulse" />
-              <span>Continuously moving left to right · Hover over any box or button to pause</span>
             </div>
           </div>
         ) : (
@@ -279,21 +265,14 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-navy-800 flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => onSelectPracticeArea(area)}
-                    className="flex-1 py-2.5 px-4 rounded-xl bg-navy-800 hover:bg-navy-750 text-gold-300 hover:text-white border border-gold-500/30 text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-colors"
-                  >
-                    <span>Statutory Details</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+                <div className="mt-6 pt-4 border-t border-navy-800">
                   <button
                     type="button"
                     onClick={onBookConsultation}
-                    className="py-2.5 px-4 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 text-xs sm:text-sm font-bold flex items-center justify-center gap-1 transition-colors shadow-sm shrink-0"
+                    className="w-full py-2.5 px-4 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-colors shadow-sm"
                   >
                     <span>Consult</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>

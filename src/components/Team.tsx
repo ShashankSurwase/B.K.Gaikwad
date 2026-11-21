@@ -118,12 +118,12 @@ export const Team: React.FC<TeamProps> = ({ onConsultWithMember }) => {
                   {/* Founder Highlight Banner */}
                   {isFounder && (
                     <div className="absolute bottom-2 left-3 right-3 bg-navy-950/95 backdrop-blur-xs border border-gold-400/50 rounded-xl px-3 py-2 pointer-events-none shadow-lg">
-                      <div className="text-xs font-bold text-gold-300 uppercase tracking-wider flex items-center gap-1.5">
+                      <div className="text-xs font-bold text-gold-300 flex items-center gap-1.5">
                         <Shield className="w-3.5 h-3.5 text-gold-400 shrink-0" />
-                        <span>Ex-Special Public Prosecutor (PCPNDT, Pune & Thane)</span>
+                        <span className="truncate">Former Asst. Public Prosecutor (1997–2019, 22 Years) & Ex-Special PP (PCPNDT)</span>
                       </div>
                       <div className="text-[11px] text-slate-200 truncate mt-0.5 font-medium">
-                        10,000+ Cases Handled · Ex-Public Prosecutor (1997–2019) · Vaijapur · Barshi · Rajgurunagar · Thane Court · Vadgaon Maval
+                        10,000+ Total Cases Handled · Vaijapur · Barshi · Rajgurunagar · Thane Court · Vadgaon Maval
                       </div>
                     </div>
                   )}
@@ -247,7 +247,7 @@ export const Team: React.FC<TeamProps> = ({ onConsultWithMember }) => {
                       }}
                       className="w-full py-3 px-4 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 text-sm font-bold transition-all duration-200 flex items-center justify-center gap-1.5 shadow-sm group/btn"
                     >
-                      <span>Consult With Advocate</span>
+                      <span>{member.id === 'shruti-gaikwad' ? 'Consult With Counsellor' : 'Consult With Advocate'}</span>
                       <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
                     </button>
                   </div>
@@ -416,7 +416,7 @@ export const Team: React.FC<TeamProps> = ({ onConsultWithMember }) => {
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-gold-400 font-bold text-base leading-none">•</span>
-                        <span><strong>22 Years State Prosecution:</strong> Served Maharashtra State across Vaijapur, Barshi, Rajgurunagar, Thane Court, and Vadgaon Maval (1997–2019).</span>
+                        <span><strong>22 Years State Prosecution:</strong> Served Maharashtra State as Ex-Asst. Public Prosecutor across Vaijapur, Barshi, Rajgurunagar, Thane Court, and Vadgaon Maval (1997–2019).</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-gold-400 font-bold text-base leading-none">•</span>
@@ -541,7 +541,7 @@ export const Team: React.FC<TeamProps> = ({ onConsultWithMember }) => {
                   <div className="p-4 sm:p-5 rounded-xl bg-navy-950/80 border border-teal-500/30 space-y-2.5">
                     <div className="text-xs sm:text-sm font-bold text-teal-300 uppercase tracking-wider flex items-center gap-1.5">
                       <Heart className="w-4 h-4 text-teal-400" />
-                      <span>Counselling Practice Domains & Family Dispute Resolution</span>
+                      <span>Counselling Practice Domains & Brain Science Guidance</span>
                     </div>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm text-slate-200 pt-1">
                       <li className="flex items-start gap-1.5">
@@ -554,7 +554,7 @@ export const Team: React.FC<TeamProps> = ({ onConsultWithMember }) => {
                       </li>
                       <li className="flex items-start gap-1.5">
                         <span className="text-teal-400 font-bold">•</span>
-                        <span><strong>Pre-Litigation Matrimonial Conciliation:</strong> Empathetic dispute resolution, marriage communication realignment, divorce prevention.</span>
+                        <span><strong>Brain Science Counselling:</strong> Empathetic cognitive guidance, emotional realignment, and supportive psychoeducation.</span>
                       </li>
                       <li className="flex items-start gap-1.5">
                         <span className="text-teal-400 font-bold">•</span>
