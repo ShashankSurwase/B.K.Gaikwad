@@ -306,7 +306,7 @@ export const Hero: React.FC<HeroProps> = ({ onScheduleConsultation, onExploreSer
                   </div>
                 </div>
                 <p className="text-[11px] sm:text-xs lg:text-sm text-slate-300 mt-1 leading-relaxed">
-                  Student guidance, matrimonial harmony, OCD & brain science.
+                  Student guidance, OCD & brain science.
                 </p>
               </div>
 

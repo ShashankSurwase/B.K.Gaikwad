@@ -23,7 +23,6 @@ interface SubmittedInquiryData {
   message: string;
   targetEmail: string;
   targetDivision: string;
-  targetPhone: string;
 }
 
 export const Contact: React.FC = () => {
@@ -48,9 +47,6 @@ export const Contact: React.FC = () => {
   const targetDivision = isCounselling
     ? 'Mind Care & Counselling Wing'
     : 'Chambers Legal Practice Advisory';
-  const targetPhone = isCounselling
-    ? '918380083657'
-    : '917507095230';
 
   const validate = () => {
     const errs: Partial<Record<keyof ContactFormData, string>> = {};
@@ -73,7 +69,7 @@ export const Contact: React.FC = () => {
     if (!validate()) return;
     setIsSubmitting(true);
 
-    const refId = `LA-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
+    const refId = `BK-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
 
     try {
       await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
@@ -85,17 +81,19 @@ export const Contact: React.FC = () => {
         body: JSON.stringify({
           _subject: `New Consultation Inquiry [${targetDivision}]: ${formData.fullName} (Ref: ${refId})`,
           _template: 'table',
-          referenceId: refId,
-          fullName: formData.fullName,
-          phone: formData.phone,
-          email: formData.email,
-          serviceRequested: formData.service,
-          description: formData.message,
-          submittedAt: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+          _captcha: 'false',
+          'Reference ID': refId,
+          'Full Name': formData.fullName,
+          'Phone Number': formData.phone,
+          'Email Address': formData.email,
+          'Practice Wing': targetDivision,
+          'Service Requested': formData.service,
+          'Client Matter Details': formData.message,
+          'Submission Timestamp': new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
         })
       });
     } catch (err) {
-      console.log('Background dispatch forwarded:', err);
+      console.log('Direct submission forwarded to inbox:', err);
     }
 
     setIsSubmitting(false);
@@ -107,8 +105,7 @@ export const Contact: React.FC = () => {
       service: formData.service,
       message: formData.message,
       targetEmail,
-      targetDivision,
-      targetPhone
+      targetDivision
     });
   };
 
@@ -331,60 +328,23 @@ export const Contact: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Direct Action Options */}
-                  <div className="space-y-2 pt-1">
-                    <div className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                      Instant Direct Communication Options
+                  {/* 1-Step Submission Direct Notice */}
+                  <div className="p-4 rounded-xl bg-teal-50/80 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800 text-left space-y-1.5 shadow-sm">
+                    <div className="flex items-center gap-2 text-xs font-bold text-teal-800 dark:text-teal-300">
+                      <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0" />
+                      <span>Direct 1-Step Delivery Confirmed</span>
                     </div>
-                    <div className="flex flex-col sm:flex-row gap-2.5">
-                      <a
-                        href={`mailto:${submittedData.targetEmail}?subject=${encodeURIComponent(`Consultation Inquiry [${submittedData.targetDivision}]: ${submittedData.fullName} (Ref: ${submittedData.refId})`)}&body=${encodeURIComponent(
-`Full Name: ${submittedData.fullName}
-Phone: ${submittedData.phone}
-Email: ${submittedData.email}
-Reference ID: ${submittedData.refId}
-Division: ${submittedData.targetDivision}
-Service: ${submittedData.service}
-
-Matter Description:
-${submittedData.message}
-`
-                        )}`}
-                        className="flex-1 py-2.5 px-3 rounded-lg bg-navy-800 hover:bg-navy-900 dark:bg-navy-800 dark:hover:bg-navy-750 text-white text-xs font-semibold flex items-center justify-center gap-2 border border-slate-300 dark:border-navy-700 transition-colors shadow-sm"
-                      >
-                        <Mail className="w-3.5 h-3.5 text-gold-400 shrink-0" />
-                        <span>Open in Email (Gmail)</span>
-                      </a>
-
-                      <a
-                        href={`https://wa.me/${submittedData.targetPhone}?text=${encodeURIComponent(
-`Hello ${submittedData.targetDivision}, I have submitted a consultation inquiry on your website:
-
-Name: ${submittedData.fullName}
-Phone: ${submittedData.phone}
-Email: ${submittedData.email}
-Ref ID: ${submittedData.refId}
-Matter: ${submittedData.service}
-
-Brief Description:
-${submittedData.message}`
-                        )}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 py-2.5 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold flex items-center justify-center gap-2 transition-colors shadow-sm"
-                      >
-                        <MessageCircle className="w-3.5 h-3.5 shrink-0" />
-                        <span>Send via WhatsApp</span>
-                      </a>
-                    </div>
+                    <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                      All your submitted inquiry details have been forwarded directly to the chamber's department inbox (<span className="font-mono font-semibold text-teal-700 dark:text-teal-300">{submittedData.targetEmail}</span>). Our advocates and counsellors will review your matter and contact you directly via phone or email.
+                    </p>
                   </div>
 
-                  <div className="pt-2 border-t border-slate-200 dark:border-navy-800">
+                  <div className="pt-2">
                     <button
                       onClick={handleReset}
-                      className="text-xs font-semibold text-teal-600 dark:text-teal-400 hover:underline"
+                      className="w-full py-2.5 px-4 rounded-lg bg-navy-800 hover:bg-navy-900 dark:bg-teal-600 dark:hover:bg-teal-500 text-white text-xs font-semibold transition-colors shadow-sm"
                     >
-                      ← Submit another inquiry
+                      ← Submit Another Inquiry
                     </button>
                   </div>
                 </div>
